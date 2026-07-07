@@ -170,6 +170,10 @@ See `agents/` for conservative prompt templates and structured I/O schemas.
 - update validation scripts when new safety rules are added
 - document breaking changes in drug `changelog.md` files when applicable
 
+### Drug `changelog.md` scope
+
+Schema-only or structural changes to placeholder scaffolding (for example, `evidence.yaml` layout or validation rules) **do not** require a drug-level `changelog.md` entry. Update `changelog.md` when there is a **clinical or content change** worth tracking for reviewers (evidence import, drafting, review, publication, correction, or retirement).
+
 ## Conduct and safety
 
 OpenRxCore must not be described as replacing commercial references or providing autonomous medical advice. Contributors should use serious, transparent language and prioritize patient safety through review gates and source transparency.

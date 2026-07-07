@@ -2,7 +2,7 @@
 
 This document describes the `evidence.yaml` structure (schema version **1.0**) used by OpenRxCore drug folders. OpenRxCore is **not clinically usable** in its current state. Evidence packets are infrastructure for future human-reviewed monographs — not automatically published recommendations.
 
-See also: [citation-policy.md](citation-policy.md)
+See also: [citation-policy.md](citation-policy.md) · [schema/README.md](../schema/README.md) (field definitions)
 
 ## Overview
 
@@ -46,7 +46,7 @@ Placeholder drug folders in this repository use `not_imported` with empty `sourc
 
 Increment `schema_version` in a dedicated branch when the `evidence.yaml` top-level structure or required fields change. Validation enforces the active version (`"1.0"` currently). Future importers and migration scripts should key off this field.
 
-**Cross-drug source deduplication is intentionally deferred** to a later task. Each drug folder owns its `evidence.yaml` source list for now, even if multiple drugs share the same public source.
+**Cross-drug source deduplication is intentionally deferred** to a later task. Each drug folder owns its `evidence.yaml` source list for now, even if multiple drugs share the same public source. Before scaling beyond the initial OPAT set, maintainers should plan a shared source registry (tracked as future work — not implemented in this branch).
 
 ## Source records
 
@@ -63,7 +63,7 @@ Key fields:
 - `license_note` — **required** for `pmc_open_access` and `open_guideline`
 - `source_authority_level` — evidentiary weight category
 - `source_status` — whether the source is active, superseded, etc.
-- `notes` — free text; for `human_synthesis`, must include author/reviewer metadata **or** use `source_status: pending_review`
+- `notes` — free text; for `human_synthesis`, must include author/reviewer metadata in `notes` **or** be marked `source_status: pending_review` (validation enforces this; `pending_review` is the required enum value when attribution is not yet recorded — there is no separate `needs_review` source status)
 
 ### Reuse/license status
 

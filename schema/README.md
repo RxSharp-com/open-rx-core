@@ -2,6 +2,8 @@
 
 JSON schemas for medication knowledge content and agent outputs. See `scripts/validate.js` for enforcement rules.
 
+For the conceptual evidence model and citation rules, see [docs/evidence-model.md](../docs/evidence-model.md) and [docs/citation-policy.md](../docs/citation-policy.md).
+
 ## Monograph fields (`monograph.schema.json`)
 
 | Field | Type | Notes |

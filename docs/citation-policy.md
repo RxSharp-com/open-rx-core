@@ -2,7 +2,7 @@
 
 OpenRxCore links clinically meaningful content to **public/open sources** through structured citation IDs. This policy applies to `evidence.yaml`, monograph sections, and agent outputs.
 
-See also: [evidence-model.md](evidence-model.md)
+See also: [evidence-model.md](evidence-model.md) · [schema/README.md](../schema/README.md) (field definitions)
 
 ## Citation ID format
 
@@ -75,6 +75,10 @@ For `pmc_open_access` and `open_guideline` sources:
 - record license name, version, and reuse constraints
 - use `uncertainty_flags: license_unclear` when terms are ambiguous
 - do not copy full text unless license explicitly permits reusable derivation
+
+## Human synthesis sources
+
+`human_synthesis` sources must include author or reviewer attribution in `notes`, **or** be marked `source_status: pending_review`. Validation rejects unattributed `human_synthesis` records with any other `source_status`. Use `pending_review` — not packet-level `needs_review` — when attribution is not yet recorded.
 
 ## Conflicting evidence
 
