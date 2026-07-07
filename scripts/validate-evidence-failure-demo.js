@@ -12,6 +12,12 @@ import addFormats from 'ajv-formats';
 import yaml from 'yaml';
 import { validateEvidenceRules } from './lib/evidence-rules.js';
 
+const PILOT_VALIDATION_OPTIONS = {
+  disallowApprovedPackets: true,
+  disallowMonographCandidates: true,
+  maxFieldLength: 320,
+};
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const FIXTURES_DIR = join(ROOT, 'fixtures', 'evidence');
@@ -42,7 +48,7 @@ function runScenario(name, fixtureFile) {
     }
   }
 
-  validateEvidenceRules(evidence, drugId, fail);
+  validateEvidenceRules(evidence, drugId, fail, PILOT_VALIDATION_OPTIONS);
 
   if (errors.length === 0) {
     console.log('Unexpected pass — scenario should have failed validation.');
@@ -71,6 +77,18 @@ const scenarios = [
   [
     'approved packet uses unknown_requires_review source',
     'failure-approved-unknown-reuse.yaml',
+  ],
+  [
+    'DailyMed approved packet with unknown_requires_review source',
+    'failure-approved-dailymed-unknown-reuse.yaml',
+  ],
+  [
+    'long copied label text in claim_summary',
+    'failure-long-copied-label-text.yaml',
+  ],
+  [
+    'recommendation_impact direct without level_3 or level_4',
+    'failure-direct-recommendation-impact.yaml',
   ],
 ];
 

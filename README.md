@@ -188,6 +188,8 @@ node scripts/validate-failure-demo.js
 npm run validate:evidence-failure-demo
 ```
 
+DailyMed single-drug pilot (cefazolin): see [docs/dailymed-pilot.md](docs/dailymed-pilot.md). Fetch metadata with `npm run fetch:dailymed:cefazolin`.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).

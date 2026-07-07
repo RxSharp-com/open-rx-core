@@ -1,10 +1,103 @@
 schema_version: "1.0"
 drug_id: cefazolin
-evidence_status: not_imported
+evidence_status: evidence_packets_drafted
 last_evidence_reviewed: null
-sources: []
-citations: []
-evidence_packets: []
+sources:
+  - source_id: cefazolin-src-dailymed-0001
+    source_type: dailymed_label
+    source_title: CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]
+    source_url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96
+    source_origin: DailyMed
+    source_publisher: National Library of Medicine (FDA-submitted labeling)
+    source_date: "2026-07-06"
+    accessed_date: "2026-07-07"
+    identifiers:
+      setid: 1999084a-124c-45f9-801f-416a1b942c96
+      spl_version: "11"
+      dailymed_search_drug_name: cefazolin
+    reuse_status: unknown_requires_review
+    license_note: >
+      DailyMed public regulatory-label metadata pilot only. Reuse rights for generated
+      clinical content are not asserted. Human and legal review required before any
+      reusable derivation from label text. See NLM DailyMed site terms and applicable
+      FDA/NLM public-resource policies.
+    source_authority_level: regulatory_label
+    source_status: active
+    notes: >
+      Metadata imported from DailyMed v2 SPL search (pagesize=1). No SPL XML/HTML or
+      label section text stored in the repository.
+citations:
+  - citation_id: cefazolin-cite-0001
+    source_id: cefazolin-src-dailymed-0001
+    citation_label: DailyMed SPL record (cefazolin)
+    locator: setid:1999084a-124c-45f9-801f-416a1b942c96
+    citation_type: source_level
+    supports_claim_type: source_identity_only
+    reuse_note: Source identity/metadata only; no label text copied.
+    notes: Pilot citation for identified DailyMed label source.
+  - citation_id: cefazolin-cite-0002
+    source_id: cefazolin-src-dailymed-0001
+    citation_label: DailyMed SPL sections (not imported)
+    locator: SPL sections available via DailyMed; text not imported in this pilot
+    citation_type: section_level
+    supports_claim_type: background_context
+    reuse_note: Section-level pointer only; no copied label excerpts.
+    notes: Documents that label sections exist for future human review only.
+evidence_packets:
+  - packet_id: cefazolin-packet-0001
+    packet_type: label_fact
+    packet_status: needs_review
+    affected_monograph_sections: []
+    claim_summary: DailyMed label source identified for cefazolin.
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - cefazolin-cite-0001
+    source_ids:
+      - cefazolin-src-dailymed-0001
+    recommendation_impact: none
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+      - license_unclear
+    known_gaps:
+      - Single DailyMed SPL selected via pagesize=1 search; other labels not evaluated.
+    created_by: dailymed-pilot-fetch
+    created_date: "2026-07-07"
+    last_updated: "2026-07-07"
+  - packet_id: cefazolin-packet-0002
+    packet_type: label_fact
+    packet_status: needs_review
+    affected_monograph_sections: []
+    claim_summary: DailyMed label sections available for future human review; no section text imported.
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - cefazolin-cite-0002
+    source_ids:
+      - cefazolin-src-dailymed-0001
+    recommendation_impact: unknown_requires_review
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+      - license_unclear
+    known_gaps:
+      - No label section extraction performed in this pilot.
+    created_by: dailymed-pilot-fetch
+    created_date: "2026-07-07"
+    last_updated: "2026-07-07"
 known_gaps:
-  - Evidence has not yet been imported or reviewed.
-audit_notes: Scaffold placeholder only. No sources, citations, or evidence packets.
+  - Only a single-source DailyMed metadata pilot has been performed for cefazolin.
+  - Clinical synthesis, section extraction, and monograph drafting have not been completed.
+  - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
+  - Other OPAT drugs and non-DailyMed sources have not been imported.
+audit_notes: >
+  DailyMed pilot import on 2026-07-07. Fetched one SPL metadata record via
+  scripts/fetch-dailymed-single-drug.js (pagesize=1). Raw metadata stored at
+  data/raw/dailymed/cefazolin/fetch-metadata.json. No label text, HTML, XML,
+  dosing, monitoring, safety, efficacy, or counseling content imported. All packets
+  are needs_review and unapproved. patient.md and clinician.md were not modified.

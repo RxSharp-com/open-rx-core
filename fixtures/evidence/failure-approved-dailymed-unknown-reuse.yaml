@@ -1,0 +1,35 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# DailyMed pilot failure: approved packet with unknown_requires_review source
+
+schema_version: "1.0"
+drug_id: cefazolin
+evidence_status: evidence_packets_drafted
+last_evidence_reviewed: null
+sources:
+  - source_id: cefazolin-src-dailymed-0001
+    source_type: dailymed_label
+    source_title: FICTIONAL EXAMPLE — DailyMed label metadata
+    reuse_status: unknown_requires_review
+    source_authority_level: regulatory_label
+    source_status: active
+    license_note: FICTIONAL EXAMPLE — reuse not asserted.
+citations:
+  - citation_id: cefazolin-cite-0001
+    source_id: cefazolin-src-dailymed-0001
+    citation_type: source_level
+    supports_claim_type: source_identity_only
+evidence_packets:
+  - packet_id: cefazolin-packet-0001
+    packet_type: label_fact
+    packet_status: approved
+    recommendation_impact: none
+    requires_human_review: false
+    review_level: level_0_admin
+    citation_ids:
+      - cefazolin-cite-0001
+    source_ids:
+      - cefazolin-src-dailymed-0001
+    clinical_claim: null
+known_gaps:
+  - FICTIONAL EXAMPLE fixture only.
+audit_notes: Validation failure fixture for DailyMed pilot.

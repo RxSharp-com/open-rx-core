@@ -1,0 +1,36 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Failure: excessively long claim_summary (possible copied label text)
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: evidence_packets_drafted
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-dailymed-0001
+    source_type: dailymed_label
+    source_title: FICTIONAL EXAMPLE — DailyMed label metadata
+    reuse_status: unknown_requires_review
+    source_authority_level: regulatory_label
+    source_status: active
+    license_note: FICTIONAL EXAMPLE
+citations:
+  - citation_id: exampledrug-cite-0001
+    source_id: exampledrug-src-dailymed-0001
+    citation_type: source_level
+    supports_claim_type: background_context
+evidence_packets:
+  - packet_id: exampledrug-packet-0001
+    packet_type: label_fact
+    packet_status: needs_review
+    recommendation_impact: none
+    requires_human_review: true
+    review_level: level_0_admin
+    citation_ids:
+      - exampledrug-cite-0001
+    source_ids:
+      - exampledrug-src-dailymed-0001
+    claim_summary: "FICTIONAL EXAMPLE — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    clinical_claim: null
+known_gaps:
+  - FICTIONAL EXAMPLE fixture only.
+audit_notes: Validation failure fixture for long copied text guard.

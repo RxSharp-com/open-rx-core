@@ -13,6 +13,16 @@ const REUSABLE_CONTENT_FIELDS = [
   'clinician_facing_candidate',
 ];
 
+/** Fields checked for excessive length (possible copied label text). */
+const LENGTH_CHECKED_FIELDS = [
+  'claim_summary',
+  'clinical_claim',
+  'patient_facing_candidate',
+  'clinician_facing_candidate',
+];
+
+const DEFAULT_MAX_FIELD_LENGTH = 320;
+
 export function citationIdPattern(drugId) {
   const escaped = drugId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`^${escaped}-cite-\\d{4}$`);
@@ -39,10 +49,11 @@ function isRestrictedReuseStatus(reuseStatus) {
  * @param {object} evidence
  * @param {string} drugId
  * @param {(message: string) => void} fail
- * @param {{ requireNotImported?: boolean, requireNoClinicalClaims?: boolean }} [options]
+ * @param {{ requireNotImported?: boolean, requireNoClinicalClaims?: boolean, disallowApprovedPackets?: boolean, disallowMonographCandidates?: boolean, maxFieldLength?: number }} [options]
  */
 export function validateEvidenceRules(evidence, drugId, fail, options = {}) {
   const prefix = `[${drugId}] evidence.yaml`;
+  const maxFieldLength = options.maxFieldLength ?? DEFAULT_MAX_FIELD_LENGTH;
 
   if (evidence.schema_version !== '1.0') {
     fail(`${prefix}: schema_version must equal "1.0".`);
@@ -59,6 +70,12 @@ export function validateEvidenceRules(evidence, drugId, fail, options = {}) {
   const sources = evidence.sources ?? [];
   const citations = evidence.citations ?? [];
   const packets = evidence.evidence_packets ?? [];
+
+  if (evidence.evidence_status === 'not_imported') {
+    if (sources.length > 0 || citations.length > 0 || packets.length > 0) {
+      fail(`${prefix}: not_imported evidence must have empty sources, citations, and evidence_packets.`);
+    }
+  }
 
   const sourceById = new Map();
   for (const source of sources) {
@@ -148,6 +165,28 @@ export function validateEvidenceRules(evidence, drugId, fail, options = {}) {
             `${prefix}: approved packet "${packet.packet_id}" cannot use source "${sourceId}" with reuse_status unknown_requires_review.`,
           );
         }
+      }
+    }
+
+    if (options.disallowApprovedPackets && packet.packet_status === 'approved') {
+      fail(`${prefix}: packet "${packet.packet_id}" cannot be approved during the current pilot phase.`);
+    }
+
+    if (options.disallowMonographCandidates) {
+      if (isNonEmptyString(packet.patient_facing_candidate)) {
+        fail(`${prefix}: packet "${packet.packet_id}" must not contain patient_facing_candidate text in the current pilot phase.`);
+      }
+      if (isNonEmptyString(packet.clinician_facing_candidate)) {
+        fail(`${prefix}: packet "${packet.packet_id}" must not contain clinician_facing_candidate text in the current pilot phase.`);
+      }
+    }
+
+    for (const field of LENGTH_CHECKED_FIELDS) {
+      const value = packet[field];
+      if (isNonEmptyString(value) && value.length > maxFieldLength) {
+        fail(
+          `${prefix}: packet "${packet.packet_id}" field "${field}" exceeds ${maxFieldLength} characters (possible copied label text).`,
+        );
       }
     }
 

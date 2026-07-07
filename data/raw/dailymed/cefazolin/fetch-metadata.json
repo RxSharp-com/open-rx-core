@@ -1,0 +1,20 @@
+{
+  "pilot": "dailymed-single-drug",
+  "drug_name": "cefazolin",
+  "fetched_at": "2026-07-07T21:22:01.426Z",
+  "accessed_date": "2026-07-07",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=cefazolin&pagesize=1",
+  "api_verify_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=1999084a-124c-45f9-801f-416a1b942c96",
+  "selected_spl": {
+    "setid": "1999084a-124c-45f9-801f-416a1b942c96",
+    "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+    "spl_version": 11,
+    "published_date": "Jul 06, 2026",
+    "published_date_iso": "2026-07-06",
+    "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96"
+  },
+  "notes": [
+    "Metadata only. No SPL XML/HTML or label section text stored.",
+    "Single-record pilot using pagesize=1 search result."
+  ]
+}
