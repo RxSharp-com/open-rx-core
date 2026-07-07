@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rx-core.example/schema/reviewer.schema.json",
+  "title": "Reviewer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_id",
+    "name",
+    "credentials",
+    "review_date",
+    "review_level"
+  ],
+  "properties": {
+    "reviewer_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable identifier for the reviewer record."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "credentials": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Professional credentials at time of review."
+    },
+    "affiliation": {
+      "type": "string"
+    },
+    "orcid": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_level": {
+      "type": "string",
+      "enum": [
+        "level_0_admin",
+        "level_1_factual",
+        "level_2_clinical_wording",
+        "level_3_recommendation_impacting",
+        "level_4_specialty_high_risk"
+      ]
+    },
+    "conflicts_of_interest": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Declared conflicts of interest, or explicit none statement."
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

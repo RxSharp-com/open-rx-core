@@ -1,0 +1,5 @@
+drug_id: cefazolin
+evidence_status: not_imported
+import_notes: Evidence sources not yet imported. Scaffold placeholder only.
+last_imported: null
+sources: []

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceExtractionOutput",
+  "allOf": [
+    {
+      "$ref": "../../schema/agent-output.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "agent_id": {
+          "const": "evidence-extraction"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "output_type",
+              "summary",
+              "payload"
+            ],
+            "properties": {
+              "output_type": {
+                "const": "extracted_claim"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "citation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "clinical_recommendation": {
+                "type": "boolean"
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "moderate",
+                  "low",
+                  "uncertain",
+                  "needs_human_review"
+                ]
+              },
+              "payload": {
+                "type": "object",
+                "required": [
+                  "claim_id",
+                  "claim_text",
+                  "source_id"
+                ],
+                "properties": {
+                  "claim_id": {
+                    "type": "string"
+                  },
+                  "claim_text": {
+                    "type": "string"
+                  },
+                  "source_id": {
+                    "type": "string"
+                  },
+                  "uncertainty_notes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

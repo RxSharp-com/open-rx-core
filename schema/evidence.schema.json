@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rx-core.example/schema/evidence.schema.json",
+  "title": "EvidencePacket",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "drug_id",
+    "evidence_status",
+    "sources"
+  ],
+  "properties": {
+    "drug_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "not_imported",
+        "partial",
+        "imported",
+        "needs_refresh",
+        "stale"
+      ]
+    },
+    "import_notes": {
+      "type": "string"
+    },
+    "last_imported": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceSource"
+      }
+    }
+  },
+  "$defs": {
+    "evidenceSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_type",
+        "title",
+        "retrieved_at"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "dailymed",
+            "openfda",
+            "rxnorm",
+            "pubmed",
+            "pmc_open_access",
+            "clinicaltrials_gov",
+            "fda_safety_communication",
+            "cdc_public",
+            "nih_public",
+            "fda_public",
+            "open_guideline",
+            "human_synthesis"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "license_notes": {
+          "type": "string"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extracted_claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/extractedClaim"
+          }
+        }
+      }
+    },
+    "extractedClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "claim_text",
+        "citation_ids"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "clinical_recommendation": {
+          "type": "boolean",
+          "default": false
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "high",
+            "moderate",
+            "low",
+            "uncertain",
+            "needs_human_review"
+          ]
+        },
+        "uncertainty_notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

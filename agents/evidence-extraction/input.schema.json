@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceExtractionInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "drug_id",
+    "source_id",
+    "source_type",
+    "source_reference"
+  ],
+  "properties": {
+    "drug_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "dailymed",
+        "openfda",
+        "rxnorm",
+        "pubmed",
+        "pmc_open_access",
+        "clinicaltrials_gov",
+        "fda_safety_communication",
+        "cdc_public",
+        "nih_public",
+        "fda_public",
+        "open_guideline",
+        "human_synthesis"
+      ]
+    },
+    "source_reference": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Public URL, identifier, or repository path for the source."
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "extraction_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional section scopes, e.g. indications, warnings, pharmacology."
+    }
+  }
+}

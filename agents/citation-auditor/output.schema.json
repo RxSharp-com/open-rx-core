@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CitationAuditorOutput",
+  "allOf": [
+    {
+      "$ref": "../../schema/agent-output.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "agent_id": {
+          "const": "citation-auditor"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "output_type",
+              "summary",
+              "payload"
+            ],
+            "properties": {
+              "output_type": {
+                "const": "audit_finding"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "moderate",
+                  "low",
+                  "uncertain",
+                  "needs_human_review"
+                ]
+              },
+              "payload": {
+                "type": "object",
+                "required": [
+                  "rule_id",
+                  "severity",
+                  "location",
+                  "recommended_action"
+                ],
+                "properties": {
+                  "rule_id": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "info",
+                      "warning",
+                      "error"
+                    ]
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "recommended_action": {
+                    "type": "string"
+                  },
+                  "citation_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DrugIdentityInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "query_name"
+  ],
+  "properties": {
+    "query_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "drug_id": {
+      "type": "string"
+    },
+    "brand_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "rxnorm",
+          "dailymed",
+          "openfda"
+        ]
+      },
+      "default": [
+        "rxnorm"
+      ]
+    }
+  }
+}

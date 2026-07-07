@@ -1,0 +1,35 @@
+{
+  "agent_id": "drug-identity",
+  "run_id": "example-run-002",
+  "generated_at": "2026-07-07T12:00:00Z",
+  "status": "needs_human_review",
+  "requires_human_review": true,
+  "source_policy_compliant": true,
+  "drug_id": "vancomycin",
+  "uncertainty_flags": [
+    "RxCUI resolution not executed in scaffold example.",
+    "Human verification required before updating monograph.yaml."
+  ],
+  "prohibited_actions_avoided": true,
+  "outputs": [
+    {
+      "output_type": "identity_resolution",
+      "summary": "Example identity proposal for vancomycin metadata fields pending public source verification.",
+      "citation_ids": [
+        "rxnorm:vancomycin:placeholder"
+      ],
+      "clinical_recommendation": false,
+      "confidence": "needs_human_review",
+      "payload": {
+        "proposed_drug_id": "vancomycin",
+        "proposed_generic_name": "vancomycin",
+        "proposed_brand_names": [],
+        "proposed_rxcui": [],
+        "proposed_routes": [],
+        "proposed_drug_class": "placeholder — pending public source import",
+        "alternate_matches": []
+      }
+    }
+  ],
+  "notes": "Scaffold example only."
+}

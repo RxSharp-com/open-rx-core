@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rx-core.example/schema/changelog.schema.json",
+  "title": "ChangelogEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "date",
+    "change_type",
+    "summary"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "change_type": {
+      "type": "string",
+      "enum": [
+        "scaffold",
+        "evidence_import",
+        "ai_draft",
+        "clinical_review",
+        "publication",
+        "correction",
+        "retirement",
+        "metadata"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "type": "string"
+    },
+    "reviewer_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "clinical_change": {
+      "type": "boolean",
+      "default": false
+    },
+    "evidence_source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

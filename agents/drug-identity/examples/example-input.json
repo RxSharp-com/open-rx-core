@@ -1,0 +1,9 @@
+{
+  "query_name": "vancomycin",
+  "drug_id": "vancomycin",
+  "brand_names": [],
+  "source_types": [
+    "rxnorm",
+    "dailymed"
+  ]
+}

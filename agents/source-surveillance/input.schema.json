@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SourceSurveillanceInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "drug_id",
+    "generic_name",
+    "source_types",
+    "lookback_days"
+  ],
+  "properties": {
+    "drug_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generic_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rxcui": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "dailymed",
+          "openfda",
+          "rxnorm",
+          "pubmed",
+          "clinicaltrials_gov",
+          "fda_safety_communication",
+          "cdc_public",
+          "nih_public",
+          "fda_public"
+        ]
+      },
+      "minItems": 1
+    },
+    "lookback_days": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "last_checked": {
+      "type": "string",
+      "format": "date"
+    },
+    "known_source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

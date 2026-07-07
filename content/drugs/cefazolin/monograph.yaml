@@ -1,0 +1,32 @@
+drug_id: cefazolin
+generic_name: cefazolin
+brand_names: []
+rxcui: []
+routes: []
+drug_class: placeholder — cephalosporin class metadata pending import
+domain_tags:
+  - opat
+  - infectious_diseases
+publication_status: draft
+review_status: not_started
+review_level: level_0_admin
+last_reviewed: null
+next_review_due: null
+clinically_usable: false
+PLACEHOLDER_CLINICAL_CONTENT: true
+known_gaps:
+  - Clinical monograph content not yet drafted.
+  - Evidence sources not yet imported.
+  - RxNorm identifiers pending verification.
+evidence_source_ids: []
+require_citations_for_clinical_claims: true
+files:
+  patient: patient.md
+  clinician: clinician.md
+  evidence: evidence.yaml
+  changelog: changelog.md
+reviewers: []
+conflicts_of_interest: []
+changelog_version: "0.0.0-scaffold"
+notes: >
+  Scaffold placeholder only. No clinical recommendations. Not for clinical use.

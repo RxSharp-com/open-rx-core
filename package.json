@@ -1,0 +1,16 @@
+{
+  "name": "open-rx-core",
+  "version": "0.0.1",
+  "private": true,
+  "description": "OpenRxCore — open medication knowledge infrastructure scaffold",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.js",
+    "validate:failure-demo": "node scripts/validate-failure-demo.js"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.7.0"
+  }
+}

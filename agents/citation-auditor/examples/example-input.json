@@ -1,0 +1,16 @@
+{
+  "drug_id": "vancomycin",
+  "audit_targets": [
+    "monograph.yaml",
+    "evidence.yaml",
+    "patient.md",
+    "clinician.md"
+  ],
+  "publication_status": "draft",
+  "content_paths": {
+    "monograph.yaml": "content/drugs/vancomycin/monograph.yaml",
+    "evidence.yaml": "content/drugs/vancomycin/evidence.yaml",
+    "patient.md": "content/drugs/vancomycin/patient.md",
+    "clinician.md": "content/drugs/vancomycin/clinician.md"
+  }
+}
