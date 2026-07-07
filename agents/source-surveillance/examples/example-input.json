@@ -1,0 +1,13 @@
+{
+  "drug_id": "vancomycin",
+  "generic_name": "vancomycin",
+  "rxcui": [],
+  "source_types": [
+    "dailymed",
+    "openfda",
+    "fda_safety_communication"
+  ],
+  "lookback_days": 90,
+  "last_checked": "2026-01-01",
+  "known_source_ids": []
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CitationAuditorInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "drug_id",
+    "audit_targets"
+  ],
+  "properties": {
+    "drug_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audit_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "monograph.yaml",
+          "evidence.yaml",
+          "patient.md",
+          "clinician.md",
+          "agent_output"
+        ]
+      },
+      "minItems": 1
+    },
+    "publication_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "retired"
+      ]
+    },
+    "content_paths": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

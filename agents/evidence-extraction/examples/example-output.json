@@ -1,0 +1,32 @@
+{
+  "agent_id": "evidence-extraction",
+  "run_id": "example-run-003",
+  "generated_at": "2026-07-07T12:00:00Z",
+  "status": "needs_human_review",
+  "requires_human_review": true,
+  "source_policy_compliant": true,
+  "drug_id": "cefazolin",
+  "uncertainty_flags": [
+    "No live extraction performed in scaffold example.",
+    "Claims must be verified against public source text by a human reviewer."
+  ],
+  "prohibited_actions_avoided": true,
+  "outputs": [
+    {
+      "output_type": "extracted_claim",
+      "summary": "Example placeholder claim proposal — not imported clinical content.",
+      "citation_ids": [
+        "dailymed:cefazolin:placeholder"
+      ],
+      "clinical_recommendation": false,
+      "confidence": "needs_human_review",
+      "payload": {
+        "claim_id": "claim-placeholder-001",
+        "claim_text": "Placeholder example only. No clinical claim asserted.",
+        "source_id": "dailymed:cefazolin:placeholder",
+        "uncertainty_notes": "Awaiting human verification and source import."
+      }
+    }
+  ],
+  "notes": "Scaffold example only."
+}

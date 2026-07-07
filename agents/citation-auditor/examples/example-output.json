@@ -1,0 +1,38 @@
+{
+  "agent_id": "citation-auditor",
+  "run_id": "example-run-004",
+  "generated_at": "2026-07-07T12:00:00Z",
+  "status": "needs_human_review",
+  "requires_human_review": true,
+  "source_policy_compliant": true,
+  "drug_id": "vancomycin",
+  "uncertainty_flags": [
+    "Scaffold audit example only."
+  ],
+  "prohibited_actions_avoided": true,
+  "outputs": [
+    {
+      "output_type": "audit_finding",
+      "summary": "Placeholder clinical content marker present in draft monograph — expected for scaffold.",
+      "confidence": "high",
+      "payload": {
+        "rule_id": "placeholder_clinical_content",
+        "severity": "info",
+        "location": "content/drugs/vancomycin/monograph.yaml",
+        "recommended_action": "Retain placeholder markers until clinical review completes. Do not publish while PLACEHOLDER_CLINICAL_CONTENT is true."
+      }
+    },
+    {
+      "output_type": "audit_finding",
+      "summary": "Evidence sources not yet imported.",
+      "confidence": "high",
+      "payload": {
+        "rule_id": "evidence_not_imported",
+        "severity": "warning",
+        "location": "content/drugs/vancomycin/evidence.yaml",
+        "recommended_action": "Import public evidence sources before clinical drafting."
+      }
+    }
+  ],
+  "notes": "Scaffold example only."
+}

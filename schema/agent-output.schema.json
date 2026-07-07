@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rx-core.example/schema/agent-output.schema.json",
+  "title": "AgentOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_id",
+    "run_id",
+    "generated_at",
+    "status",
+    "requires_human_review",
+    "source_policy_compliant",
+    "outputs"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "partial",
+        "failed",
+        "needs_human_review"
+      ]
+    },
+    "requires_human_review": {
+      "type": "boolean",
+      "const": true
+    },
+    "source_policy_compliant": {
+      "type": "boolean"
+    },
+    "drug_id": {
+      "type": "string"
+    },
+    "uncertainty_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_actions_avoided": {
+      "type": "boolean"
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/agentOutputItem"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "agentOutputItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "output_type",
+        "summary"
+      ],
+      "properties": {
+        "output_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "clinical_recommendation": {
+          "type": "boolean",
+          "default": false
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "high",
+            "moderate",
+            "low",
+            "uncertain",
+            "needs_human_review"
+          ]
+        },
+        "payload": {
+          "type": "object"
+        }
+      },
+      "if": {
+        "properties": {
+          "clinical_recommendation": {
+            "const": true
+          }
+        },
+        "required": ["clinical_recommendation"]
+      },
+      "then": {
+        "required": ["citation_ids"],
+        "properties": {
+          "citation_ids": {
+            "type": "array",
+            "minItems": 1
+          },
+          "confidence": {
+            "enum": [
+              "uncertain",
+              "needs_human_review"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

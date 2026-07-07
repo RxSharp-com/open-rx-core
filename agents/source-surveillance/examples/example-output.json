@@ -1,0 +1,33 @@
+{
+  "agent_id": "source-surveillance",
+  "run_id": "example-run-001",
+  "generated_at": "2026-07-07T12:00:00Z",
+  "status": "needs_human_review",
+  "requires_human_review": true,
+  "source_policy_compliant": true,
+  "drug_id": "vancomycin",
+  "uncertainty_flags": [
+    "Automated surveillance not yet implemented; example output only.",
+    "No prior source baseline on record."
+  ],
+  "prohibited_actions_avoided": true,
+  "outputs": [
+    {
+      "output_type": "candidate_source_change",
+      "summary": "Example candidate: verify DailyMed SPL revision date for vancomycin using public metadata only.",
+      "citation_ids": [
+        "dailymed:vancomycin:placeholder"
+      ],
+      "clinical_recommendation": false,
+      "confidence": "needs_human_review",
+      "payload": {
+        "source_id": "dailymed:vancomycin:placeholder",
+        "source_type": "dailymed",
+        "change_signal": "revision_date_check_needed",
+        "public_url": "https://dailymed.nlm.nih.gov/",
+        "observed_at": "2026-07-07"
+      }
+    }
+  ],
+  "notes": "Scaffold example only. Not a live surveillance result."
+}

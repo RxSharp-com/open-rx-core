@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DrugIdentityOutput",
+  "allOf": [
+    {
+      "$ref": "../../schema/agent-output.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "agent_id": {
+          "const": "drug-identity"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "output_type",
+              "summary",
+              "payload"
+            ],
+            "properties": {
+              "output_type": {
+                "const": "identity_resolution"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "citation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "moderate",
+                  "low",
+                  "uncertain",
+                  "needs_human_review"
+                ]
+              },
+              "payload": {
+                "type": "object",
+                "required": [
+                  "proposed_drug_id",
+                  "proposed_generic_name"
+                ],
+                "properties": {
+                  "proposed_drug_id": {
+                    "type": "string"
+                  },
+                  "proposed_generic_name": {
+                    "type": "string"
+                  },
+                  "proposed_brand_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "proposed_rxcui": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "proposed_routes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "proposed_drug_class": {
+                    "type": "string"
+                  },
+                  "alternate_matches": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SourceSurveillanceOutput",
+  "allOf": [
+    {
+      "$ref": "../../schema/agent-output.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "agent_id": {
+          "const": "source-surveillance"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "output_type",
+              "summary",
+              "payload"
+            ],
+            "properties": {
+              "output_type": {
+                "const": "candidate_source_change"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "citation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "high",
+                  "moderate",
+                  "low",
+                  "uncertain",
+                  "needs_human_review"
+                ]
+              },
+              "payload": {
+                "type": "object",
+                "required": [
+                  "source_id",
+                  "source_type",
+                  "change_signal"
+                ],
+                "properties": {
+                  "source_id": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string"
+                  },
+                  "change_signal": {
+                    "type": "string"
+                  },
+                  "public_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "observed_at": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

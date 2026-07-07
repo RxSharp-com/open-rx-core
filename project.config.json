@@ -1,0 +1,12 @@
+{
+  "coreProjectName": "OpenRxCore",
+  "repoName": "open-rx-core",
+  "publicProjectName": "SourceScript",
+  "publicSiteUrl": "https://placeholder.sourcescript.example",
+  "clinicalUseStatus": "not_for_clinical_use",
+  "requireHumanReviewForPublication": true,
+  "audiencePrimary": "contributors_and_builders",
+  "positioning": "complements_existing_resources_not_replacement",
+  "initialClinicalDomain": "opat_and_infectious_diseases",
+  "description": "Open medication knowledge infrastructure scaffold — not for clinical use."
+}
