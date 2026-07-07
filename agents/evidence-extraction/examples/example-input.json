@@ -1,10 +1,10 @@
 {
-  "drug_id": "cefazolin",
-  "source_id": "dailymed:cefazolin:placeholder",
-  "source_type": "dailymed",
-  "source_reference": "https://dailymed.nlm.nih.gov/",
-  "retrieved_at": "2026-07-07",
+  "drug_id": "exampledrug",
+  "source_id": "exampledrug-src-0100",
+  "source_type": "rxnorm",
+  "source_reference": "https://rxnav.nlm.nih.gov/",
+  "accessed_date": "2026-07-07",
   "extraction_scope": [
-    "metadata_only"
+    "identity"
   ]
 }

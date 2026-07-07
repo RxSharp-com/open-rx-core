@@ -24,13 +24,13 @@
     },
     {
       "output_type": "audit_finding",
-      "summary": "Evidence sources not yet imported.",
+      "summary": "FICTIONAL EXAMPLE — evidence.yaml uses schema_version 1.0 with not_imported status as expected for scaffold.",
       "confidence": "high",
       "payload": {
         "rule_id": "evidence_not_imported",
-        "severity": "warning",
+        "severity": "info",
         "location": "content/drugs/vancomycin/evidence.yaml",
-        "recommended_action": "Import public evidence sources before clinical drafting."
+        "recommended_action": "Import public evidence sources and assign citation IDs before clinical drafting."
       }
     }
   ],

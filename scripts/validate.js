@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import yaml from 'yaml';
+import { validateEvidenceRules } from './lib/evidence-rules.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -168,6 +169,11 @@ function validateDrugFolder(drugId, validators) {
       fail(`[${drugId}] evidence.yaml schema: ${err.instancePath || '/'} ${err.message}`);
     }
   }
+
+  validateEvidenceRules(evidence, drugId, (message) => fail(message), {
+    requireNotImported: true,
+    requireNoClinicalClaims: true,
+  });
 
   if (monograph.clinically_usable === true) {
     fail(`[${drugId}] clinically_usable must not be true in this scaffold.`);

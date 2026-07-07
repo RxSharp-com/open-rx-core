@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate.js",
-    "validate:failure-demo": "node scripts/validate-failure-demo.js"
+    "validate:failure-demo": "node scripts/validate-failure-demo.js",
+    "validate:evidence-failure-demo": "node scripts/validate-evidence-failure-demo.js"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

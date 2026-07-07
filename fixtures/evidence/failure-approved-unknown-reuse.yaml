@@ -1,0 +1,37 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Fixture for validation failure: approved packet with unknown_requires_review source
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: needs_review
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-0002
+    source_type: other_public_source
+    source_title: FICTIONAL EXAMPLE — source with unknown reuse status
+    reuse_status: unknown_requires_review
+    source_authority_level: background_context
+    source_status: pending_review
+    notes: FICTIONAL EXAMPLE — reuse status intentionally unknown.
+citations:
+  - citation_id: exampledrug-cite-0002
+    source_id: exampledrug-src-0002
+    citation_type: metadata_record
+    supports_claim_type: background_context
+evidence_packets:
+  - packet_id: exampledrug-packet-0002
+    packet_type: terminology_mapping
+    packet_status: approved
+    recommendation_impact: none
+    requires_human_review: false
+    review_level: level_0_admin
+    citation_ids:
+      - exampledrug-cite-0002
+    source_ids:
+      - exampledrug-src-0002
+    clinical_claim: null
+    uncertainty_flags:
+      - license_unclear
+known_gaps:
+  - FICTIONAL EXAMPLE fixture only.
+audit_notes: Validation failure fixture. Not real clinical data.

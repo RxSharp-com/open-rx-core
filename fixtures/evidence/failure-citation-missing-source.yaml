@@ -1,0 +1,18 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Fixture for validation failure: citation references missing source_id
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: sources_imported
+last_evidence_reviewed: null
+sources: []
+citations:
+  - citation_id: exampledrug-cite-0001
+    source_id: exampledrug-src-missing
+    citation_type: metadata_record
+    supports_claim_type: source_identity_only
+    notes: FICTIONAL EXAMPLE — source_id intentionally missing from sources array.
+evidence_packets: []
+known_gaps:
+  - FICTIONAL EXAMPLE fixture only.
+audit_notes: Validation failure fixture. Not real clinical data.
