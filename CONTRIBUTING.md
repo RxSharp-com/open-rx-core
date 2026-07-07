@@ -37,7 +37,7 @@ Create a new directory under `content/drugs/<drug_id>/` with:
 For new placeholder monographs:
 
 - set `PLACEHOLDER_CLINICAL_CONTENT: true` in `monograph.yaml`
-- set `clinically_usable: false`
+- set `clinically_usable: false` (required; schema enforces `const: false` — see `schema/README.md`)
 - set `publication_status: draft` and `review_status: not_started` (or another non-published status)
 - include `[CLINICAL REVIEW REQUIRED — NOT YET DRAFTED]` in `patient.md` and `clinician.md` until drafted
 - do not add drug-specific clinical claims in the initial scaffold
@@ -134,7 +134,15 @@ npm install
 npm run validate
 ```
 
-Fix all reported errors before requesting review. Warnings may be acceptable for draft scaffold content but should be understood and documented.
+Fix all reported **errors** before requesting review. Validation exits with a non-zero code on errors.
+
+**Errors (blocking)** include schema failures, missing required drug files, publication safety gate violations, `clinically_usable: true`, and invalid `project.config.json` field values.
+
+**Warnings (non-blocking)** are informational and do not fail validation. Currently:
+
+- a draft monograph that does not set `PLACEHOLDER_CLINICAL_CONTENT: true` (expected for scaffold placeholders)
+
+See `schema/README.md` for the canonical monograph field list, including `clinically_usable`.
 
 ## AI-assisted contributions
 

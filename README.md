@@ -169,12 +169,14 @@ npm run validate
 The validation script checks:
 
 - required drug folder files exist
-- `monograph.yaml` and `evidence.yaml` validate against JSON schemas
-- publication/review status consistency
-- published monograph reviewer, evidence, and citation requirements
+- `monograph.yaml` and `evidence.yaml` validate against JSON schemas (see `schema/README.md`)
+- publication/review status consistency (`published` requires `review_status` of `approved` or `published`)
+- published monograph reviewer, `last_reviewed`, evidence, and citation requirements
 - no placeholder content in published monographs
-- no `clinically_usable: true` in this scaffold
-- `project.config.json` safety and positioning fields
+- `clinically_usable` must be `false`: enforced by `schema/monograph.schema.json` (`const: false`) and rejected as a **hard error** if set to `true` in `scripts/validate.js`
+- `project.config.json` required fields and values (`clinicalUseStatus`, `requireHumanReviewForPublication`, `audiencePrimary`, `positioning`, and related metadata)
+
+**Errors vs. warnings:** validation exits with a non-zero code on errors only. Warnings are informational. The current warning tier flags draft monographs that omit `PLACEHOLDER_CLINICAL_CONTENT: true` (unexpected for scaffold placeholders).
 
 Demonstrate a deliberate safety gate failure:
 
