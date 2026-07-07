@@ -46,16 +46,23 @@ Validate against `schema/monograph.schema.json` and `schema/evidence.schema.json
 
 ## Adding evidence sources
 
-Add sources to `evidence.yaml` under `sources[]`. Each source should include:
+Evidence files use **schema version 1.0**. See [docs/evidence-model.md](docs/evidence-model.md) and [docs/citation-policy.md](docs/citation-policy.md).
 
-- `source_id` (stable identifier)
-- `source_type` (from allowed types in the evidence schema)
-- `title`
-- `retrieved_at`
-- `url` when available
-- `license_notes` when reuse terms matter
+Structure:
 
-Extracted claims must include `citation_ids`. Claims marked `clinical_recommendation: true` require citations and human review.
+1. Add **source records** under `sources[]` with `source_id`, `source_type`, `reuse_status`, `source_authority_level`, and `source_status`
+2. Add **citation records** under `citations[]` using `{drug_id}-cite-####` IDs referencing existing sources
+3. Add **evidence packets** under `evidence_packets[]` using `{drug_id}-packet-####` IDs
+
+Each source should include:
+
+- `source_id` (unique within the evidence file)
+- `source_type` (closed enum in `schema/evidence.schema.json`)
+- `source_title`
+- `reuse_status` and `license_note` when required (`pmc_open_access`, `open_guideline`)
+- `accessed_date` / `source_url` when available
+
+Non-empty `clinical_claim` values require `citation_ids` and human review unless the packet is `approved`. Patient- and clinician-facing candidate fields are drafts only — not published content.
 
 **Allowed:** DailyMed, openFDA, RxNorm, PubMed metadata, PMC open-access (when permitted), ClinicalTrials.gov, FDA/CDC/NIH public materials, open guidelines with reusable licenses, original human synthesis from public facts.
 
@@ -162,6 +169,10 @@ See `agents/` for conservative prompt templates and structured I/O schemas.
 - update JSON schemas when metadata models change
 - update validation scripts when new safety rules are added
 - document breaking changes in drug `changelog.md` files when applicable
+
+### Drug `changelog.md` scope
+
+Schema-only or structural changes to placeholder scaffolding (for example, `evidence.yaml` layout or validation rules) **do not** require a drug-level `changelog.md` entry. Update `changelog.md` when there is a **clinical or content change** worth tracking for reviewers (evidence import, drafting, review, publication, correction, or retirement).
 
 ## Conduct and safety
 

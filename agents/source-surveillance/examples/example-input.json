@@ -3,8 +3,8 @@
   "generic_name": "vancomycin",
   "rxcui": [],
   "source_types": [
-    "dailymed",
-    "openfda",
+    "dailymed_label",
+    "openfda_label",
     "fda_safety_communication"
   ],
   "lookback_days": 90,

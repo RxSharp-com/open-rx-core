@@ -5,28 +5,38 @@
   "status": "needs_human_review",
   "requires_human_review": true,
   "source_policy_compliant": true,
-  "drug_id": "cefazolin",
+  "drug_id": "exampledrug",
   "uncertainty_flags": [
-    "No live extraction performed in scaffold example.",
-    "Claims must be verified against public source text by a human reviewer."
+    "FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA",
+    "No live extraction performed; example output only."
   ],
   "prohibited_actions_avoided": true,
   "outputs": [
     {
-      "output_type": "extracted_claim",
-      "summary": "Example placeholder claim proposal — not imported clinical content.",
-      "citation_ids": [
-        "dailymed:cefazolin:placeholder"
-      ],
+      "output_type": "evidence_packet_draft",
+      "summary": "FICTIONAL EXAMPLE — proposed terminology mapping packet draft for human review.",
+      "citation_ids": [],
       "clinical_recommendation": false,
       "confidence": "needs_human_review",
       "payload": {
-        "claim_id": "claim-placeholder-001",
-        "claim_text": "Placeholder example only. No clinical claim asserted.",
-        "source_id": "dailymed:cefazolin:placeholder",
-        "uncertainty_notes": "Awaiting human verification and source import."
+        "proposed_packet": {
+          "packet_type": "terminology_mapping",
+          "claim_summary": "FICTIONAL EXAMPLE — identity metadata placeholder pending reviewer assignment of citation IDs.",
+          "clinical_claim": null,
+          "citation_ids": [],
+          "source_ids": [
+            "exampledrug-src-0100"
+          ],
+          "requires_human_review": true,
+          "review_level": "level_0_admin",
+          "recommendation_impact": "none",
+          "uncertainty_flags": [
+            "not_yet_reviewed"
+          ]
+        },
+        "proposed_citations": []
       }
     }
   ],
-  "notes": "Scaffold example only."
+  "notes": "Scaffold example aligned with evidence schema v1.0. Not clinical content."
 }

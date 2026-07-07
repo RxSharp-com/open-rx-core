@@ -29,15 +29,15 @@
       "items": {
         "type": "string",
         "enum": [
-          "dailymed",
-          "openfda",
+          "dailymed_label",
+          "openfda_label",
           "rxnorm",
-          "pubmed",
-          "clinicaltrials_gov",
+          "pubmed_metadata",
+          "clinicaltrials",
           "fda_safety_communication",
-          "cdc_public",
-          "nih_public",
-          "fda_public"
+          "cdc_guidance",
+          "nih_guidance",
+          "open_guideline"
         ]
       },
       "minItems": 1

@@ -1,0 +1,33 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Fixture for validation failure: clinical_claim without citation_id
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: evidence_packets_drafted
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-0001
+    source_type: dailymed_label
+    source_title: FICTIONAL EXAMPLE — placeholder label record
+    source_url: https://dailymed.nlm.nih.gov/
+    reuse_status: open_license
+    source_authority_level: regulatory_label
+    source_status: active
+    license_note: FICTIONAL EXAMPLE — not a real imported source.
+citations: []
+evidence_packets:
+  - packet_id: exampledrug-packet-0001
+    packet_type: knowledge_gap
+    packet_status: draft
+    recommendation_impact: none
+    requires_human_review: true
+    review_level: level_1_factual
+    citation_ids: []
+    source_ids:
+      - exampledrug-src-0001
+    clinical_claim: FICTIONAL EXAMPLE — this claim intentionally lacks citations for validation testing.
+    uncertainty_flags:
+      - not_yet_reviewed
+known_gaps:
+  - FICTIONAL EXAMPLE fixture only.
+audit_notes: Validation failure fixture. Not real clinical data.

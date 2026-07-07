@@ -2,6 +2,8 @@
 
 JSON schemas for medication knowledge content and agent outputs. See `scripts/validate.js` for enforcement rules.
 
+For the conceptual evidence model and citation rules, see [docs/evidence-model.md](../docs/evidence-model.md) and [docs/citation-policy.md](../docs/citation-policy.md).
+
 ## Monograph fields (`monograph.schema.json`)
 
 | Field | Type | Notes |
@@ -32,7 +34,15 @@ JSON schemas for medication knowledge content and agent outputs. See `scripts/va
 
 ## Other schemas
 
-- `evidence.schema.json` — evidence packets and extracted claims
+- `evidence.schema.json` — evidence file v1.0: sources, citations, evidence packets (see `docs/evidence-model.md`)
 - `reviewer.schema.json` — reviewer metadata records
 - `changelog.schema.json` — changelog entry structure
 - `agent-output.schema.json` — shared agent output envelope
+
+## Evidence file (`evidence.schema.json` v1.0)
+
+Top-level fields: `schema_version`, `drug_id`, `evidence_status`, `last_evidence_reviewed`, `sources`, `citations`, `evidence_packets`, `known_gaps`, `audit_notes`.
+
+Citation IDs: `{drug_id}-cite-{####}`. Packet IDs: `{drug_id}-packet-{####}`.
+
+See [docs/evidence-model.md](../docs/evidence-model.md) and [docs/citation-policy.md](../docs/citation-policy.md).

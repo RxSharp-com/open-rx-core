@@ -22,7 +22,7 @@
             ],
             "properties": {
               "output_type": {
-                "const": "extracted_claim"
+                "const": "evidence_packet_draft"
               },
               "summary": {
                 "type": "string"
@@ -31,8 +31,7 @@
                 "type": "array",
                 "items": {
                   "type": "string"
-                },
-                "minItems": 1
+                }
               },
               "clinical_recommendation": {
                 "type": "boolean"
@@ -50,22 +49,65 @@
               "payload": {
                 "type": "object",
                 "required": [
-                  "claim_id",
-                  "claim_text",
-                  "source_id"
+                  "proposed_packet"
                 ],
                 "properties": {
-                  "claim_id": {
-                    "type": "string"
+                  "proposed_packet": {
+                    "type": "object",
+                    "required": [
+                      "packet_type",
+                      "claim_summary",
+                      "source_ids",
+                      "requires_human_review",
+                      "review_level",
+                      "recommendation_impact"
+                    ],
+                    "properties": {
+                      "packet_type": {
+                        "type": "string"
+                      },
+                      "claim_summary": {
+                        "type": "string"
+                      },
+                      "clinical_claim": {
+                        "type": ["string", "null"]
+                      },
+                      "citation_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "source_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 1
+                      },
+                      "requires_human_review": {
+                        "type": "boolean",
+                        "const": true
+                      },
+                      "review_level": {
+                        "type": "string"
+                      },
+                      "recommendation_impact": {
+                        "type": "string"
+                      },
+                      "uncertainty_flags": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
                   },
-                  "claim_text": {
-                    "type": "string"
-                  },
-                  "source_id": {
-                    "type": "string"
-                  },
-                  "uncertainty_notes": {
-                    "type": "string"
+                  "proposed_citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
                   }
                 }
               }

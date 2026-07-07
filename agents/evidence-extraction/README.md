@@ -19,7 +19,7 @@ Extract structured evidence claims from permitted public/open sources into evide
 
 ## Expected structured output
 
-Structured claims with `claim_id`, `claim_text`, `citation_ids`, optional `clinical_recommendation` flag, and confidence levels. Output must validate against `evidence.schema.json` patterns and `agent-output.schema.json`.
+Structured JSON conforming to `output.schema.json` with proposed `evidence_packet_draft` items aligned to `schema/evidence.schema.json` v1.0. Outputs should propose source records, citations, and packet drafts — never approved or published content.
 
 ## Safety boundaries
 

@@ -1,5 +1,10 @@
+schema_version: "1.0"
 drug_id: daptomycin
 evidence_status: not_imported
-import_notes: Evidence sources not yet imported. Scaffold placeholder only.
-last_imported: null
+last_evidence_reviewed: null
 sources: []
+citations: []
+evidence_packets: []
+known_gaps:
+  - Evidence has not yet been imported or reviewed.
+audit_notes: Scaffold placeholder only. No sources, citations, or evidence packets.

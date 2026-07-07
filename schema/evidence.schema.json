@@ -1,52 +1,83 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-rx-core.example/schema/evidence.schema.json",
-  "title": "EvidencePacket",
+  "title": "EvidenceFile",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "drug_id",
     "evidence_status",
-    "sources"
+    "sources",
+    "citations",
+    "evidence_packets",
+    "known_gaps"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
     "drug_id": {
       "type": "string",
+      "pattern": "^[a-z0-9_-]+$",
       "minLength": 1
     },
     "evidence_status": {
       "type": "string",
       "enum": [
         "not_imported",
-        "partial",
-        "imported",
-        "needs_refresh",
-        "stale"
+        "sources_imported",
+        "evidence_packets_drafted",
+        "needs_review",
+        "approved",
+        "retired"
       ]
     },
-    "import_notes": {
-      "type": "string"
-    },
-    "last_imported": {
+    "last_evidence_reviewed": {
       "type": ["string", "null"],
       "format": "date"
     },
     "sources": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/evidenceSource"
+        "$ref": "#/$defs/sourceRecord"
       }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/citationRecord"
+      }
+    },
+    "evidence_packets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidencePacket"
+      }
+    },
+    "known_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "audit_notes": {
+      "type": "string"
     }
   },
   "$defs": {
-    "evidenceSource": {
+    "sourceRecord": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "source_id",
         "source_type",
-        "title",
-        "retrieved_at"
+        "source_title",
+        "reuse_status",
+        "source_authority_level",
+        "source_status"
       ],
       "properties": {
         "source_id": {
@@ -56,89 +87,313 @@
         "source_type": {
           "type": "string",
           "enum": [
-            "dailymed",
-            "openfda",
+            "dailymed_label",
+            "openfda_label",
             "rxnorm",
-            "pubmed",
+            "pubmed_metadata",
             "pmc_open_access",
-            "clinicaltrials_gov",
+            "clinicaltrials",
             "fda_safety_communication",
-            "cdc_public",
-            "nih_public",
-            "fda_public",
+            "cdc_guidance",
+            "nih_guidance",
             "open_guideline",
-            "human_synthesis"
+            "human_synthesis",
+            "other_public_source"
           ]
         },
-        "title": {
+        "source_title": {
           "type": "string",
           "minLength": 1
         },
-        "url": {
+        "source_url": {
           "type": "string",
           "format": "uri"
         },
-        "retrieved_at": {
+        "source_origin": {
+          "type": "string"
+        },
+        "source_publisher": {
+          "type": "string"
+        },
+        "source_date": {
           "type": "string",
           "format": "date"
         },
-        "license_notes": {
-          "type": "string"
+        "accessed_date": {
+          "type": "string",
+          "format": "date"
         },
-        "citation_ids": {
-          "type": "array",
-          "items": {
+        "updated_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "identifiers": {
+          "type": "object",
+          "additionalProperties": {
             "type": "string"
           }
         },
-        "extracted_claims": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/extractedClaim"
+        "reuse_status": {
+          "type": "string",
+          "enum": [
+            "public_domain",
+            "open_license",
+            "metadata_only",
+            "citation_only",
+            "restricted_no_reuse",
+            "unknown_requires_review"
+          ]
+        },
+        "license_note": {
+          "type": "string"
+        },
+        "source_authority_level": {
+          "type": "string",
+          "enum": [
+            "regulatory_label",
+            "federal_safety_communication",
+            "federal_guidance",
+            "clinical_trial_registry",
+            "peer_reviewed_literature",
+            "systematic_review_or_meta_analysis",
+            "open_guideline",
+            "terminology_database",
+            "human_reviewed_synthesis",
+            "background_context"
+          ]
+        },
+        "source_status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "superseded",
+            "withdrawn",
+            "pending_review",
+            "unknown"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "pmc_open_access"
+              }
+            },
+            "required": ["source_type"]
+          },
+          "then": {
+            "required": ["license_note"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "open_guideline"
+              }
+            },
+            "required": ["source_type"]
+          },
+          "then": {
+            "required": ["license_note"]
           }
         }
-      }
+      ]
     },
-    "extractedClaim": {
+    "citationRecord": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "claim_id",
-        "claim_text",
-        "citation_ids"
+        "citation_id",
+        "source_id",
+        "citation_type",
+        "supports_claim_type"
       ],
       "properties": {
-        "claim_id": {
+        "citation_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_-]+-cite-\\d{4}$"
+        },
+        "source_id": {
           "type": "string",
           "minLength": 1
         },
-        "claim_text": {
+        "citation_label": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "citation_type": {
           "type": "string",
-          "minLength": 1
+          "enum": [
+            "source_level",
+            "section_level",
+            "paragraph_level",
+            "table_or_figure",
+            "registry_record",
+            "metadata_record"
+          ]
+        },
+        "supports_claim_type": {
+          "type": "string",
+          "enum": [
+            "direct_support",
+            "indirect_support",
+            "background_context",
+            "conflicting_evidence",
+            "source_identity_only",
+            "requires_human_interpretation"
+          ]
+        },
+        "reuse_note": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "evidencePacket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "packet_id",
+        "packet_type",
+        "packet_status",
+        "recommendation_impact",
+        "requires_human_review",
+        "review_level",
+        "citation_ids",
+        "source_ids"
+      ],
+      "properties": {
+        "packet_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_-]+-packet-\\d{4}$"
+        },
+        "packet_type": {
+          "type": "string",
+          "enum": [
+            "label_fact",
+            "indication",
+            "contraindication",
+            "warning_or_precaution",
+            "adverse_reaction",
+            "administration_or_handling",
+            "pharmacology",
+            "clinical_trial_result",
+            "safety_signal",
+            "guideline_statement",
+            "literature_summary",
+            "terminology_mapping",
+            "human_synthesis",
+            "knowledge_gap"
+          ]
+        },
+        "packet_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "needs_review",
+            "needs_revision",
+            "approved",
+            "rejected",
+            "retired"
+          ]
+        },
+        "affected_monograph_sections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claim_summary": {
+          "type": "string"
+        },
+        "clinical_claim": {
+          "type": ["string", "null"]
+        },
+        "patient_facing_candidate": {
+          "type": ["string", "null"]
+        },
+        "clinician_facing_candidate": {
+          "type": ["string", "null"]
         },
         "citation_ids": {
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "minItems": 1
+          }
         },
-        "clinical_recommendation": {
-          "type": "boolean",
-          "default": false
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
-        "confidence": {
+        "recommendation_impact": {
           "type": "string",
           "enum": [
-            "high",
-            "moderate",
-            "low",
-            "uncertain",
-            "needs_human_review"
+            "none",
+            "possible",
+            "direct",
+            "unknown_requires_review"
           ]
         },
-        "uncertainty_notes": {
+        "requires_human_review": {
+          "type": "boolean"
+        },
+        "review_level": {
+          "type": "string",
+          "enum": [
+            "level_0_admin",
+            "level_1_factual",
+            "level_2_clinical_wording",
+            "level_3_recommendation_impacting",
+            "level_4_specialty_high_risk"
+          ]
+        },
+        "uncertainty_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "conflicting_sources",
+              "limited_evidence",
+              "source_outdated",
+              "license_unclear",
+              "requires_domain_expert",
+              "patient_specific_context_needed",
+              "local_policy_needed",
+              "not_yet_reviewed"
+            ]
+          }
+        },
+        "known_gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewer_notes": {
           "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date"
         }
       }
     }

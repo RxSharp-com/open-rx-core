@@ -1,0 +1,55 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Valid example evidence file for documentation reference.
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: evidence_packets_drafted
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-0100
+    source_type: rxnorm
+    source_title: FICTIONAL EXAMPLE — RxNorm concept record
+    source_url: https://rxnav.nlm.nih.gov/
+    source_origin: RxNorm
+    source_publisher: NLM
+    accessed_date: "2026-07-07"
+    identifiers:
+      rxcui: "000000"
+    reuse_status: metadata_only
+    source_authority_level: terminology_database
+    source_status: active
+    notes: FICTIONAL EXAMPLE — identity metadata only, not clinical guidance.
+citations:
+  - citation_id: exampledrug-cite-0100
+    source_id: exampledrug-src-0100
+    citation_label: FICTIONAL EXAMPLE — RxNorm lookup
+    citation_type: metadata_record
+    supports_claim_type: source_identity_only
+    reuse_note: Metadata citation only; no reusable derived wording.
+evidence_packets:
+  - packet_id: exampledrug-packet-0100
+    packet_type: terminology_mapping
+    packet_status: draft
+    affected_monograph_sections:
+      - identity
+    claim_summary: FICTIONAL EXAMPLE — placeholder identity mapping packet pending review.
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - exampledrug-cite-0100
+    source_ids:
+      - exampledrug-src-0100
+    recommendation_impact: none
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+    known_gaps:
+      - FICTIONAL EXAMPLE — no clinical content imported.
+    created_by: scaffold-example
+    created_date: "2026-07-07"
+    last_updated: "2026-07-07"
+known_gaps:
+  - FICTIONAL EXAMPLE — evidence model illustration only.
+audit_notes: Valid fictional example for docs and schema illustration.

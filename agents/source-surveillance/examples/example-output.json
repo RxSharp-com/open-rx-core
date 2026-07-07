@@ -16,13 +16,13 @@
       "output_type": "candidate_source_change",
       "summary": "Example candidate: verify DailyMed SPL revision date for vancomycin using public metadata only.",
       "citation_ids": [
-        "dailymed:vancomycin:placeholder"
+        "exampledrug-cite-0001"
       ],
       "clinical_recommendation": false,
       "confidence": "needs_human_review",
       "payload": {
-        "source_id": "dailymed:vancomycin:placeholder",
-        "source_type": "dailymed",
+        "source_id": "exampledrug-src-0001",
+        "source_type": "dailymed_label",
         "change_signal": "revision_date_check_needed",
         "public_url": "https://dailymed.nlm.nih.gov/",
         "observed_at": "2026-07-07"

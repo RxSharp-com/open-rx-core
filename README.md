@@ -126,9 +126,11 @@ content/
       monograph.yaml    # metadata, review status, file references
       patient.md        # patient-facing monograph (placeholder in scaffold)
       clinician.md      # clinician-facing monograph (placeholder in scaffold)
-      evidence.yaml     # structured evidence packet
+      evidence.yaml     # evidence model v1.0: sources, citations, packets
       changelog.md      # version history
 schema/                 # JSON schemas
+docs/                   # evidence model and citation policy
+fixtures/evidence/      # fictional validation examples (not clinical data)
 agents/                 # agent prompt templates and I/O schemas
 scripts/                # validation scripts
 project.config.json     # project metadata and safety flags
@@ -175,13 +177,15 @@ The validation script checks:
 - no placeholder content in published monographs
 - `clinically_usable` must be `false`: enforced by `schema/monograph.schema.json` (`const: false`) and rejected as a **hard error** if set to `true` in `scripts/validate.js`
 - `project.config.json` required fields and values (`clinicalUseStatus`, `requireHumanReviewForPublication`, `audiencePrimary`, `positioning`, and related metadata)
+- `evidence.yaml` schema v1.0 rules: citation/packet ID formats, referential integrity, reuse/license constraints, and placeholder drug safeguards (see [docs/evidence-model.md](docs/evidence-model.md))
 
 **Errors vs. warnings:** validation exits with a non-zero code on errors only. Warnings are informational. The current warning tier flags draft monographs that omit `PLACEHOLDER_CLINICAL_CONTENT: true` (unexpected for scaffold placeholders).
 
-Demonstrate a deliberate safety gate failure:
+Demonstrate deliberate safety gate failures:
 
 ```bash
 node scripts/validate-failure-demo.js
+npm run validate:evidence-failure-demo
 ```
 
 ## Contributing
