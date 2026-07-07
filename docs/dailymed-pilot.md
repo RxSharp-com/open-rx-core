@@ -14,19 +14,43 @@ Scope:
 - **Source family:** DailyMed only
 - **Output:** metadata-level source records, citations, and unapproved evidence packets
 
+## Multi-labeler limitation (read first)
+
+**Cefazolin is a generic drug with multiple DailyMed SPLs — one per labeler/manufacturer.** DailyMed does not provide a single canonical “the cefazolin label.”
+
+This pilot imported **one labeler SPL only**:
+
+- **Labeler:** WG Critical Care, LLC
+- **Selection method:** first result from `drug_name=cefazolin` search with `pagesize=1` (API sort order at fetch time)
+- **Not evaluated:** other cefazolin SPLs from other manufacturers (41 total SPLs reported by the API at pilot fetch time)
+
+`cefazolin-src-dailymed-0001` refers to **this manufacturer's label**, not cefazolin generally. A policy for canonical labeler selection or multiple source records per generic drug is **deferred** to `feature/dailymed-pilot-review-and-normalization`.
+
 ## Source used
 
 | Field | Value |
 |-------|-------|
 | API | DailyMed v2 SPL search (`/dailymed/services/v2/spls.json`) |
-| Search | `drug_name=cefazolin`, `pagesize=1` (single record pilot) |
+| Search | `drug_name=cefazolin`, `pagesize=1` (**first search result only**) |
+| Total SPLs (API) | 41 at pilot fetch time (others not imported) |
 | Selected setid | `1999084a-124c-45f9-801f-416a1b942c96` |
-| Title | CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC] |
+| Labeler | WG Critical Care, LLC |
+| Title (API) | CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC] |
 | SPL version | 11 |
 | Published date | 2026-07-06 (API metadata) |
 | DailyMed URL | https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96 |
 
-Raw fetch output (metadata only): `data/raw/dailymed/cefazolin/fetch-metadata.json`
+### Raw fetch file (`fetch-metadata.json`)
+
+Path: `data/raw/dailymed/cefazolin/fetch-metadata.json`
+
+**Metadata only** (~1 KB). Contains:
+
+- `selection_method`, `selection_warning`, `search_total_elements`
+- `api_search_url`, `api_verify_url`, `accessed_date`, `fetched_at`
+- `selected_spl`: `setid`, `title`, `spl_version`, `published_date`, `published_date_iso`, `dailymed_url`
+
+Does **not** contain: SPL XML/HTML, label section text, dosing tables, or bulk search results.
 
 Fetch script: `scripts/fetch-dailymed-single-drug.js`
 
@@ -34,16 +58,16 @@ Fetch script: `scripts/fetch-dailymed-single-drug.js`
 npm run fetch:dailymed:cefazolin
 ```
 
+**Note:** The npm command fetches by **first search-result position**, not a predetermined canonical setid. Re-running may return a different labeler if API sort order changes.
+
 ## What was imported or mapped
 
 Into `content/drugs/cefazolin/evidence.yaml`:
 
-- `evidence_status: evidence_packets_drafted`
-- **1** DailyMed source record (`cefazolin-src-dailymed-0001`)
-- **2** citation records (source-level and section-level pointers)
-- **2** evidence packets (`needs_review`, `requires_human_review: true`)
-  - DailyMed label source identified
-  - Label sections noted as available for future review (no text imported)
+- `evidence_status: sources_imported` (not `evidence_packets_drafted` — multi-labeler selection unresolved; packets are metadata stubs only)
+- **1** DailyMed source record for **WG Critical Care, LLC** (`cefazolin-src-dailymed-0001`)
+- **2** citation records (source-level and section-level pointers for this labeler SPL)
+- **2** evidence packets (`needs_review`, `requires_human_review: true`, manufacturer-scoped summaries)
 
 ## What was intentionally not imported
 
@@ -52,13 +76,13 @@ Into `content/drugs/cefazolin/evidence.yaml`:
 - Dosing, monitoring, safety, efficacy, or counseling claims
 - `patient_facing_candidate` or `clinician_facing_candidate` text
 - Updates to `patient.md` or `clinician.md`
-- Bulk search across all cefazolin labels (only `pagesize=1`)
+- Other labeler SPLs (only `pagesize=1` first result)
 - Other drugs or non-DailyMed sources
 - `approved` packet or evidence file status
 
 ## Why no clinical recommendations were generated
 
-DailyMed labels are regulatory source material. This pilot records **source identity and availability** only. Transforming label content into clinician or patient guidance requires human review, reuse/license assessment, and a separate drafting workflow — none of which exist in this branch.
+DailyMed labels are regulatory source material. This pilot records **one labeler SPL identity and availability** only. Transforming label content into clinician or patient guidance requires human review, reuse/license assessment, labeler-selection policy, and a separate drafting workflow — none of which exist in this branch.
 
 ## Human review and approval gates
 
@@ -77,7 +101,8 @@ Do not treat this pilot as a legal conclusion about reuse rights. Only `public_d
 
 ## Limitations of a single DailyMed source
 
-- Only one SPL record selected (`pagesize=1`); other manufacturers/formulations not evaluated
+- **Multiple labelers:** generic cefazolin has many SPLs; only one labeler imported
+- **Non-deterministic selection:** `pagesize=1` first result is not a canonical reference
 - No section-level extraction or clinical synthesis
 - No cross-validation with openFDA, RxNorm, or literature
 - No human reviewer attestation
@@ -99,12 +124,12 @@ Failure demos: `npm run validate:evidence-failure-demo`
 
 Recommended branch: **`feature/dailymed-pilot-review-and-normalization`**
 
-Before adding more drugs or sources:
+Resolve **before** repeating this pattern on other OPAT drugs:
 
-1. Human review of pilot packets and reuse assumptions
-2. Decide whether to import additional SPL records or section metadata
-3. Normalize source ID conventions and fetch workflow
-4. Establish reviewer workflow before any `approved` status
-5. Plan cross-drug source registry before scaling beyond initial OPAT set
+1. **Multi-labeler policy** — canonical reference labeler vs. multiple source records per generic drug
+2. Human/legal review of `reuse_status` and `license_note` on this concrete example
+3. Whether to import additional SPL records or section metadata for cefazolin
+4. Normalize fetch workflow (explicit setid vs. search-position selection)
+5. Establish reviewer workflow before any `approved` status
 
 Do not expand to patient/clinician monograph content until explicit review gates exist.

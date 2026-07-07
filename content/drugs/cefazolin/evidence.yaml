@@ -1,11 +1,11 @@
 schema_version: "1.0"
 drug_id: cefazolin
-evidence_status: evidence_packets_drafted
+evidence_status: sources_imported
 last_evidence_reviewed: null
 sources:
   - source_id: cefazolin-src-dailymed-0001
     source_type: dailymed_label
-    source_title: CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]
+    source_title: WG Critical Care, LLC cefazolin injection label (SPL version 11; one labeler SPL, not a canonical cefazolin reference)
     source_url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96
     source_origin: DailyMed
     source_publisher: National Library of Medicine (FDA-submitted labeling)
@@ -14,7 +14,9 @@ sources:
     identifiers:
       setid: 1999084a-124c-45f9-801f-416a1b942c96
       spl_version: "11"
+      labeler: WG CRITICAL CARE, LLC
       dailymed_search_drug_name: cefazolin
+      selection_method: first_search_result_pagesize_1
     reuse_status: unknown_requires_review
     license_note: >
       DailyMed public regulatory-label metadata pilot only. Reuse rights for generated
@@ -24,31 +26,33 @@ sources:
     source_authority_level: regulatory_label
     source_status: active
     notes: >
-      Metadata imported from DailyMed v2 SPL search (pagesize=1). No SPL XML/HTML or
-      label section text stored in the repository.
+      One manufacturer SPL only (WG Critical Care, LLC). DailyMed lists separate SPLs
+      per labeler for generic cefazolin; this record is not a canonical drug-wide label.
+      Metadata imported from DailyMed v2 SPL search (pagesize=1, first result). No SPL
+      XML/HTML or label section text stored in the repository.
 citations:
   - citation_id: cefazolin-cite-0001
     source_id: cefazolin-src-dailymed-0001
-    citation_label: DailyMed SPL record (cefazolin)
+    citation_label: WG Critical Care, LLC DailyMed SPL metadata (one cefazolin labeler)
     locator: setid:1999084a-124c-45f9-801f-416a1b942c96
     citation_type: source_level
     supports_claim_type: source_identity_only
     reuse_note: Source identity/metadata only; no label text copied.
-    notes: Pilot citation for identified DailyMed label source.
+    notes: Pilot citation for one labeler SPL; not representative of all cefazolin labels.
   - citation_id: cefazolin-cite-0002
     source_id: cefazolin-src-dailymed-0001
-    citation_label: DailyMed SPL sections (not imported)
-    locator: SPL sections available via DailyMed; text not imported in this pilot
+    citation_label: WG Critical Care SPL sections (not imported)
+    locator: SPL sections available via DailyMed for this setid; text not imported
     citation_type: section_level
     supports_claim_type: background_context
     reuse_note: Section-level pointer only; no copied label excerpts.
-    notes: Documents that label sections exist for future human review only.
+    notes: Documents that sections exist for this labeler SPL only; future human review required.
 evidence_packets:
   - packet_id: cefazolin-packet-0001
     packet_type: label_fact
     packet_status: needs_review
     affected_monograph_sections: []
-    claim_summary: DailyMed label source identified for cefazolin.
+    claim_summary: DailyMed SPL metadata imported for WG Critical Care, LLC cefazolin injection label (one labeler; not a canonical cefazolin reference).
     clinical_claim: null
     patient_facing_candidate: null
     clinician_facing_candidate: null
@@ -63,7 +67,7 @@ evidence_packets:
       - not_yet_reviewed
       - license_unclear
     known_gaps:
-      - Single DailyMed SPL selected via pagesize=1 search; other labels not evaluated.
+      - Only one labeler SPL selected (pagesize=1 first search result); other cefazolin SPLs not evaluated.
     created_by: dailymed-pilot-fetch
     created_date: "2026-07-07"
     last_updated: "2026-07-07"
@@ -71,7 +75,7 @@ evidence_packets:
     packet_type: label_fact
     packet_status: needs_review
     affected_monograph_sections: []
-    claim_summary: DailyMed label sections available for future human review; no section text imported.
+    claim_summary: DailyMed SPL sections for WG Critical Care label noted for future review; no section text imported.
     clinical_claim: null
     patient_facing_candidate: null
     clinician_facing_candidate: null
@@ -86,18 +90,20 @@ evidence_packets:
       - not_yet_reviewed
       - license_unclear
     known_gaps:
-      - No label section extraction performed in this pilot.
+      - No label section extraction performed for this labeler SPL.
     created_by: dailymed-pilot-fetch
     created_date: "2026-07-07"
     last_updated: "2026-07-07"
 known_gaps:
-  - Only a single-source DailyMed metadata pilot has been performed for cefazolin.
+  - Only one DailyMed SPL from one labeler (WG Critical Care, LLC) was imported; other cefazolin SPLs from other manufacturers exist and were not evaluated.
+  - No canonical labeler-selection policy exists yet for generic drugs with multiple DailyMed SPLs.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
   - Other OPAT drugs and non-DailyMed sources have not been imported.
 audit_notes: >
-  DailyMed pilot import on 2026-07-07. Fetched one SPL metadata record via
-  scripts/fetch-dailymed-single-drug.js (pagesize=1). Raw metadata stored at
-  data/raw/dailymed/cefazolin/fetch-metadata.json. No label text, HTML, XML,
-  dosing, monitoring, safety, efficacy, or counseling content imported. All packets
-  are needs_review and unapproved. patient.md and clinician.md were not modified.
+  DailyMed pilot import on 2026-07-07. Fetched one labeler SPL metadata record via
+  scripts/fetch-dailymed-single-drug.js (pagesize=1, first search result — not canonical).
+  Raw metadata stored at data/raw/dailymed/cefazolin/fetch-metadata.json (metadata fields
+  only: setid, title, spl_version, dates, URLs; no label body text). evidence_status is
+  sources_imported because multi-labeler selection is unresolved. All packets are
+  needs_review and unapproved. patient.md and clinician.md were not modified.

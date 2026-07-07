@@ -3,6 +3,9 @@
 /**
  * Fetch minimal DailyMed SPL metadata for a single drug (cefazolin pilot).
  * Metadata only — no label text, HTML, or XML.
+ *
+ * Selection method: first result from drug_name search with pagesize=1.
+ * This does NOT retrieve a canonical or representative label for the generic drug.
  */
 
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -61,6 +64,7 @@ async function main() {
 
   const searchResult = await fetchJson(SEARCH_URL);
   const records = searchResult?.data;
+  const totalElements = searchResult?.metadata?.total_elements ?? null;
 
   if (!Array.isArray(records) || records.length === 0) {
     fail(`No DailyMed SPL records returned for drug_name=${DRUG_NAME}.`);
@@ -70,6 +74,10 @@ async function main() {
   if (!record?.setid) {
     fail('DailyMed search result missing setid.');
   }
+
+  console.warn(
+    'Note: This pilot selects the first DailyMed search result (pagesize=1), not a canonical drug label. Generic drugs may have multiple labeler SPLs.',
+  );
 
   const verifyUrl = `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=${encodeURIComponent(record.setid)}`;
   const verifyResult = await fetchJson(verifyUrl);
@@ -85,8 +93,12 @@ async function main() {
     drug_name: DRUG_NAME,
     fetched_at: new Date().toISOString(),
     accessed_date: accessedDate,
+    selection_method: 'first_search_result_pagesize_1',
+    selection_warning:
+      'Not a canonical cefazolin label. DailyMed lists separate SPLs per labeler; only the first search result is stored.',
     api_search_url: SEARCH_URL,
     api_verify_url: verifyUrl,
+    search_total_elements: totalElements,
     selected_spl: {
       setid: verified.setid,
       title: verified.title,
@@ -97,7 +109,8 @@ async function main() {
     },
     notes: [
       'Metadata only. No SPL XML/HTML or label section text stored.',
-      'Single-record pilot using pagesize=1 search result.',
+      'Fields limited to setid, title, spl_version, published_date, dailymed_url, and search metadata.',
+      'Single-record pilot using pagesize=1 first search result; other labeler SPLs not fetched.',
     ],
   };
 
