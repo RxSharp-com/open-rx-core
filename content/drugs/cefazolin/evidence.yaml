@@ -5,7 +5,7 @@ last_evidence_reviewed: null
 sources:
   - source_id: cefazolin-src-dailymed-0001
     source_type: dailymed_label
-    source_title: WG Critical Care, LLC cefazolin injection label (SPL version 11; one labeler SPL, not a canonical cefazolin reference)
+    source_title: WG Critical Care, LLC cefazolin injection label, SPL version 11
     source_url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96
     source_origin: DailyMed
     source_publisher: National Library of Medicine (FDA-submitted labeling)
@@ -26,10 +26,10 @@ sources:
     source_authority_level: regulatory_label
     source_status: active
     notes: >
-      One manufacturer SPL only (WG Critical Care, LLC). DailyMed lists separate SPLs
-      per labeler for generic cefazolin; this record is not a canonical drug-wide label.
-      Metadata imported from DailyMed v2 SPL search (pagesize=1, first result). No SPL
-      XML/HTML or label section text stored in the repository.
+      One manufacturer/labeler SPL only: WG Critical Care, LLC. This is not the cefazolin
+      label generally — DailyMed lists separate SPLs per labeler for generic cefazolin.
+      Metadata imported from DailyMed v2 SPL search (pagesize=1, first search result).
+      No SPL XML/HTML or label section text stored in the repository.
 citations:
   - citation_id: cefazolin-cite-0001
     source_id: cefazolin-src-dailymed-0001
@@ -95,8 +95,10 @@ evidence_packets:
     created_date: "2026-07-07"
     last_updated: "2026-07-07"
 known_gaps:
-  - Only one DailyMed SPL from one labeler (WG Critical Care, LLC) was imported; other cefazolin SPLs from other manufacturers exist and were not evaluated.
-  - No canonical labeler-selection policy exists yet for generic drugs with multiple DailyMed SPLs.
+  - This pilot evaluated only one DailyMed SPL for cefazolin (WG Critical Care, LLC).
+  - Other cefazolin SPLs from other labelers/manufacturers may exist and were not evaluated.
+  - This source must not be treated as a canonical or comprehensive cefazolin label source.
+  - A future DailyMed normalization policy is needed before expanding to multiple drugs or treating DailyMed label evidence as representative.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
   - Other OPAT drugs and non-DailyMed sources have not been imported.

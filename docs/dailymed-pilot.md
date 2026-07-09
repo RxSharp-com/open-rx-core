@@ -14,17 +14,20 @@ Scope:
 - **Source family:** DailyMed only
 - **Output:** metadata-level source records, citations, and unapproved evidence packets
 
-## Multi-labeler limitation (read first)
+## Generic Drug / Multiple Labeler Limitation
 
-**Cefazolin is a generic drug with multiple DailyMed SPLs — one per labeler/manufacturer.** DailyMed does not provide a single canonical “the cefazolin label.”
+DailyMed labels are submitted **per labeler, product, and SPL**. A generic drug such as cefazolin may have **multiple DailyMed SPLs** from different labelers/manufacturers.
 
-This pilot imported **one labeler SPL only**:
+This pilot selected **one DailyMed search result only**:
 
-- **Labeler:** WG Critical Care, LLC
+- **Selected SPL:** WG Critical Care, LLC cefazolin injection label (SPL version 11)
+- **setid:** `1999084a-124c-45f9-801f-416a1b942c96`
 - **Selection method:** first result from `drug_name=cefazolin` search with `pagesize=1` (API sort order at fetch time)
-- **Not evaluated:** other cefazolin SPLs from other manufacturers (41 total SPLs reported by the API at pilot fetch time)
+- **Not evaluated:** other cefazolin SPLs from other labelers/manufacturers (41 total SPLs reported by the API at pilot fetch time)
 
-`cefazolin-src-dailymed-0001` refers to **this manufacturer's label**, not cefazolin generally. A policy for canonical labeler selection or multiple source records per generic drug is **deferred** to `feature/dailymed-pilot-review-and-normalization`.
+This source must be treated as a **single-labeler pilot source**, not as the canonical cefazolin label. `cefazolin-src-dailymed-0001` refers to the selected WG Critical Care, LLC SPL only.
+
+Future work must define a **DailyMed source selection and normalization policy** before expanding this pattern to additional drugs or treating DailyMed label evidence as representative. That policy is deferred to `feature/dailymed-pilot-review-and-normalization`.
 
 ## Source used
 
@@ -46,7 +49,7 @@ Path: `data/raw/dailymed/cefazolin/fetch-metadata.json`
 
 **Metadata only** (~1 KB). Contains:
 
-- `selection_method`, `selection_warning`, `search_total_elements`
+- `source_family`, `search_query`, `selected_result_position`, `selection_method`, `selection_warning`, `search_total_elements`
 - `api_search_url`, `api_verify_url`, `accessed_date`, `fetched_at`
 - `selected_spl`: `setid`, `title`, `spl_version`, `published_date`, `published_date_iso`, `dailymed_url`
 

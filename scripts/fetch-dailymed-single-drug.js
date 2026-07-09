@@ -90,7 +90,10 @@ async function main() {
   const accessedDate = new Date().toISOString().slice(0, 10);
   const output = {
     pilot: 'dailymed-single-drug',
+    source_family: 'dailymed',
     drug_name: DRUG_NAME,
+    search_query: `drug_name=${DRUG_NAME}&pagesize=${PAGE_SIZE}`,
+    selected_result_position: 1,
     fetched_at: new Date().toISOString(),
     accessed_date: accessedDate,
     selection_method: 'first_search_result_pagesize_1',
