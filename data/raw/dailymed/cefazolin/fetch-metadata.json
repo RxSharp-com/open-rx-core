@@ -1,0 +1,27 @@
+{
+  "pilot": "dailymed-single-drug",
+  "source_family": "dailymed",
+  "drug_name": "cefazolin",
+  "search_query": "drug_name=cefazolin&pagesize=1",
+  "selected_result_position": 1,
+  "fetched_at": "2026-07-09T20:21:31.696Z",
+  "accessed_date": "2026-07-09",
+  "selection_method": "first_search_result_pagesize_1",
+  "selection_warning": "Not a canonical cefazolin label. DailyMed lists separate SPLs per labeler; only the first search result is stored.",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=cefazolin&pagesize=1",
+  "api_verify_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=1999084a-124c-45f9-801f-416a1b942c96",
+  "search_total_elements": 41,
+  "selected_spl": {
+    "setid": "1999084a-124c-45f9-801f-416a1b942c96",
+    "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+    "spl_version": 11,
+    "published_date": "Jul 06, 2026",
+    "published_date_iso": "2026-07-06",
+    "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96"
+  },
+  "notes": [
+    "Metadata only. No SPL XML/HTML or label section text stored.",
+    "Fields limited to setid, title, spl_version, published_date, dailymed_url, and search metadata.",
+    "Single-record pilot using pagesize=1 first search result; other labeler SPLs not fetched."
+  ]
+}

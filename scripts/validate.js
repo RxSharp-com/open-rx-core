@@ -171,8 +171,11 @@ function validateDrugFolder(drugId, validators) {
   }
 
   validateEvidenceRules(evidence, drugId, (message) => fail(message), {
-    requireNotImported: true,
-    requireNoClinicalClaims: true,
+    requireNotImported: evidence.evidence_status === 'not_imported',
+    requireNoClinicalClaims: evidence.evidence_status === 'not_imported',
+    disallowApprovedPackets: true,
+    disallowMonographCandidates: true,
+    maxFieldLength: 320,
   });
 
   if (monograph.clinically_usable === true) {
