@@ -8,11 +8,15 @@ last_evidence_reviewed: null
 sources:
   - source_id: exampledrug-src-dailymed-0001
     source_type: dailymed_label
-    source_title: FICTIONAL EXAMPLE — DailyMed label metadata
+    source_title: Example Labeler cefazolin injection label, SPL version 1
     reuse_status: unknown_requires_review
     source_authority_level: regulatory_label
     source_status: active
+    identifiers:
+      setid: example-setid-0001
+      labeler: Example Labeler
     license_note: FICTIONAL EXAMPLE
+    notes: Only one DailyMed SPL evaluated in this fixture.
 citations:
   - citation_id: exampledrug-cite-0001
     source_id: exampledrug-src-dailymed-0001
@@ -32,5 +36,5 @@ evidence_packets:
     claim_summary: FICTIONAL EXAMPLE — direct impact without appropriate review level.
     clinical_claim: null
 known_gaps:
-  - FICTIONAL EXAMPLE fixture only.
+  - Only one DailyMed SPL evaluated (fixture).
 audit_notes: Validation failure fixture for recommendation_impact direct guard.

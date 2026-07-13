@@ -1,0 +1,24 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Failure: public_domain without verifiable license_note basis
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: sources_imported
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-dailymed-0003
+    source_type: dailymed_label
+    source_title: Example Labeler cefazolin injection label, SPL version 1
+    reuse_status: public_domain
+    source_authority_level: regulatory_label
+    source_status: active
+    identifiers:
+      setid: example-setid-0003
+      labeler: Example Labeler
+    license_note: Public domain.
+    notes: Only one DailyMed SPL evaluated in this fixture.
+citations: []
+evidence_packets: []
+known_gaps:
+  - Only one DailyMed SPL evaluated (fixture).
+audit_notes: FICTIONAL EXAMPLE validation fixture.

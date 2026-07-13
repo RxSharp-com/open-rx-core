@@ -16,7 +16,8 @@ sources:
       spl_version: "11"
       labeler: WG CRITICAL CARE, LLC
       dailymed_search_drug_name: cefazolin
-      selection_method: first_search_result_pagesize_1
+      selection_method: explicit_setid
+      selection_setid: 1999084a-124c-45f9-801f-416a1b942c96
     reuse_status: unknown_requires_review
     license_note: >
       DailyMed public regulatory-label metadata pilot only. Reuse rights for generated
@@ -26,10 +27,10 @@ sources:
     source_authority_level: regulatory_label
     source_status: active
     notes: >
-      One manufacturer/labeler SPL only: WG Critical Care, LLC. This is not the cefazolin
-      label generally — DailyMed lists separate SPLs per labeler for generic cefazolin.
-      Metadata imported from DailyMed v2 SPL search (pagesize=1, first search result).
-      No SPL XML/HTML or label section text stored in the repository.
+      One manufacturer/labeler SPL only: WG Critical Care, LLC (setid-specific). This is not the
+      cefazolin label generally — DailyMed lists separate SPLs per labeler for generic cefazolin.
+      Imported via explicit setid selection per docs/dailymed-source-normalization.md. No SPL
+      XML/HTML or label section text stored in the repository.
 citations:
   - citation_id: cefazolin-cite-0001
     source_id: cefazolin-src-dailymed-0001
@@ -98,14 +99,14 @@ known_gaps:
   - This pilot evaluated only one DailyMed SPL for cefazolin (WG Critical Care, LLC).
   - Other cefazolin SPLs from other labelers/manufacturers may exist and were not evaluated.
   - This source must not be treated as a canonical or comprehensive cefazolin label source.
-  - A future DailyMed normalization policy is needed before expanding to multiple drugs or treating DailyMed label evidence as representative.
+  - A DailyMed source normalization policy is documented in docs/dailymed-source-normalization.md; canonical labeler selection remains unresolved.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
   - Other OPAT drugs and non-DailyMed sources have not been imported.
 audit_notes: >
-  DailyMed pilot import on 2026-07-07. Fetched one labeler SPL metadata record via
-  scripts/fetch-dailymed-single-drug.js (pagesize=1, first search result — not canonical).
-  Raw metadata stored at data/raw/dailymed/cefazolin/fetch-metadata.json (metadata fields
-  only: setid, title, spl_version, dates, URLs; no label body text). evidence_status is
-  sources_imported because multi-labeler selection is unresolved. All packets are
-  needs_review and unapproved. patient.md and clinician.md were not modified.
+  DailyMed pilot source mapped with explicit setid 1999084a-124c-45f9-801f-416a1b942c96 (WG Critical
+  Care, LLC SPL only). Normalization policy: docs/dailymed-source-normalization.md. Candidate
+  metadata sample: data/raw/dailymed/cefazolin/search-candidates.json. Selected SPL metadata:
+  data/raw/dailymed/cefazolin/fetch-metadata.json (metadata fields only; no label body text).
+  evidence_status remains sources_imported. All packets are needs_review and unapproved.
+  patient.md and clinician.md were not modified.

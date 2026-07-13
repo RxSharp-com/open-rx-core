@@ -90,6 +90,18 @@ const scenarios = [
     'recommendation_impact direct without level_3 or level_4',
     'failure-direct-recommendation-impact.yaml',
   ],
+  [
+    'dailymed_label missing identifiers.setid',
+    'failure-dailymed-missing-setid.yaml',
+  ],
+  [
+    'DailyMed generic source_title missing labeler identity',
+    'failure-dailymed-generic-title.yaml',
+  ],
+  [
+    'DailyMed public_domain without verifiable license_note basis',
+    'failure-dailymed-public-domain-no-basis.yaml',
+  ],
 ];
 
 let allFailedAsExpected = true;

@@ -8,7 +8,8 @@
     "validate": "node scripts/validate.js",
     "validate:failure-demo": "node scripts/validate-failure-demo.js",
     "validate:evidence-failure-demo": "node scripts/validate-evidence-failure-demo.js",
-    "fetch:dailymed:cefazolin": "node scripts/fetch-dailymed-single-drug.js"
+    "fetch:dailymed:cefazolin:list": "node scripts/fetch-dailymed-single-drug.js list",
+    "fetch:dailymed:cefazolin": "node scripts/fetch-dailymed-single-drug.js fetch --setid 1999084a-124c-45f9-801f-416a1b942c96"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
