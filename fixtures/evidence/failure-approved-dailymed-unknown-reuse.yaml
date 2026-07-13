@@ -3,16 +3,20 @@
 
 schema_version: "1.0"
 drug_id: cefazolin
-evidence_status: evidence_packets_drafted
+evidence_status: sources_imported
 last_evidence_reviewed: null
 sources:
   - source_id: cefazolin-src-dailymed-0001
     source_type: dailymed_label
-    source_title: FICTIONAL EXAMPLE — DailyMed label metadata
+    source_title: WG Critical Care, LLC cefazolin injection label, SPL version 11
     reuse_status: unknown_requires_review
     source_authority_level: regulatory_label
     source_status: active
+    identifiers:
+      setid: 1999084a-124c-45f9-801f-416a1b942c96
+      labeler: WG CRITICAL CARE, LLC
     license_note: FICTIONAL EXAMPLE — reuse not asserted.
+    notes: Only one DailyMed SPL evaluated in this fixture.
 citations:
   - citation_id: cefazolin-cite-0001
     source_id: cefazolin-src-dailymed-0001
@@ -31,5 +35,5 @@ evidence_packets:
       - cefazolin-src-dailymed-0001
     clinical_claim: null
 known_gaps:
-  - FICTIONAL EXAMPLE fixture only.
+  - Only one DailyMed SPL evaluated (fixture).
 audit_notes: Validation failure fixture for DailyMed pilot.

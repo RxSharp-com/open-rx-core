@@ -1,0 +1,24 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Failure: generic-only DailyMed source_title without labeler scoping
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: sources_imported
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-dailymed-0002
+    source_type: dailymed_label
+    source_title: DailyMed cefazolin label
+    reuse_status: unknown_requires_review
+    source_authority_level: regulatory_label
+    source_status: active
+    identifiers:
+      setid: example-setid-0002
+      labeler: Example Pharma, Inc.
+    license_note: FICTIONAL EXAMPLE
+    notes: Only one DailyMed SPL evaluated in this fixture.
+citations: []
+evidence_packets: []
+known_gaps:
+  - Only one DailyMed SPL evaluated (fixture).
+audit_notes: FICTIONAL EXAMPLE validation fixture.

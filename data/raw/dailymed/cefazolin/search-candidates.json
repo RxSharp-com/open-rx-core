@@ -1,0 +1,261 @@
+{
+  "query": "drug_name=cefazolin",
+  "fetched_at": "2026-07-13T18:05:45.122Z",
+  "total_results": 41,
+  "candidates_returned": 25,
+  "candidates_capped_at": 25,
+  "note": "Additional candidates may exist beyond this metadata sample. First-result position is not canonical.",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=cefazolin&pagesize=25",
+  "candidates": [
+    {
+      "setid": "1999084a-124c-45f9-801f-416a1b942c96",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 11,
+      "published_date": "Jul 06, 2026",
+      "published_date_iso": "2026-07-06",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1999084a-124c-45f9-801f-416a1b942c96",
+      "result_position": 1
+    },
+    {
+      "setid": "d91a8d13-99a0-4d87-88dc-71cbd37922b4",
+      "title": "CEFAZOLIN (CEFAZOLIN SODIUM) INJECTION, SOLUTION [BAXTER HEALTHCARE CORPORATION]",
+      "spl_version": 17,
+      "published_date": "May 21, 2026",
+      "published_date_iso": "2026-05-21",
+      "labeler": "BAXTER HEALTHCARE CORPORATION",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d91a8d13-99a0-4d87-88dc-71cbd37922b4",
+      "result_position": 2
+    },
+    {
+      "setid": "1dc9de56-e259-4546-a1db-23119a8a088e",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 13,
+      "published_date": "May 20, 2026",
+      "published_date_iso": "2026-05-20",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1dc9de56-e259-4546-a1db-23119a8a088e",
+      "result_position": 3
+    },
+    {
+      "setid": "26de1ce9-06a9-486f-b27d-2ac635f018d1",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 7,
+      "published_date": "May 20, 2026",
+      "published_date_iso": "2026-05-20",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=26de1ce9-06a9-486f-b27d-2ac635f018d1",
+      "result_position": 4
+    },
+    {
+      "setid": "9ea55207-6d86-401e-b9b9-73c9534a233f",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [CIVICA, INC.]",
+      "spl_version": 4,
+      "published_date": "May 20, 2026",
+      "published_date_iso": "2026-05-20",
+      "labeler": "CIVICA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9ea55207-6d86-401e-b9b9-73c9534a233f",
+      "result_position": 5
+    },
+    {
+      "setid": "4f3a9248-a354-4c77-bf5b-9eed38f00219",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 6,
+      "published_date": "Mar 23, 2026",
+      "published_date_iso": "2026-03-23",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4f3a9248-a354-4c77-bf5b-9eed38f00219",
+      "result_position": 6
+    },
+    {
+      "setid": "c24e604f-16ca-4945-8e9d-277cc67a8c68",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [CIVICA, INC.]",
+      "spl_version": 2,
+      "published_date": "Jan 30, 2026",
+      "published_date_iso": "2026-01-30",
+      "labeler": "CIVICA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c24e604f-16ca-4945-8e9d-277cc67a8c68",
+      "result_position": 7
+    },
+    {
+      "setid": "62441488-fc97-4535-a249-4485fb075022",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 18,
+      "published_date": "Jan 23, 2026",
+      "published_date_iso": "2026-01-23",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=62441488-fc97-4535-a249-4485fb075022",
+      "result_position": 8
+    },
+    {
+      "setid": "18e7366a-1b3e-4010-8f4a-dd559d4f2146",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [SANDOZ INC]",
+      "spl_version": 19,
+      "published_date": "Jan 21, 2026",
+      "published_date_iso": "2026-01-21",
+      "labeler": "SANDOZ INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=18e7366a-1b3e-4010-8f4a-dd559d4f2146",
+      "result_position": 9
+    },
+    {
+      "setid": "00dd6da7-50a8-44c9-b2dc-7948973df392",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 6,
+      "published_date": "Jan 08, 2026",
+      "published_date_iso": "2026-01-08",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00dd6da7-50a8-44c9-b2dc-7948973df392",
+      "result_position": 10
+    },
+    {
+      "setid": "197d5702-2c20-480e-8246-4d0d21f871be",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HENRY SCHEIN, INC.]",
+      "spl_version": 6,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "HENRY SCHEIN, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=197d5702-2c20-480e-8246-4d0d21f871be",
+      "result_position": 11
+    },
+    {
+      "setid": "5a8c4bb2-a75e-4d7d-91fb-9a95f04fc94b",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HENRY SCHEIN, INC.]",
+      "spl_version": 9,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "HENRY SCHEIN, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5a8c4bb2-a75e-4d7d-91fb-9a95f04fc94b",
+      "result_position": 12
+    },
+    {
+      "setid": "922fb1a1-ad4c-4a12-8d5d-00fe13af18e8",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HENRY SCHEIN INC.]",
+      "spl_version": 6,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "HENRY SCHEIN INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=922fb1a1-ad4c-4a12-8d5d-00fe13af18e8",
+      "result_position": 13
+    },
+    {
+      "setid": "3d5cc73c-8a41-b285-e063-6294a90a609f",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [PROPHARMA DISTRIBUTION]",
+      "spl_version": 1,
+      "published_date": "Aug 29, 2025",
+      "published_date_iso": "2025-08-29",
+      "labeler": "PROPHARMA DISTRIBUTION",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3d5cc73c-8a41-b285-e063-6294a90a609f",
+      "result_position": 14
+    },
+    {
+      "setid": "570d2583-9ce7-4941-bf7c-6ebc783c0f2b",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 4,
+      "published_date": "Jul 28, 2025",
+      "published_date_iso": "2025-07-28",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=570d2583-9ce7-4941-bf7c-6ebc783c0f2b",
+      "result_position": 15
+    },
+    {
+      "setid": "0422fe47-c372-494f-bac2-612f550b44a4",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [APOTEX CORP.]",
+      "spl_version": 13,
+      "published_date": "Jul 16, 2025",
+      "published_date_iso": "2025-07-16",
+      "labeler": "APOTEX CORP.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0422fe47-c372-494f-bac2-612f550b44a4",
+      "result_position": 16
+    },
+    {
+      "setid": "6c7761d3-c154-4802-9876-627cd42913f0",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 13,
+      "published_date": "Jun 03, 2025",
+      "published_date_iso": "2025-06-03",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6c7761d3-c154-4802-9876-627cd42913f0",
+      "result_position": 17
+    },
+    {
+      "setid": "17f8f038-c204-4dab-80d7-6f7ac41ddbec",
+      "title": "CEFAZOLIN SODIUM SOLUTION [B. BRAUN MEDICAL INC.]",
+      "spl_version": 31,
+      "published_date": "Apr 10, 2025",
+      "published_date_iso": "2025-04-10",
+      "labeler": "B. BRAUN MEDICAL INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17f8f038-c204-4dab-80d7-6f7ac41ddbec",
+      "result_position": 18
+    },
+    {
+      "setid": "f17160d4-fc42-4f9c-abb8-d04f01ae6dd1",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 21,
+      "published_date": "Apr 09, 2025",
+      "published_date_iso": "2025-04-09",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f17160d4-fc42-4f9c-abb8-d04f01ae6dd1",
+      "result_position": 19
+    },
+    {
+      "setid": "cf13db9c-d8a1-489f-9aa0-fc70839d4bbc",
+      "title": "CEFAZOLIN (CEFAZOLIN SODIUM) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [SAMSON MEDICAL TECHNOLOGIES, L.L.C.]",
+      "spl_version": 10,
+      "published_date": "Jan 13, 2025",
+      "published_date_iso": "2025-01-13",
+      "labeler": "SAMSON MEDICAL TECHNOLOGIES, L.L.C.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cf13db9c-d8a1-489f-9aa0-fc70839d4bbc",
+      "result_position": 20
+    },
+    {
+      "setid": "e58f87fb-a47d-4081-a454-e4e916e2f629",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [SANDOZ INC]",
+      "spl_version": 18,
+      "published_date": "Dec 16, 2024",
+      "published_date_iso": "2024-12-16",
+      "labeler": "SANDOZ INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e58f87fb-a47d-4081-a454-e4e916e2f629",
+      "result_position": 21
+    },
+    {
+      "setid": "22dfc2e4-07a7-8d13-e063-6394a90a3e9f",
+      "title": "CEFAZOLIN SODIUM INJECTION, POWDER, FOR SOLUTION [DIRECT_RX]",
+      "spl_version": 1,
+      "published_date": "Sep 26, 2024",
+      "published_date_iso": "2024-09-26",
+      "labeler": "DIRECT_RX",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=22dfc2e4-07a7-8d13-e063-6394a90a3e9f",
+      "result_position": 22
+    },
+    {
+      "setid": "06091653-e568-4e82-acc7-aefbce16de17",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 15,
+      "published_date": "Apr 22, 2024",
+      "published_date_iso": "2024-04-22",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=06091653-e568-4e82-acc7-aefbce16de17",
+      "result_position": 23
+    },
+    {
+      "setid": "8a772acc-726d-40e6-88ee-b6075cbf9b28",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [A-S MEDICATION SOLUTIONS]",
+      "spl_version": 8,
+      "published_date": "Dec 27, 2023",
+      "published_date_iso": "2023-12-27",
+      "labeler": "A-S MEDICATION SOLUTIONS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8a772acc-726d-40e6-88ee-b6075cbf9b28",
+      "result_position": 24
+    },
+    {
+      "setid": "e8bd9e95-8af5-416b-b58c-e1dbe3d052ac",
+      "title": "CEFAZOLIN INJECTION, POWDER, FOR SOLUTION [QILU PHARMACEUTICAL CO., LTD.]",
+      "spl_version": 7,
+      "published_date": "Dec 19, 2023",
+      "published_date_iso": "2023-12-19",
+      "labeler": "QILU PHARMACEUTICAL CO., LTD.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e8bd9e95-8af5-416b-b58c-e1dbe3d052ac",
+      "result_position": 25
+    }
+  ]
+}

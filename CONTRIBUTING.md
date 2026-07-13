@@ -46,7 +46,7 @@ Validate against `schema/monograph.schema.json` and `schema/evidence.schema.json
 
 ## Adding evidence sources
 
-Evidence files use **schema version 1.0**. See [docs/evidence-model.md](docs/evidence-model.md) and [docs/citation-policy.md](docs/citation-policy.md).
+Evidence files use **schema version 1.0**. See [docs/evidence-model.md](docs/evidence-model.md), [docs/citation-policy.md](docs/citation-policy.md), and DailyMed scoping rules in [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md).
 
 Structure:
 

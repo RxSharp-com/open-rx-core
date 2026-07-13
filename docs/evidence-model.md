@@ -56,6 +56,7 @@ Key fields:
 
 - `source_id` — stable identifier unique within the evidence file
 - `source_type` — closed enum (e.g. `dailymed_label`, `rxnorm`, `pmc_open_access`)
+- DailyMed `dailymed_label` records are **SPL/setid-specific**; see [dailymed-source-normalization.md](dailymed-source-normalization.md)
 - `source_title`, `source_url`, `source_origin`, `source_publisher`
 - `source_date`, `accessed_date`, `updated_date`
 - `identifiers` — key/value public identifiers (RxCUI, NDA, PMID, etc.)

@@ -2,7 +2,7 @@
 
 This document describes the first controlled real-source evidence pilot for OpenRxCore. **OpenRxCore is not clinically usable.** This pilot does not create clinical guidance.
 
-See also: [evidence-model.md](evidence-model.md) · [citation-policy.md](citation-policy.md)
+See also: [evidence-model.md](evidence-model.md) · [citation-policy.md](citation-policy.md) · [dailymed-source-normalization.md](dailymed-source-normalization.md)
 
 ## Purpose
 
@@ -18,23 +18,22 @@ Scope:
 
 DailyMed labels are submitted **per labeler, product, and SPL**. A generic drug such as cefazolin may have **multiple DailyMed SPLs** from different labelers/manufacturers.
 
-This pilot selected **one DailyMed search result only**:
+This pilot mapped **one WG Critical Care, LLC SPL only** via **explicit setid** — **not** the canonical cefazolin label. Other cefazolin SPLs from other labelers/manufacturers were **not evaluated**.
 
 - **Selected SPL:** WG Critical Care, LLC cefazolin injection label (SPL version 11)
 - **setid:** `1999084a-124c-45f9-801f-416a1b942c96`
-- **Selection method:** first result from `drug_name=cefazolin` search with `pagesize=1` (API sort order at fetch time)
-- **Not evaluated:** other cefazolin SPLs from other labelers/manufacturers (41 total SPLs reported by the API at pilot fetch time)
+- **Selection method:** explicit setid (pilot reference SPL preserved; not first-result import)
+- **Candidate sample:** `data/raw/dailymed/cefazolin/search-candidates.json` (metadata only, capped)
 
-This source must be treated as a **single-labeler pilot source**, not as the canonical cefazolin label. `cefazolin-src-dailymed-0001` refers to the selected WG Critical Care, LLC SPL only.
-
-Future work must define a **DailyMed source selection and normalization policy** before expanding this pattern to additional drugs or treating DailyMed label evidence as representative. That policy is deferred to `feature/dailymed-pilot-review-and-normalization`.
+`cefazolin-src-dailymed-0001` refers to this labeler SPL only. Normalization policy: [dailymed-source-normalization.md](dailymed-source-normalization.md). Canonical labeler selection remains **unresolved**.
 
 ## Source used
 
 | Field | Value |
 |-------|-------|
 | API | DailyMed v2 SPL search (`/dailymed/services/v2/spls.json`) |
-| Search | `drug_name=cefazolin`, `pagesize=1` (**first search result only**) |
+| Search | `drug_name=cefazolin` candidate list (see `search-candidates.json`; capped sample) |
+| Import | explicit setid `1999084a-124c-45f9-801f-416a1b942c96` |
 | Total SPLs (API) | 41 at pilot fetch time (others not imported) |
 | Selected setid | `1999084a-124c-45f9-801f-416a1b942c96` |
 | Labeler | WG Critical Care, LLC |
@@ -58,10 +57,11 @@ Does **not** contain: SPL XML/HTML, label section text, dosing tables, or bulk s
 Fetch script: `scripts/fetch-dailymed-single-drug.js`
 
 ```bash
+npm run fetch:dailymed:cefazolin:list
 npm run fetch:dailymed:cefazolin
 ```
 
-**Note:** The npm command fetches by **first search-result position**, not a predetermined canonical setid. Re-running may return a different labeler if API sort order changes.
+**Note:** `list` writes a capped metadata candidate sample. `fetch` uses an explicit setid — not first-result position. See [dailymed-source-normalization.md](dailymed-source-normalization.md).
 
 ## What was imported or mapped
 
@@ -125,7 +125,7 @@ Failure demos: `npm run validate:evidence-failure-demo`
 
 ## Next steps before expanding
 
-Recommended branch: **`feature/dailymed-pilot-review-and-normalization`**
+Recommended branch: **`feature/dailymed-expand-opat-source-metadata`**
 
 Resolve **before** repeating this pattern on other OPAT drugs:
 

@@ -39,7 +39,7 @@ Packet IDs must be unique within the evidence file.
 - Every `evidence_packet.source_ids` entry must reference an existing source record
 - Cross-drug deduplication of sources is **deferred**; reuse the same `source_id` string in each drug file if needed until a shared source registry exists
 
-Prefer descriptive IDs tied to public identifiers when known, e.g. `cefazolin-dailymed-spl-placeholder` — but avoid implying clinical content is imported when it is not.
+Prefer descriptive IDs tied to public identifiers when known, e.g. `cefazolin-src-dailymed-0001` scoped to a specific SPL `setid` — but avoid implying a single SPL represents a whole generic drug label. See [dailymed-source-normalization.md](dailymed-source-normalization.md).
 
 ## When a citation is required
 

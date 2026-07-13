@@ -45,6 +45,88 @@ function isRestrictedReuseStatus(reuseStatus) {
   return reuseStatus === 'restricted_no_reuse' || reuseStatus === 'citation_only';
 }
 
+const SINGLE_SPL_DISCLOSURE_PATTERNS = [
+  'only one',
+  'one dailymed spl',
+  'one spl',
+  'single-labeler',
+  'single labeler',
+  'one labeler',
+];
+
+function labelerInTitle(labeler, title) {
+  return title.toLowerCase().includes(labeler.toLowerCase());
+}
+
+function hasSingleSplEvaluatedDisclosure(evidence, dailymedSources) {
+  if (dailymedSources.length !== 1) {
+    return true;
+  }
+
+  const haystack = [
+    ...(evidence.known_gaps ?? []),
+    ...dailymedSources.map((source) => source.notes ?? ''),
+    evidence.audit_notes ?? '',
+  ]
+    .join(' ')
+    .toLowerCase();
+
+  return SINGLE_SPL_DISCLOSURE_PATTERNS.some((pattern) => haystack.includes(pattern));
+}
+
+function hasVerifiablePublicDomainBasis(licenseNote) {
+  if (!isNonEmptyString(licenseNote) || licenseNote.trim().length < 40) {
+    return false;
+  }
+  return (
+    /https?:\/\//i.test(licenseNote)
+    || /17\s*u\.?s\.?c/i.test(licenseNote)
+    || /government work/i.test(licenseNote)
+  );
+}
+
+function validateDailyMedSourceRecords(evidence, drugId, fail) {
+  const prefix = `[${drugId}] evidence.yaml`;
+  const sources = evidence.sources ?? [];
+  const dailymedSources = sources.filter((source) => source.source_type === 'dailymed_label');
+
+  for (const source of dailymedSources) {
+    const sourceRef = `${prefix} source "${source.source_id}"`;
+
+    const setid = source.identifiers?.setid;
+    if (!isNonEmptyString(setid)) {
+      fail(`${sourceRef}: dailymed_label requires identifiers.setid.`);
+    }
+
+    const title = source.source_title ?? '';
+    const labeler = source.identifiers?.labeler;
+
+    if (isNonEmptyString(labeler)) {
+      if (!labelerInTitle(labeler, title)) {
+        fail(
+          `${sourceRef}: source_title must include identifiers.labeler "${labeler}" (SPL/labeler scoping required).`,
+        );
+      }
+    } else if (!title.toLowerCase().includes('labeler unknown')) {
+      fail(
+        `${sourceRef}: when identifiers.labeler is unavailable, source_title must include "labeler unknown" instead of an unqualified drug-level title.`,
+      );
+    }
+
+    if (source.reuse_status === 'public_domain' && !hasVerifiablePublicDomainBasis(source.license_note)) {
+      fail(
+        `${sourceRef}: reuse_status public_domain requires license_note with a specific verifiable reuse basis.`,
+      );
+    }
+  }
+
+  if (dailymedSources.length === 1 && !hasSingleSplEvaluatedDisclosure(evidence, dailymedSources)) {
+    fail(
+      `${prefix}: when only one dailymed_label source is present, notes or known_gaps must disclose that only one SPL was evaluated.`,
+    );
+  }
+}
+
 /**
  * @param {object} evidence
  * @param {string} drugId
@@ -94,6 +176,8 @@ export function validateEvidenceRules(evidence, drugId, fail, options = {}) {
       }
     }
   }
+
+  validateDailyMedSourceRecords(evidence, drugId, fail);
 
   const citationById = new Map();
   const citePattern = citationIdPattern(drugId);
