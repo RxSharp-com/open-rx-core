@@ -1,10 +1,111 @@
 schema_version: "1.0"
 drug_id: cefepime
-evidence_status: not_imported
+evidence_status: sources_imported
 last_evidence_reviewed: null
-sources: []
-citations: []
-evidence_packets: []
+sources:
+  - source_id: cefepime-src-dailymed-0001
+    source_type: dailymed_label
+    source_title: WG Critical Care, LLC cefepime injection label, SPL version 17
+    source_url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5fd857e5-591f-44ca-80cf-fd903660b03c
+    source_origin: DailyMed
+    source_publisher: National Library of Medicine (FDA-submitted labeling)
+    source_date: "2026-07-03"
+    accessed_date: "2026-07-14"
+    identifiers:
+      setid: 5fd857e5-591f-44ca-80cf-fd903660b03c
+      spl_version: "17"
+      labeler: WG CRITICAL CARE, LLC
+      dailymed_search_drug_name: cefepime
+      selection_method: explicit_setid
+      selection_setid: 5fd857e5-591f-44ca-80cf-fd903660b03c
+    reuse_status: unknown_requires_review
+    license_note: >
+      DailyMed public regulatory-label metadata pilot only. Reuse rights for generated
+      clinical content are not asserted. Human and legal review required before any
+      reusable derivation from label text. See NLM DailyMed site terms and applicable
+      FDA/NLM public-resource policies.
+    source_authority_level: regulatory_label
+    source_status: active
+    notes: >
+      One manufacturer/labeler SPL only: WG Critical Care, LLC (setid-specific). This is not the
+      cefepime label generally — DailyMed lists separate SPLs per labeler for generic cefepime.
+      Imported via explicit setid selection per docs/dailymed-source-normalization.md. No SPL
+      XML/HTML or label section text stored in the repository.
+citations:
+  - citation_id: cefepime-cite-0001
+    source_id: cefepime-src-dailymed-0001
+    citation_label: WG Critical Care, LLC DailyMed SPL metadata (one cefepime labeler)
+    locator: setid:5fd857e5-591f-44ca-80cf-fd903660b03c
+    citation_type: source_level
+    supports_claim_type: source_identity_only
+    reuse_note: Source identity/metadata only; no label text copied.
+    notes: Pilot citation for one labeler SPL; not representative of all cefepime labels.
+  - citation_id: cefepime-cite-0002
+    source_id: cefepime-src-dailymed-0001
+    citation_label: WG Critical Care SPL sections (not imported)
+    locator: SPL sections available via DailyMed for this setid; text not imported
+    citation_type: section_level
+    supports_claim_type: background_context
+    reuse_note: Section-level pointer only; no copied label excerpts.
+    notes: Documents that sections exist for this labeler SPL only; future human review required.
+evidence_packets:
+  - packet_id: cefepime-packet-0001
+    packet_type: label_fact
+    packet_status: needs_review
+    affected_monograph_sections: []
+    claim_summary: DailyMed SPL metadata imported for WG Critical Care, LLC cefepime injection label (one labeler; not a canonical cefepime reference).
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - cefepime-cite-0001
+    source_ids:
+      - cefepime-src-dailymed-0001
+    recommendation_impact: none
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+      - license_unclear
+    known_gaps:
+      - Only one labeler SPL selected via explicit setid; other cefepime SPLs not evaluated.
+    created_by: dailymed-opat-metadata-expansion
+    created_date: "2026-07-14"
+    last_updated: "2026-07-14"
+  - packet_id: cefepime-packet-0002
+    packet_type: label_fact
+    packet_status: needs_review
+    affected_monograph_sections: []
+    claim_summary: DailyMed SPL sections for WG Critical Care label noted for future review; no section text imported.
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - cefepime-cite-0002
+    source_ids:
+      - cefepime-src-dailymed-0001
+    recommendation_impact: unknown_requires_review
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+      - license_unclear
+    known_gaps:
+      - No label section extraction performed for this labeler SPL.
+    created_by: dailymed-opat-metadata-expansion
+    created_date: "2026-07-14"
+    last_updated: "2026-07-14"
 known_gaps:
-  - Evidence has not yet been imported or reviewed.
-audit_notes: Scaffold placeholder only. No sources, citations, or evidence packets.
+  - This pilot evaluated only one DailyMed SPL for cefepime (WG Critical Care, LLC).
+  - DailyMed returned total_results=16 for cefepime; all candidates were sampled in search-candidates.json (under cap).
+  - Other cefepime SPLs from other labelers/manufacturers may exist and were not evaluated beyond metadata sampling.
+  - This source must not be treated as a canonical or comprehensive cefepime label source.
+  - Clinical synthesis, section extraction, and monograph drafting have not been completed.
+  - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
+audit_notes: >
+  DailyMed metadata source mapped with explicit setid 5fd857e5-591f-44ca-80cf-fd903660b03c (WG Critical
+  Care, LLC SPL only). Normalization policy: docs/dailymed-source-normalization.md. Candidate
+  metadata sample: data/raw/dailymed/cefepime/search-candidates.json. Selected SPL metadata:
+  data/raw/dailymed/cefepime/fetch-metadata.json (metadata fields only; no label body text).
+  evidence_status set to sources_imported. All packets are needs_review and unapproved.
+  patient.md and clinician.md were not modified.

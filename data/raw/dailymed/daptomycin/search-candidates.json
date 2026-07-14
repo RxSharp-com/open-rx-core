@@ -1,0 +1,261 @@
+{
+  "query": "drug_name=daptomycin",
+  "fetched_at": "2026-07-14T21:57:55.243Z",
+  "total_results": 52,
+  "candidates_returned": 25,
+  "candidates_capped_at": 25,
+  "note": "Additional candidates may exist beyond this metadata sample. First-result position is not canonical.",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=daptomycin&pagesize=25",
+  "candidates": [
+    {
+      "setid": "cb1283e1-35b8-425c-b338-d9ac0c7161f8",
+      "title": "DAPZURA RT (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [BAXTER HEALTHCARE CORPORATION]",
+      "spl_version": 7,
+      "published_date": "May 21, 2026",
+      "published_date_iso": "2026-05-21",
+      "labeler": "BAXTER HEALTHCARE CORPORATION",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cb1283e1-35b8-425c-b338-d9ac0c7161f8",
+      "result_position": 1
+    },
+    {
+      "setid": "1957b6ce-7382-4a7b-bf02-3595948d09c6",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HOSPIRA, INC.]",
+      "spl_version": 6,
+      "published_date": "May 12, 2026",
+      "published_date_iso": "2026-05-12",
+      "labeler": "HOSPIRA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1957b6ce-7382-4a7b-bf02-3595948d09c6",
+      "result_position": 2
+    },
+    {
+      "setid": "1d29832c-564b-4694-842a-50aeeb823ec8",
+      "title": "DAPTOMYCIN (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [CAMBER PHARMACEUTICALS, INC.]",
+      "spl_version": 4,
+      "published_date": "Apr 27, 2026",
+      "published_date_iso": "2026-04-27",
+      "labeler": "CAMBER PHARMACEUTICALS, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1d29832c-564b-4694-842a-50aeeb823ec8",
+      "result_position": 3
+    },
+    {
+      "setid": "3c482379-4c3c-4e94-be37-213fe0d76f19",
+      "title": "DAPTOMYCIN (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [NORTHSTAR RXLLC]",
+      "spl_version": 2,
+      "published_date": "Apr 27, 2026",
+      "published_date_iso": "2026-04-27",
+      "labeler": "NORTHSTAR RXLLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3c482379-4c3c-4e94-be37-213fe0d76f19",
+      "result_position": 4
+    },
+    {
+      "setid": "07bc65c6-f302-4d16-9803-a8567fe76f38",
+      "title": "DAPTOMYCIN (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [CAMBER PHARMACEUTICALS, INC.]",
+      "spl_version": 4,
+      "published_date": "Apr 14, 2026",
+      "published_date_iso": "2026-04-14",
+      "labeler": "CAMBER PHARMACEUTICALS, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=07bc65c6-f302-4d16-9803-a8567fe76f38",
+      "result_position": 5
+    },
+    {
+      "setid": "1ae55ae0-d20f-4e15-b4dc-7e45c33f3152",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [CIVICA, INC.]",
+      "spl_version": 2,
+      "published_date": "Apr 10, 2026",
+      "published_date_iso": "2026-04-10",
+      "labeler": "CIVICA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1ae55ae0-d20f-4e15-b4dc-7e45c33f3152",
+      "result_position": 6
+    },
+    {
+      "setid": "23f39005-3008-4ab1-918d-b8acb001554e",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 3,
+      "published_date": "Mar 24, 2026",
+      "published_date_iso": "2026-03-24",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=23f39005-3008-4ab1-918d-b8acb001554e",
+      "result_position": 7
+    },
+    {
+      "setid": "191f0224-67b7-4945-bdcd-38d60645e38c",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MEITHEAL PHARMACEUTICALS INC.]",
+      "spl_version": 4,
+      "published_date": "Mar 12, 2026",
+      "published_date_iso": "2026-03-12",
+      "labeler": "MEITHEAL PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=191f0224-67b7-4945-bdcd-38d60645e38c",
+      "result_position": 8
+    },
+    {
+      "setid": "f5736d54-5bc2-48c6-97c6-65f7422725f0",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MEITHEAL PHARMACEUTICALS INC.]",
+      "spl_version": 4,
+      "published_date": "Feb 19, 2026",
+      "published_date_iso": "2026-02-19",
+      "labeler": "MEITHEAL PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f5736d54-5bc2-48c6-97c6-65f7422725f0",
+      "result_position": 9
+    },
+    {
+      "setid": "278ad91e-2141-4bc1-b142-a9caca65f1bf",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MEITHEAL PHARMACEUTICALS INC.]",
+      "spl_version": 5,
+      "published_date": "Feb 18, 2026",
+      "published_date_iso": "2026-02-18",
+      "labeler": "MEITHEAL PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=278ad91e-2141-4bc1-b142-a9caca65f1bf",
+      "result_position": 10
+    },
+    {
+      "setid": "7ed4d986-2aa9-43cd-9a8a-fbd11cb5ecef",
+      "title": "DAPTOMYCIN IN SODIUM CHLORIDE INJECTION, SOLUTION [BAXTER HEALTHCARE CORPORATION]",
+      "spl_version": 10,
+      "published_date": "Feb 16, 2026",
+      "published_date_iso": "2026-02-16",
+      "labeler": "BAXTER HEALTHCARE CORPORATION",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7ed4d986-2aa9-43cd-9a8a-fbd11cb5ecef",
+      "result_position": 11
+    },
+    {
+      "setid": "d6c3df37-8481-46c2-8048-199bad37c933",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [BLUEPOINT LABORATORIES]",
+      "spl_version": 11,
+      "published_date": "Feb 02, 2026",
+      "published_date_iso": "2026-02-02",
+      "labeler": "BLUEPOINT LABORATORIES",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d6c3df37-8481-46c2-8048-199bad37c933",
+      "result_position": 12
+    },
+    {
+      "setid": "74176769-b22e-4e41-8c56-051e15ec5fea",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 7,
+      "published_date": "Jan 23, 2026",
+      "published_date_iso": "2026-01-23",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=74176769-b22e-4e41-8c56-051e15ec5fea",
+      "result_position": 13
+    },
+    {
+      "setid": "95909792-972b-4c0c-b2ce-2be4bed36cff",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MYLAN INSTITUTIONAL LLC]",
+      "spl_version": 3,
+      "published_date": "Dec 12, 2025",
+      "published_date_iso": "2025-12-12",
+      "labeler": "MYLAN INSTITUTIONAL LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=95909792-972b-4c0c-b2ce-2be4bed36cff",
+      "result_position": 14
+    },
+    {
+      "setid": "b7737862-e783-4af3-9521-ae00ed7a42aa",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MYLAN INSTITUTIONAL LLC]",
+      "spl_version": 9,
+      "published_date": "Dec 12, 2025",
+      "published_date_iso": "2025-12-12",
+      "labeler": "MYLAN INSTITUTIONAL LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7737862-e783-4af3-9521-ae00ed7a42aa",
+      "result_position": 15
+    },
+    {
+      "setid": "4f39cddc-1cb7-41d4-a657-07f7903ee24f",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MEITHEAL PHARMACEUTICALS INC.]",
+      "spl_version": 8,
+      "published_date": "Dec 10, 2025",
+      "published_date_iso": "2025-12-10",
+      "labeler": "MEITHEAL PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4f39cddc-1cb7-41d4-a657-07f7903ee24f",
+      "result_position": 16
+    },
+    {
+      "setid": "7d50f20e-5e26-4cc0-ae45-830df5a46a42",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [MEITHEAL PHARMACEUTICALS INC.]",
+      "spl_version": 10,
+      "published_date": "Nov 19, 2025",
+      "published_date_iso": "2025-11-19",
+      "labeler": "MEITHEAL PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7d50f20e-5e26-4cc0-ae45-830df5a46a42",
+      "result_position": 17
+    },
+    {
+      "setid": "4cdf4099-db58-43b8-9fbc-afd997ccfa4b",
+      "title": "DAPTOMYCIN (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [BE PHARMACEUTICALS INC.]",
+      "spl_version": 6,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "BE PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4cdf4099-db58-43b8-9fbc-afd997ccfa4b",
+      "result_position": 18
+    },
+    {
+      "setid": "956b068f-5958-49eb-9c9f-3b6e324e77d2",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [ACCORD HEALTHCARE INC.]",
+      "spl_version": 7,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "ACCORD HEALTHCARE INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=956b068f-5958-49eb-9c9f-3b6e324e77d2",
+      "result_position": 19
+    },
+    {
+      "setid": "c1d47001-5e0f-46a3-b220-53f46b4fd6ac",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [PAR HEALTH USA, LLC]",
+      "spl_version": 2,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "PAR HEALTH USA, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c1d47001-5e0f-46a3-b220-53f46b4fd6ac",
+      "result_position": 20
+    },
+    {
+      "setid": "c305bc9f-8aeb-40de-8492-154929764daf",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [BE PHARMACEUTICALS INC.]",
+      "spl_version": 4,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "BE PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c305bc9f-8aeb-40de-8492-154929764daf",
+      "result_position": 21
+    },
+    {
+      "setid": "f69e9306-ffac-41c9-b277-a6d784f2e341",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [ACCORD HEALTHCARE, INC.]",
+      "spl_version": 9,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "ACCORD HEALTHCARE, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f69e9306-ffac-41c9-b277-a6d784f2e341",
+      "result_position": 22
+    },
+    {
+      "setid": "1a7c9f52-7b58-49e9-93d7-5a26a7d1ef09",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 3,
+      "published_date": "Oct 01, 2025",
+      "published_date_iso": "2025-10-01",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a7c9f52-7b58-49e9-93d7-5a26a7d1ef09",
+      "result_position": 23
+    },
+    {
+      "setid": "6aa6300a-f59b-4260-b021-8a02cfaeabb7",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 3,
+      "published_date": "Oct 01, 2025",
+      "published_date_iso": "2025-10-01",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6aa6300a-f59b-4260-b021-8a02cfaeabb7",
+      "result_position": 24
+    },
+    {
+      "setid": "e32c7141-fbd9-47c8-bd1e-94b880b2c5a6",
+      "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [QILU PHARMACEUTICAL CO., LTD.]",
+      "spl_version": 6,
+      "published_date": "Sep 30, 2025",
+      "published_date_iso": "2025-09-30",
+      "labeler": "QILU PHARMACEUTICAL CO., LTD.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e32c7141-fbd9-47c8-bd1e-94b880b2c5a6",
+      "result_position": 25
+    }
+  ]
+}

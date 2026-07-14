@@ -8,8 +8,17 @@
     "validate": "node scripts/validate.js",
     "validate:failure-demo": "node scripts/validate-failure-demo.js",
     "validate:evidence-failure-demo": "node scripts/validate-evidence-failure-demo.js",
-    "fetch:dailymed:cefazolin:list": "node scripts/fetch-dailymed-single-drug.js list",
-    "fetch:dailymed:cefazolin": "node scripts/fetch-dailymed-single-drug.js fetch --setid 1999084a-124c-45f9-801f-416a1b942c96"
+    "fetch:dailymed:cefazolin:list": "node scripts/fetch-dailymed-single-drug.js list --drug cefazolin",
+    "fetch:dailymed:cefazolin": "node scripts/fetch-dailymed-single-drug.js fetch --drug cefazolin --setid 1999084a-124c-45f9-801f-416a1b942c96",
+    "fetch:dailymed:cefepime:list": "node scripts/fetch-dailymed-single-drug.js list --drug cefepime",
+    "fetch:dailymed:cefepime": "node scripts/fetch-dailymed-single-drug.js fetch --drug cefepime --setid 5fd857e5-591f-44ca-80cf-fd903660b03c",
+    "fetch:dailymed:ceftriaxone:list": "node scripts/fetch-dailymed-single-drug.js list --drug ceftriaxone",
+    "fetch:dailymed:ceftriaxone": "node scripts/fetch-dailymed-single-drug.js fetch --drug ceftriaxone --setid 86ec0a92-a552-4a6d-9125-a54f95e43392",
+    "fetch:dailymed:daptomycin:list": "node scripts/fetch-dailymed-single-drug.js list --drug daptomycin",
+    "fetch:dailymed:daptomycin": "node scripts/fetch-dailymed-single-drug.js fetch --drug daptomycin --setid cb1283e1-35b8-425c-b338-d9ac0c7161f8",
+    "fetch:dailymed:vancomycin:list": "node scripts/fetch-dailymed-single-drug.js list --drug vancomycin",
+    "fetch:dailymed:vancomycin": "node scripts/fetch-dailymed-single-drug.js fetch --drug vancomycin --setid 99e523d8-9bde-43cb-8434-497015e5dcbd",
+    "validate:dailymed-failure-demo": "node scripts/validate-dailymed-failure-demo.js"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

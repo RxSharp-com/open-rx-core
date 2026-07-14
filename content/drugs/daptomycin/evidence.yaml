@@ -1,10 +1,112 @@
 schema_version: "1.0"
 drug_id: daptomycin
-evidence_status: not_imported
+evidence_status: sources_imported
 last_evidence_reviewed: null
-sources: []
-citations: []
-evidence_packets: []
+sources:
+  - source_id: daptomycin-src-dailymed-0001
+    source_type: dailymed_label
+    source_title: Baxter Healthcare Corporation Dapzura RT daptomycin injection label, SPL version 7
+    source_url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cb1283e1-35b8-425c-b338-d9ac0c7161f8
+    source_origin: DailyMed
+    source_publisher: National Library of Medicine (FDA-submitted labeling)
+    source_date: "2026-05-21"
+    accessed_date: "2026-07-14"
+    identifiers:
+      setid: cb1283e1-35b8-425c-b338-d9ac0c7161f8
+      spl_version: "7"
+      labeler: BAXTER HEALTHCARE CORPORATION
+      dailymed_search_drug_name: daptomycin
+      selection_method: explicit_setid
+      selection_setid: cb1283e1-35b8-425c-b338-d9ac0c7161f8
+    reuse_status: unknown_requires_review
+    license_note: >
+      DailyMed public regulatory-label metadata pilot only. Reuse rights for generated
+      clinical content are not asserted. Human and legal review required before any
+      reusable derivation from label text. See NLM DailyMed site terms and applicable
+      FDA/NLM public-resource policies.
+    source_authority_level: regulatory_label
+    source_status: active
+    notes: >
+      One manufacturer/labeler SPL only: Baxter Healthcare Corporation (setid-specific; Dapzura RT
+      product line). This is not the daptomycin label generally — DailyMed lists separate SPLs per
+      labeler/product for generic daptomycin. Imported via explicit setid selection per
+      docs/dailymed-source-normalization.md. No SPL XML/HTML or label section text stored.
+citations:
+  - citation_id: daptomycin-cite-0001
+    source_id: daptomycin-src-dailymed-0001
+    citation_label: Baxter Healthcare Corporation DailyMed SPL metadata (one daptomycin labeler)
+    locator: setid:cb1283e1-35b8-425c-b338-d9ac0c7161f8
+    citation_type: source_level
+    supports_claim_type: source_identity_only
+    reuse_note: Source identity/metadata only; no label text copied.
+    notes: Pilot citation for one labeler SPL; not representative of all daptomycin labels.
+  - citation_id: daptomycin-cite-0002
+    source_id: daptomycin-src-dailymed-0001
+    citation_label: Baxter SPL sections (not imported)
+    locator: SPL sections available via DailyMed for this setid; text not imported
+    citation_type: section_level
+    supports_claim_type: background_context
+    reuse_note: Section-level pointer only; no copied label excerpts.
+    notes: Documents that sections exist for this labeler SPL only; future human review required.
+evidence_packets:
+  - packet_id: daptomycin-packet-0001
+    packet_type: label_fact
+    packet_status: needs_review
+    affected_monograph_sections: []
+    claim_summary: DailyMed SPL metadata imported for Baxter Healthcare Corporation Dapzura RT daptomycin injection label (one labeler; not a canonical daptomycin reference).
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - daptomycin-cite-0001
+    source_ids:
+      - daptomycin-src-dailymed-0001
+    recommendation_impact: none
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+      - license_unclear
+    known_gaps:
+      - Only one labeler SPL selected via explicit setid; other daptomycin SPLs not evaluated.
+    created_by: dailymed-opat-metadata-expansion
+    created_date: "2026-07-14"
+    last_updated: "2026-07-14"
+  - packet_id: daptomycin-packet-0002
+    packet_type: label_fact
+    packet_status: needs_review
+    affected_monograph_sections: []
+    claim_summary: DailyMed SPL sections for Baxter label noted for future review; no section text imported.
+    clinical_claim: null
+    patient_facing_candidate: null
+    clinician_facing_candidate: null
+    citation_ids:
+      - daptomycin-cite-0002
+    source_ids:
+      - daptomycin-src-dailymed-0001
+    recommendation_impact: unknown_requires_review
+    requires_human_review: true
+    review_level: level_0_admin
+    uncertainty_flags:
+      - not_yet_reviewed
+      - license_unclear
+    known_gaps:
+      - No label section extraction performed for this labeler SPL.
+    created_by: dailymed-opat-metadata-expansion
+    created_date: "2026-07-14"
+    last_updated: "2026-07-14"
 known_gaps:
-  - Evidence has not yet been imported or reviewed.
-audit_notes: Scaffold placeholder only. No sources, citations, or evidence packets.
+  - This pilot evaluated only one DailyMed SPL for daptomycin (Baxter Healthcare Corporation).
+  - DailyMed returned total_results=52 for daptomycin; search-candidates.json contains a capped sample of 25.
+  - Other daptomycin SPLs from other labelers/manufacturers may exist and were not evaluated.
+  - Product-specific branding (Dapzura RT) may differ from other daptomycin SPLs; selection rationale not clinically reviewed.
+  - This source must not be treated as a canonical or comprehensive daptomycin label source.
+  - Clinical synthesis, section extraction, and monograph drafting have not been completed.
+  - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
+audit_notes: >
+  DailyMed metadata source mapped with explicit setid cb1283e1-35b8-425c-b338-d9ac0c7161f8 (Baxter
+  Healthcare Corporation SPL only). Normalization policy: docs/dailymed-source-normalization.md.
+  Candidate metadata sample: data/raw/dailymed/daptomycin/search-candidates.json. Selected SPL
+  metadata: data/raw/dailymed/daptomycin/fetch-metadata.json (metadata fields only; no label body text).
+  evidence_status set to sources_imported. All packets are needs_review and unapproved.
+  patient.md and clinician.md were not modified.

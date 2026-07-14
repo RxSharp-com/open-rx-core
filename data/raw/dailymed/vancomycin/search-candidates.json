@@ -1,0 +1,261 @@
+{
+  "query": "drug_name=vancomycin",
+  "fetched_at": "2026-07-14T21:57:55.223Z",
+  "total_results": 88,
+  "candidates_returned": 25,
+  "candidates_capped_at": 25,
+  "note": "Additional candidates may exist beyond this metadata sample. First-result position is not canonical.",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=vancomycin&pagesize=25",
+  "candidates": [
+    {
+      "setid": "7bbd2c81-33d9-4397-8795-8b9fa28cb5cf",
+      "title": "VANCOMYCIN HYDROCHLORIDE CAPSULE [BRYANT RANCH PREPACK]",
+      "spl_version": 101,
+      "published_date": "Jun 29, 2026",
+      "published_date_iso": "2026-06-29",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7bbd2c81-33d9-4397-8795-8b9fa28cb5cf",
+      "result_position": 1
+    },
+    {
+      "setid": "d6b8147b-5f93-49ee-8b27-78fe58987c90",
+      "title": "VANCOMYCIN HYDROCHLORIDE CAPSULE [BRYANT RANCH PREPACK]",
+      "spl_version": 101,
+      "published_date": "Jun 29, 2026",
+      "published_date_iso": "2026-06-29",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d6b8147b-5f93-49ee-8b27-78fe58987c90",
+      "result_position": 2
+    },
+    {
+      "setid": "28fe3c01-cf87-41c0-87fd-f93a40524335",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [BRYANT RANCH PREPACK]",
+      "spl_version": 104,
+      "published_date": "Jun 18, 2026",
+      "published_date_iso": "2026-06-18",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=28fe3c01-cf87-41c0-87fd-f93a40524335",
+      "result_position": 3
+    },
+    {
+      "setid": "99e523d8-9bde-43cb-8434-497015e5dcbd",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, SOLUTION [BAXTER HEALTHCARE CORPORATION]",
+      "spl_version": 27,
+      "published_date": "Jun 18, 2026",
+      "published_date_iso": "2026-06-18",
+      "labeler": "BAXTER HEALTHCARE CORPORATION",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=99e523d8-9bde-43cb-8434-497015e5dcbd",
+      "result_position": 4
+    },
+    {
+      "setid": "6c74b360-022a-4c4d-9e4b-0988219a78fb",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [BRYANT RANCH PREPACK]",
+      "spl_version": 101,
+      "published_date": "Jun 15, 2026",
+      "published_date_iso": "2026-06-15",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6c74b360-022a-4c4d-9e4b-0988219a78fb",
+      "result_position": 5
+    },
+    {
+      "setid": "8193f588-a032-451e-a0a1-819a5ea834c8",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [BRYANT RANCH PREPACK]",
+      "spl_version": 101,
+      "published_date": "Jun 15, 2026",
+      "published_date_iso": "2026-06-15",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8193f588-a032-451e-a0a1-819a5ea834c8",
+      "result_position": 6
+    },
+    {
+      "setid": "826510bd-b611-42d9-a574-ec7ee4151ef5",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [EUROFARMA, INC.]",
+      "spl_version": 2,
+      "published_date": "Jun 15, 2026",
+      "published_date_iso": "2026-06-15",
+      "labeler": "EUROFARMA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=826510bd-b611-42d9-a574-ec7ee4151ef5",
+      "result_position": 7
+    },
+    {
+      "setid": "786bde33-9aec-4b4d-ba46-90bfd61956d0",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [BRYANT RANCH PREPACK]",
+      "spl_version": 106,
+      "published_date": "May 28, 2026",
+      "published_date_iso": "2026-05-28",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=786bde33-9aec-4b4d-ba46-90bfd61956d0",
+      "result_position": 8
+    },
+    {
+      "setid": "9b6a7a21-4fde-40c6-a420-a8546a4dc701",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [BRYANT RANCH PREPACK]",
+      "spl_version": 105,
+      "published_date": "May 28, 2026",
+      "published_date_iso": "2026-05-28",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9b6a7a21-4fde-40c6-a420-a8546a4dc701",
+      "result_position": 9
+    },
+    {
+      "setid": "a09c589b-e7f4-457c-827f-e1bfa1b26700",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [BRYANT RANCH PREPACK]",
+      "spl_version": 105,
+      "published_date": "May 28, 2026",
+      "published_date_iso": "2026-05-28",
+      "labeler": "BRYANT RANCH PREPACK",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a09c589b-e7f4-457c-827f-e1bfa1b26700",
+      "result_position": 10
+    },
+    {
+      "setid": "57f58371-3ce6-4983-89df-acba33d1139a",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [SLATE RUN PHARMACEUTICALS, LLC]",
+      "spl_version": 9,
+      "published_date": "May 20, 2026",
+      "published_date_iso": "2026-05-20",
+      "labeler": "SLATE RUN PHARMACEUTICALS, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=57f58371-3ce6-4983-89df-acba33d1139a",
+      "result_position": 11
+    },
+    {
+      "setid": "6ea38b4d-a6d2-4826-8110-ae42c9f7a42a",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [SLATE RUN PHARMACEUTICALS, LLC]",
+      "spl_version": 2,
+      "published_date": "May 20, 2026",
+      "published_date_iso": "2026-05-20",
+      "labeler": "SLATE RUN PHARMACEUTICALS, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6ea38b4d-a6d2-4826-8110-ae42c9f7a42a",
+      "result_position": 12
+    },
+    {
+      "setid": "ae6efaaf-37eb-4510-ba71-5f3dc3abdbd3",
+      "title": "VANCOMYCIN HYDROCHLORIDE CAPSULE [PAI HOLDINGS, LLC DBA PAI PHARMA]",
+      "spl_version": 1,
+      "published_date": "May 01, 2026",
+      "published_date_iso": "2026-05-01",
+      "labeler": "PAI HOLDINGS, LLC DBA PAI PHARMA",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae6efaaf-37eb-4510-ba71-5f3dc3abdbd3",
+      "result_position": 13
+    },
+    {
+      "setid": "3c47d5c4-8cdb-4701-8d7a-8a6e79025b53",
+      "title": "VANCOMYCIN HYDROCHLORIDE SOLUTION [AMNEAL PHARMACEUTICALS NY LLC]",
+      "spl_version": 4,
+      "published_date": "Apr 17, 2026",
+      "published_date_iso": "2026-04-17",
+      "labeler": "AMNEAL PHARMACEUTICALS NY LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3c47d5c4-8cdb-4701-8d7a-8a6e79025b53",
+      "result_position": 14
+    },
+    {
+      "setid": "bc737938-ae36-460b-a2a8-609f3fe59156",
+      "title": "VANCOMYCIN HYDROCHLORIDE CAPSULE [CAMERON PHARMACEUTICALS]",
+      "spl_version": 4,
+      "published_date": "Apr 15, 2026",
+      "published_date_iso": "2026-04-15",
+      "labeler": "CAMERON PHARMACEUTICALS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bc737938-ae36-460b-a2a8-609f3fe59156",
+      "result_position": 15
+    },
+    {
+      "setid": "74056e26-57fd-448e-af76-edbccfc3efb7",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [GLENMARK PHARMACEUTICALS INC., USA]",
+      "spl_version": 1,
+      "published_date": "Apr 13, 2026",
+      "published_date_iso": "2026-04-13",
+      "labeler": "GLENMARK PHARMACEUTICALS INC., USA",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=74056e26-57fd-448e-af76-edbccfc3efb7",
+      "result_position": 16
+    },
+    {
+      "setid": "3e041ec6-811b-4f26-9303-959cb09d5f57",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [CIVICA, INC]",
+      "spl_version": 2,
+      "published_date": "Apr 08, 2026",
+      "published_date_iso": "2026-04-08",
+      "labeler": "CIVICA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3e041ec6-811b-4f26-9303-959cb09d5f57",
+      "result_position": 17
+    },
+    {
+      "setid": "f2901045-904f-47bd-74a1-c561facd7f25",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HOSPIRA, INC.]",
+      "spl_version": 37,
+      "published_date": "Apr 08, 2026",
+      "published_date_iso": "2026-04-08",
+      "labeler": "HOSPIRA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f2901045-904f-47bd-74a1-c561facd7f25",
+      "result_position": 18
+    },
+    {
+      "setid": "c9ea31ec-4c26-452f-b07b-c5f894212cd5",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HOSPIRA, INC.]",
+      "spl_version": 11,
+      "published_date": "Apr 02, 2026",
+      "published_date_iso": "2026-04-02",
+      "labeler": "HOSPIRA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c9ea31ec-4c26-452f-b07b-c5f894212cd5",
+      "result_position": 19
+    },
+    {
+      "setid": "2c355037-6a1e-4846-872a-471ccbdc8d54",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [STERISCIENCE SPECIALTIES PRIVATE LIMITED]",
+      "spl_version": 3,
+      "published_date": "Mar 11, 2026",
+      "published_date_iso": "2026-03-11",
+      "labeler": "STERISCIENCE SPECIALTIES PRIVATE LIMITED",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2c355037-6a1e-4846-872a-471ccbdc8d54",
+      "result_position": 20
+    },
+    {
+      "setid": "27d06545-1af0-4dcd-926d-58d4a9492ec3",
+      "title": "VANCOMYCIN HYDROCHLORIDE POWDER, FOR SOLUTION [ANI PHARMACEUTICALS, INC.]",
+      "spl_version": 3,
+      "published_date": "Mar 05, 2026",
+      "published_date_iso": "2026-03-05",
+      "labeler": "ANI PHARMACEUTICALS, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=27d06545-1af0-4dcd-926d-58d4a9492ec3",
+      "result_position": 21
+    },
+    {
+      "setid": "3707ad2e-5c82-4111-a370-e518e5e7e4c5",
+      "title": "VANCOMYCIN HYDROCHLORIDE CAPSULE [ANI PHARMACEUTICALS, INC.]",
+      "spl_version": 11,
+      "published_date": "Mar 05, 2026",
+      "published_date_iso": "2026-03-05",
+      "labeler": "ANI PHARMACEUTICALS, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3707ad2e-5c82-4111-a370-e518e5e7e4c5",
+      "result_position": 22
+    },
+    {
+      "setid": "4983e3c8-e0f2-b366-e063-6394a90a9557",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [PLANO PHARMACEUTICALS INC.]",
+      "spl_version": 2,
+      "published_date": "Feb 26, 2026",
+      "published_date_iso": "2026-02-26",
+      "labeler": "PLANO PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4983e3c8-e0f2-b366-e063-6394a90a9557",
+      "result_position": 23
+    },
+    {
+      "setid": "4983f60c-0f7b-d427-e063-6394a90a838c",
+      "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [PLANO PHARMACEUTICALS INC.]",
+      "spl_version": 2,
+      "published_date": "Feb 26, 2026",
+      "published_date_iso": "2026-02-26",
+      "labeler": "PLANO PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4983f60c-0f7b-d427-e063-6394a90a838c",
+      "result_position": 24
+    },
+    {
+      "setid": "ab658fbd-68ea-4275-84b1-c3361c860bd3",
+      "title": "VANCOMYCIN HYDROCHLORIDE CAPSULE [HERITAGE PHARMACEUTICALS INC. D/B/A AVET PHARMACEUTICALS INC.]",
+      "spl_version": 5,
+      "published_date": "Feb 13, 2026",
+      "published_date_iso": "2026-02-13",
+      "labeler": "HERITAGE PHARMACEUTICALS INC. D/B/A AVET PHARMACEUTICALS INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab658fbd-68ea-4275-84b1-c3361c860bd3",
+      "result_position": 25
+    }
+  ]
+}

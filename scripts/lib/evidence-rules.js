@@ -54,6 +54,32 @@ const SINGLE_SPL_DISCLOSURE_PATTERNS = [
   'one labeler',
 ];
 
+/** Positive canonical claims about a DailyMed SPL (negated forms are allowed). */
+const CANONICAL_POSITIVE_PATTERNS = [
+  /\b(is|as|the)\s+a?\s*canonical\b/i,
+  /\bcanonical\s+(whole-drug\s+)?(label|reference|source|spl)\b/i,
+  /\brepresentative of all\b/i,
+  /\bcanonical\s+\w+\s+label\b/i,
+];
+
+const CANONICAL_NEGATION_PATTERNS = [
+  /\bnot\s+(a\s+)?canonical\b/i,
+  /\bnon-canonical\b/i,
+  /\bmust not be treated as\b/i,
+  /\bnot\s+a\s+canonical\b/i,
+];
+
+/** Forbidden label-body fields in DailyMed search-candidates.json. */
+export const DAILYMED_CANDIDATE_FORBIDDEN_FIELDS = [
+  'body_text',
+  'label_xml',
+  'label_html',
+  'warnings',
+  'dosing',
+  'adverse_reactions',
+  'counseling',
+];
+
 function labelerInTitle(labeler, title) {
   return title.toLowerCase().includes(labeler.toLowerCase());
 }
@@ -72,6 +98,47 @@ function hasSingleSplEvaluatedDisclosure(evidence, dailymedSources) {
     .toLowerCase();
 
   return SINGLE_SPL_DISCLOSURE_PATTERNS.some((pattern) => haystack.includes(pattern));
+}
+
+function describesSourceAsCanonical(text) {
+  if (!isNonEmptyString(text)) {
+    return false;
+  }
+
+  for (const pattern of CANONICAL_POSITIVE_PATTERNS) {
+    const match = text.match(pattern);
+    if (!match || match.index === undefined) {
+      continue;
+    }
+
+    const windowStart = Math.max(0, match.index - 40);
+    const windowEnd = Math.min(text.length, match.index + match[0].length + 40);
+    const context = text.slice(windowStart, windowEnd);
+
+    if (CANONICAL_NEGATION_PATTERNS.some((negation) => negation.test(context))) {
+      continue;
+    }
+
+    return true;
+  }
+
+  return false;
+}
+
+function collectDailyMedSourceDocumentation(source, evidence) {
+  const packets = evidence.evidence_packets ?? [];
+  const relatedPackets = packets.filter((packet) =>
+    (packet.source_ids ?? []).includes(source.source_id),
+  );
+
+  return [
+    source.source_title ?? '',
+    source.notes ?? '',
+    ...(evidence.known_gaps ?? []),
+    evidence.audit_notes ?? '',
+    ...relatedPackets.map((packet) => packet.claim_summary ?? ''),
+    ...relatedPackets.flatMap((packet) => packet.known_gaps ?? []),
+  ];
 }
 
 function hasVerifiablePublicDomainBasis(licenseNote) {
@@ -117,6 +184,15 @@ function validateDailyMedSourceRecords(evidence, drugId, fail) {
       fail(
         `${sourceRef}: reuse_status public_domain requires license_note with a specific verifiable reuse basis.`,
       );
+    }
+
+    for (const text of collectDailyMedSourceDocumentation(source, evidence)) {
+      if (describesSourceAsCanonical(text)) {
+        fail(
+          `${sourceRef}: documentation must not describe this SPL as canonical; DailyMed sources are labeler/SPL-specific.`,
+        );
+        break;
+      }
     }
   }
 
@@ -304,5 +380,56 @@ export function validateEvidenceRules(evidence, drugId, fail, options = {}) {
         fail(`${prefix}: placeholder drug evidence must not contain reusable clinical or monograph candidate text.`);
       }
     }
+  }
+}
+
+function collectForbiddenFields(value, path, forbiddenFields, matches) {
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => {
+      collectForbiddenFields(item, `${path}[${index}]`, forbiddenFields, matches);
+    });
+    return;
+  }
+
+  if (!value || typeof value !== 'object') {
+    return;
+  }
+
+  for (const [key, child] of Object.entries(value)) {
+    const childPath = path ? `${path}.${key}` : key;
+    if (forbiddenFields.includes(key)) {
+      matches.push(childPath);
+    }
+    collectForbiddenFields(child, childPath, forbiddenFields, matches);
+  }
+}
+
+/**
+ * @param {object} candidateList parsed search-candidates.json
+ * @param {string} fileLabel path label for error messages
+ * @param {(message: string) => void} fail
+ */
+export function validateDailyMedCandidateList(candidateList, fileLabel, fail) {
+  const forbiddenMatches = [];
+  collectForbiddenFields(
+    candidateList,
+    '',
+    DAILYMED_CANDIDATE_FORBIDDEN_FIELDS,
+    forbiddenMatches,
+  );
+
+  if (forbiddenMatches.length > 0) {
+    fail(
+      `${fileLabel}: candidate list must be metadata-only; forbidden field(s): ${forbiddenMatches.join(', ')}.`,
+    );
+  }
+
+  if (!Array.isArray(candidateList?.candidates)) {
+    fail(`${fileLabel}: candidates array is required.`);
+    return;
+  }
+
+  if (candidateList.candidates.length > 25) {
+    fail(`${fileLabel}: candidates array exceeds 25-entry metadata cap.`);
   }
 }

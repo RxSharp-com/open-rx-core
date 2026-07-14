@@ -1,0 +1,261 @@
+{
+  "query": "drug_name=ceftriaxone",
+  "fetched_at": "2026-07-14T21:57:55.260Z",
+  "total_results": 51,
+  "candidates_returned": 25,
+  "candidates_capped_at": 25,
+  "note": "Additional candidates may exist beyond this metadata sample. First-result position is not canonical.",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=ceftriaxone&pagesize=25",
+  "candidates": [
+    {
+      "setid": "86ec0a92-a552-4a6d-9125-a54f95e43392",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 14,
+      "published_date": "Jul 03, 2026",
+      "published_date_iso": "2026-07-03",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=86ec0a92-a552-4a6d-9125-a54f95e43392",
+      "result_position": 1
+    },
+    {
+      "setid": "4c5c2d3f-5038-41a1-a2fe-4dcd048dbac1",
+      "title": "CEFTRIAXONE (CEFTRIAXONE SODIUM) INJECTION, SOLUTION [BAXTER HEALTHCARE COMPANY]",
+      "spl_version": 26,
+      "published_date": "May 21, 2026",
+      "published_date_iso": "2026-05-21",
+      "labeler": "BAXTER HEALTHCARE COMPANY",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c5c2d3f-5038-41a1-a2fe-4dcd048dbac1",
+      "result_position": 2
+    },
+    {
+      "setid": "8351aa37-552d-471d-b293-c564dcb6ec29",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 17,
+      "published_date": "May 11, 2026",
+      "published_date_iso": "2026-05-11",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8351aa37-552d-471d-b293-c564dcb6ec29",
+      "result_position": 3
+    },
+    {
+      "setid": "85ce4f8b-77e0-48bf-9f57-93f1478befa2",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [SPORTPHARM LLC]",
+      "spl_version": 2,
+      "published_date": "Apr 27, 2026",
+      "published_date_iso": "2026-04-27",
+      "labeler": "SPORTPHARM LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=85ce4f8b-77e0-48bf-9f57-93f1478befa2",
+      "result_position": 4
+    },
+    {
+      "setid": "9a937e47-8c36-4656-83e1-b3c18ed9bac3",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [SPORTPHARM LLC]",
+      "spl_version": 2,
+      "published_date": "Apr 27, 2026",
+      "published_date_iso": "2026-04-27",
+      "labeler": "SPORTPHARM LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9a937e47-8c36-4656-83e1-b3c18ed9bac3",
+      "result_position": 5
+    },
+    {
+      "setid": "9c801096-ca61-4b29-a1e1-5f7e7813b191",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [REMEDYREPACK INC.]",
+      "spl_version": 8,
+      "published_date": "Feb 09, 2026",
+      "published_date_iso": "2026-02-09",
+      "labeler": "REMEDYREPACK INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9c801096-ca61-4b29-a1e1-5f7e7813b191",
+      "result_position": 6
+    },
+    {
+      "setid": "4cdf0743-c62b-4969-b9c9-4c6400644f6c",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [QILU PHARMACEUTICAL CO., LTD.]",
+      "spl_version": 4,
+      "published_date": "Feb 06, 2026",
+      "published_date_iso": "2026-02-06",
+      "labeler": "QILU PHARMACEUTICAL CO., LTD.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4cdf0743-c62b-4969-b9c9-4c6400644f6c",
+      "result_position": 7
+    },
+    {
+      "setid": "128bb292-d174-4769-b3e6-9f16617f31e3",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 21,
+      "published_date": "Jan 26, 2026",
+      "published_date_iso": "2026-01-26",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=128bb292-d174-4769-b3e6-9f16617f31e3",
+      "result_position": 8
+    },
+    {
+      "setid": "03283208-8616-4117-9d2b-aa8046017a4f",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 21,
+      "published_date": "Jan 21, 2026",
+      "published_date_iso": "2026-01-21",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=03283208-8616-4117-9d2b-aa8046017a4f",
+      "result_position": 9
+    },
+    {
+      "setid": "19141ccd-e66c-49a2-a794-0616028495a7",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 5,
+      "published_date": "Jan 21, 2026",
+      "published_date_iso": "2026-01-21",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=19141ccd-e66c-49a2-a794-0616028495a7",
+      "result_position": 10
+    },
+    {
+      "setid": "365fc265-8e6c-432f-9fda-911f5f7fb451",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 23,
+      "published_date": "Jan 19, 2026",
+      "published_date_iso": "2026-01-19",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=365fc265-8e6c-432f-9fda-911f5f7fb451",
+      "result_position": 11
+    },
+    {
+      "setid": "36c07ebf-b091-483e-b2c4-f0fc0c2b4186",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 4,
+      "published_date": "Jan 19, 2026",
+      "published_date_iso": "2026-01-19",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=36c07ebf-b091-483e-b2c4-f0fc0c2b4186",
+      "result_position": 12
+    },
+    {
+      "setid": "7bed9b33-29e3-4f04-9766-43a21c7ad47a",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 5,
+      "published_date": "Jan 08, 2026",
+      "published_date_iso": "2026-01-08",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7bed9b33-29e3-4f04-9766-43a21c7ad47a",
+      "result_position": 13
+    },
+    {
+      "setid": "53df951b-2eee-44b1-bae2-df7ed85bc0ed",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [SANDOZ INC]",
+      "spl_version": 25,
+      "published_date": "Jun 20, 2025",
+      "published_date_iso": "2025-06-20",
+      "labeler": "SANDOZ INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53df951b-2eee-44b1-bae2-df7ed85bc0ed",
+      "result_position": 14
+    },
+    {
+      "setid": "de028434-46cf-44f6-8ac6-889c7c6943b3",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [SANDOZ INC]",
+      "spl_version": 24,
+      "published_date": "Jun 13, 2025",
+      "published_date_iso": "2025-06-13",
+      "labeler": "SANDOZ INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de028434-46cf-44f6-8ac6-889c7c6943b3",
+      "result_position": 15
+    },
+    {
+      "setid": "befd73ff-cb3b-4543-8a8e-bdb9b7fc1ff0",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 19,
+      "published_date": "Apr 09, 2025",
+      "published_date_iso": "2025-04-09",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=befd73ff-cb3b-4543-8a8e-bdb9b7fc1ff0",
+      "result_position": 16
+    },
+    {
+      "setid": "9d1f630b-e759-4395-9d01-ddc90e4fea75",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC]",
+      "spl_version": 20,
+      "published_date": "Dec 25, 2024",
+      "published_date_iso": "2024-12-25",
+      "labeler": "HOSPIRA, INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9d1f630b-e759-4395-9d01-ddc90e4fea75",
+      "result_position": 17
+    },
+    {
+      "setid": "53415af6-4072-4339-83e2-d870ae02a0e2",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [A-S MEDICATION SOLUTIONS]",
+      "spl_version": 9,
+      "published_date": "Aug 21, 2024",
+      "published_date_iso": "2024-08-21",
+      "labeler": "A-S MEDICATION SOLUTIONS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53415af6-4072-4339-83e2-d870ae02a0e2",
+      "result_position": 18
+    },
+    {
+      "setid": "b642877e-0d36-4218-afe9-0a39f35b571d",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [A-S MEDICATION SOLUTIONS]",
+      "spl_version": 18,
+      "published_date": "Mar 29, 2024",
+      "published_date_iso": "2024-03-29",
+      "labeler": "A-S MEDICATION SOLUTIONS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b642877e-0d36-4218-afe9-0a39f35b571d",
+      "result_position": 19
+    },
+    {
+      "setid": "790279d4-2456-4091-abec-960b78885432",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [PROFICIENT RX LP]",
+      "spl_version": 1,
+      "published_date": "Feb 08, 2024",
+      "published_date_iso": "2024-02-08",
+      "labeler": "PROFICIENT RX LP",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=790279d4-2456-4091-abec-960b78885432",
+      "result_position": 20
+    },
+    {
+      "setid": "96f3fc1e-84f4-4e9b-91ac-19a1692f227a",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [CIVICA, INC.]",
+      "spl_version": 5,
+      "published_date": "Feb 07, 2024",
+      "published_date_iso": "2024-02-07",
+      "labeler": "CIVICA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=96f3fc1e-84f4-4e9b-91ac-19a1692f227a",
+      "result_position": 21
+    },
+    {
+      "setid": "1aa0a4ee-1b39-4c3d-a7a3-33dded6fe28c",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [A-S MEDICATION SOLUTIONS]",
+      "spl_version": 13,
+      "published_date": "Feb 01, 2024",
+      "published_date_iso": "2024-02-01",
+      "labeler": "A-S MEDICATION SOLUTIONS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1aa0a4ee-1b39-4c3d-a7a3-33dded6fe28c",
+      "result_position": 22
+    },
+    {
+      "setid": "ff8e830a-c288-46fb-9e19-ec2017943c07",
+      "title": "CEFTRIAXONE SODIUM INJECTION, POWDER, FOR SOLUTION [A-S MEDICATION SOLUTIONS]",
+      "spl_version": 16,
+      "published_date": "Feb 01, 2024",
+      "published_date_iso": "2024-02-01",
+      "labeler": "A-S MEDICATION SOLUTIONS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ff8e830a-c288-46fb-9e19-ec2017943c07",
+      "result_position": 23
+    },
+    {
+      "setid": "5cf93bc5-9e4c-4734-bc02-c7d0ac071022",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]",
+      "spl_version": 19,
+      "published_date": "Nov 15, 2023",
+      "published_date_iso": "2023-11-15",
+      "labeler": "SAGENT PHARMACEUTICALS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5cf93bc5-9e4c-4734-bc02-c7d0ac071022",
+      "result_position": 24
+    },
+    {
+      "setid": "7ea1db43-40fa-417b-8911-ae98092070a0",
+      "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [FRESENIUS KABI USA, LLC]",
+      "spl_version": 6,
+      "published_date": "Oct 23, 2023",
+      "published_date_iso": "2023-10-23",
+      "labeler": "FRESENIUS KABI USA, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7ea1db43-40fa-417b-8911-ae98092070a0",
+      "result_position": 25
+    }
+  ]
+}
