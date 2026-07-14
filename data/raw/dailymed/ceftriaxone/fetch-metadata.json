@@ -1,0 +1,24 @@
+{
+  "pilot": "dailymed-single-drug",
+  "source_family": "dailymed",
+  "drug_id": "ceftriaxone",
+  "selection_method": "explicit_setid",
+  "selected_setid": "86ec0a92-a552-4a6d-9125-a54f95e43392",
+  "fetched_at": "2026-07-14T21:58:07.974Z",
+  "accessed_date": "2026-07-14",
+  "selection_warning": "SPL/setid-specific metadata only. Not a canonical whole-drug label for generic drugs.",
+  "api_verify_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=86ec0a92-a552-4a6d-9125-a54f95e43392",
+  "selected_spl": {
+    "setid": "86ec0a92-a552-4a6d-9125-a54f95e43392",
+    "title": "CEFTRIAXONE INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+    "spl_version": 14,
+    "published_date": "Jul 03, 2026",
+    "published_date_iso": "2026-07-03",
+    "labeler": "WG CRITICAL CARE, LLC",
+    "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=86ec0a92-a552-4a6d-9125-a54f95e43392"
+  },
+  "notes": [
+    "Metadata only. No SPL XML/HTML or label section text stored.",
+    "Imported via explicit setid selection (preferred pattern)."
+  ]
+}

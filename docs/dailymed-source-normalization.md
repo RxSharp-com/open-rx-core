@@ -37,15 +37,19 @@ Script: `scripts/fetch-dailymed-single-drug.js`
 
 | Mode | Command | Output |
 |------|---------|--------|
-| **list** | `npm run fetch:dailymed:cefazolin:list` | `data/raw/dailymed/cefazolin/search-candidates.json` |
-| **fetch** | `npm run fetch:dailymed:cefazolin` | `data/raw/dailymed/cefazolin/fetch-metadata.json` |
+| **list** | `node scripts/fetch-dailymed-single-drug.js list --drug <drug_id>` | `data/raw/dailymed/<drug_id>/search-candidates.json` |
+| **fetch** | `node scripts/fetch-dailymed-single-drug.js fetch --drug <drug_id> --setid <uuid>` | `data/raw/dailymed/<drug_id>/fetch-metadata.json` |
+
+Supported `drug_id` values: `cefazolin`, `cefepime`, `ceftriaxone`, `daptomycin`, `vancomycin`.
 
 - **list** writes a capped metadata sample (max 25 candidates) plus `total_results`.
-- **fetch** requires an **explicit `setid`** (pilot default preserved via script constant / `DAILYMED_SETID`).
+- **fetch** requires an **explicit `setid`** (cefazolin pilot default preserved via package script / `DAILYMED_SETID`).
 - **No label XML/HTML/body text** is stored.
 - **No unattended or scheduled execution.**
 
 `result_position` in candidate lists reflects API sort order only — **not** canonical ranking.
+
+See [dailymed-opat-metadata-expansion.md](dailymed-opat-metadata-expansion.md) for OPAT drug coverage beyond cefazolin.
 
 ## Cefazolin pilot reference SPL
 
@@ -60,12 +64,13 @@ The merged pilot preserved one explicit SPL:
 - Select a canonical reference labeler for generic drugs
 - Import multiple SPLs per drug into `evidence.yaml`
 - Create clinical synthesis, monograph content, or approved evidence packets
-- Expand DailyMed imports to other OPAT drugs
 - Assert reuse rights beyond conservative defaults
+
+OPAT metadata expansion for cefepime, ceftriaxone, daptomycin, and vancomycin is documented in [dailymed-opat-metadata-expansion.md](dailymed-opat-metadata-expansion.md).
 
 ## Future work (deferred)
 
-Documented for `feature/dailymed-expand-opat-source-metadata` and later:
+Documented for `feature/dailymed-source-selection-review` and later:
 
 - Whether to store multiple SPLs per generic drug
 - Whether to designate a human-reviewed canonical reference SPL

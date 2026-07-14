@@ -1,0 +1,26 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Failure: DailyMed source documentation describes SPL as canonical
+
+schema_version: "1.0"
+drug_id: exampledrug
+evidence_status: sources_imported
+last_evidence_reviewed: null
+sources:
+  - source_id: exampledrug-src-dailymed-0003
+    source_type: dailymed_label
+    source_title: Example Pharma, Inc. example drug label, SPL version 1
+    reuse_status: unknown_requires_review
+    source_authority_level: regulatory_label
+    source_status: active
+    identifiers:
+      setid: example-setid-0003
+      labeler: Example Pharma, Inc.
+    license_note: FICTIONAL EXAMPLE
+    notes: >
+      This SPL is the canonical example drug label for OpenRxCore and should be used as the
+      representative source for all formulations.
+citations: []
+evidence_packets: []
+known_gaps:
+  - Only one DailyMed SPL evaluated (fixture).
+audit_notes: FICTIONAL EXAMPLE validation fixture.

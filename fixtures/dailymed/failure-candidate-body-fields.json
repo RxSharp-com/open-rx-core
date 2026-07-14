@@ -1,0 +1,13 @@
+{
+  "query": "drug_name=exampledrug",
+  "fetched_at": "2026-07-14T00:00:00.000Z",
+  "total_results": 1,
+  "candidates": [
+    {
+      "setid": "example-setid-body",
+      "title": "EXAMPLE DRUG [EXAMPLE PHARMA]",
+      "body_text": "This field must not appear in metadata-only candidate lists.",
+      "result_position": 1
+    }
+  ]
+}

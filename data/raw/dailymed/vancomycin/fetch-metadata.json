@@ -1,0 +1,24 @@
+{
+  "pilot": "dailymed-single-drug",
+  "source_family": "dailymed",
+  "drug_id": "vancomycin",
+  "selection_method": "explicit_setid",
+  "selected_setid": "99e523d8-9bde-43cb-8434-497015e5dcbd",
+  "fetched_at": "2026-07-14T21:59:29.987Z",
+  "accessed_date": "2026-07-14",
+  "selection_warning": "SPL/setid-specific metadata only. Not a canonical whole-drug label for generic drugs.",
+  "api_verify_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=99e523d8-9bde-43cb-8434-497015e5dcbd",
+  "selected_spl": {
+    "setid": "99e523d8-9bde-43cb-8434-497015e5dcbd",
+    "title": "VANCOMYCIN HYDROCHLORIDE INJECTION, SOLUTION [BAXTER HEALTHCARE CORPORATION]",
+    "spl_version": 27,
+    "published_date": "Jun 18, 2026",
+    "published_date_iso": "2026-06-18",
+    "labeler": "BAXTER HEALTHCARE CORPORATION",
+    "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=99e523d8-9bde-43cb-8434-497015e5dcbd"
+  },
+  "notes": [
+    "Metadata only. No SPL XML/HTML or label section text stored.",
+    "Imported via explicit setid selection (preferred pattern)."
+  ]
+}

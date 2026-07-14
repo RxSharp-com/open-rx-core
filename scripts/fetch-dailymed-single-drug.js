@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * DailyMed metadata tooling for the cefazolin pilot (metadata only).
+ * DailyMed metadata tooling for initial OPAT drugs (metadata only).
  *
  * Modes:
  *   list   — write search-candidates.json (metadata sample, capped)
@@ -17,9 +17,19 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
-const DRUG_NAME = 'cefazolin';
 const CANDIDATE_CAP = 25;
-const PILOT_SETID = '1999084a-124c-45f9-801f-416a1b942c96';
+
+/** Initial OPAT drug_ids supported by this script. */
+const OPAT_DRUGS = new Set([
+  'cefazolin',
+  'cefepime',
+  'ceftriaxone',
+  'daptomycin',
+  'vancomycin',
+]);
+
+/** Cefazolin pilot default setid (explicit selection only; not canonical). */
+const CEFAZOLIN_PILOT_SETID = '1999084a-124c-45f9-801f-416a1b942c96';
 
 function fail(message) {
   console.error(`Error: ${message}`);
@@ -28,14 +38,16 @@ function fail(message) {
 
 function usage() {
   console.log(`Usage:
-  node scripts/fetch-dailymed-single-drug.js list
-  node scripts/fetch-dailymed-single-drug.js fetch --setid <uuid>
+  node scripts/fetch-dailymed-single-drug.js list --drug <drug_id>
+  node scripts/fetch-dailymed-single-drug.js fetch --drug <drug_id> --setid <uuid>
+
+Supported drug_id values: ${[...OPAT_DRUGS].join(', ')}
 
 list   Metadata-only DailyMed search candidate sample (max ${CANDIDATE_CAP} results).
 fetch  Metadata-only record for one explicit SPL setid (preferred import pattern).
 
 Environment:
-  DAILYMED_SETID  Optional setid for fetch when --setid is omitted (pilot default preserved).`);
+  DAILYMED_SETID  Optional setid for fetch when --setid is omitted (cefazolin pilot default only).`);
 }
 
 function parsePublishedDate(publishedDate) {
@@ -56,6 +68,16 @@ function extractLabelerFromTitle(title) {
 
 function dailymedUrl(setid) {
   return `https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=${setid}`;
+}
+
+function resolveDrugId(drugId) {
+  if (!drugId) {
+    fail('Missing required --drug <drug_id>. Supported values: ' + [...OPAT_DRUGS].join(', '));
+  }
+  if (!OPAT_DRUGS.has(drugId)) {
+    fail(`Unsupported drug_id "${drugId}". Supported values: ${[...OPAT_DRUGS].join(', ')}`);
+  }
+  return drugId;
 }
 
 async function fetchJson(url) {
@@ -102,11 +124,11 @@ function normalizeCandidate(record, resultPosition) {
   };
 }
 
-async function runList() {
-  const query = `drug_name=${DRUG_NAME}`;
+async function runList(drugId) {
+  const query = `drug_name=${drugId}`;
   const searchUrl = `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?${query}&pagesize=${CANDIDATE_CAP}`;
 
-  console.log(`DailyMed list mode: metadata-only search for ${DRUG_NAME} (cap ${CANDIDATE_CAP})...`);
+  console.log(`DailyMed list mode: metadata-only search for ${drugId} (cap ${CANDIDATE_CAP})...`);
   console.warn(
     'List mode does not select a canonical label. result_position is API sort order only.',
   );
@@ -137,7 +159,7 @@ async function runList() {
     candidates,
   };
 
-  const outDir = join(ROOT, 'data', 'raw', 'dailymed', DRUG_NAME);
+  const outDir = join(ROOT, 'data', 'raw', 'dailymed', drugId);
   mkdirSync(outDir, { recursive: true });
   const outPath = join(outDir, 'search-candidates.json');
   writeFileSync(outPath, `${JSON.stringify(output, null, 2)}\n`);
@@ -150,14 +172,18 @@ async function runList() {
   }
 }
 
-async function runFetch(setid) {
+async function runFetch(drugId, setid) {
   if (!setid) {
-    fail('fetch mode requires --setid <uuid> or DAILYMED_SETID environment variable.');
+    if (drugId === 'cefazolin') {
+      setid = process.env.DAILYMED_SETID || CEFAZOLIN_PILOT_SETID;
+    } else {
+      fail('fetch mode requires --setid <uuid> for drugs other than cefazolin.');
+    }
   }
 
   const verifyUrl = `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=${encodeURIComponent(setid)}`;
 
-  console.log(`DailyMed fetch mode: explicit setid ${setid} (metadata only)...`);
+  console.log(`DailyMed fetch mode: explicit setid ${setid} for ${drugId} (metadata only)...`);
   console.warn(
     'Fetch uses explicit setid selection. Do not treat any SPL as the canonical whole-drug label.',
   );
@@ -175,7 +201,7 @@ async function runFetch(setid) {
   const output = {
     pilot: 'dailymed-single-drug',
     source_family: 'dailymed',
-    drug_name: DRUG_NAME,
+    drug_id: drugId,
     selection_method: 'explicit_setid',
     selected_setid: verified.setid,
     fetched_at: new Date().toISOString(),
@@ -198,12 +224,13 @@ async function runFetch(setid) {
     ],
   };
 
-  const outDir = join(ROOT, 'data', 'raw', 'dailymed', DRUG_NAME);
+  const outDir = join(ROOT, 'data', 'raw', 'dailymed', drugId);
   mkdirSync(outDir, { recursive: true });
   const outPath = join(outDir, 'fetch-metadata.json');
   writeFileSync(outPath, `${JSON.stringify(output, null, 2)}\n`);
 
   console.log('DailyMed metadata fetch complete.');
+  console.log(`  drug_id: ${drugId}`);
   console.log(`  setid: ${output.selected_spl.setid}`);
   console.log(`  title: ${output.selected_spl.title}`);
   if (labeler) {
@@ -221,27 +248,33 @@ function parseArgs(argv) {
     process.exit(command ? 0 : 1);
   }
 
-  let setid = process.env.DAILYMED_SETID || null;
+  let drugId = null;
+  let setid = null;
+
   for (let i = 0; i < args.length; i += 1) {
-    if (args[i] === '--setid') {
+    if (args[i] === '--drug') {
+      drugId = args[i + 1];
+      i += 1;
+    } else if (args[i] === '--setid') {
       setid = args[i + 1];
       i += 1;
     }
   }
 
-  return { command, setid };
+  return { command, drugId, setid };
 }
 
 async function main() {
-  const { command, setid } = parseArgs(process.argv.slice(2));
+  const { command, drugId: rawDrugId, setid } = parseArgs(process.argv.slice(2));
+  const drugId = resolveDrugId(rawDrugId);
 
   if (command === 'list') {
-    await runList();
+    await runList(drugId);
     return;
   }
 
   if (command === 'fetch') {
-    await runFetch(setid || PILOT_SETID);
+    await runFetch(drugId, setid);
     return;
   }
 

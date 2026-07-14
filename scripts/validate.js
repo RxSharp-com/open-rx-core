@@ -6,13 +6,14 @@ import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import yaml from 'yaml';
-import { validateEvidenceRules } from './lib/evidence-rules.js';
+import { validateEvidenceRules, validateDailyMedCandidateList } from './lib/evidence-rules.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DRUGS_DIR = join(ROOT, 'content', 'drugs');
 const SCHEMA_DIR = join(ROOT, 'schema');
 const PROJECT_CONFIG_PATH = join(ROOT, 'project.config.json');
+const DAILYMED_RAW_DIR = join(ROOT, 'data', 'raw', 'dailymed');
 
 const REQUIRED_DRUG_FILES = [
   'monograph.yaml',
@@ -249,6 +250,35 @@ function validateDrugFolder(drugId, validators) {
   }
 }
 
+function validateDailyMedCandidateLists() {
+  if (!existsSync(DAILYMED_RAW_DIR)) {
+    return;
+  }
+
+  const drugDirs = readdirSync(DAILYMED_RAW_DIR).filter((entry) => {
+    const fullPath = join(DAILYMED_RAW_DIR, entry);
+    return statSync(fullPath).isDirectory();
+  });
+
+  for (const drugId of drugDirs) {
+    const candidatePath = join(DAILYMED_RAW_DIR, drugId, 'search-candidates.json');
+    if (!existsSync(candidatePath)) {
+      continue;
+    }
+
+    const fileLabel = `data/raw/dailymed/${drugId}/search-candidates.json`;
+    let candidateList;
+    try {
+      candidateList = readJson(candidatePath);
+    } catch (error) {
+      fail(`${fileLabel}: invalid JSON: ${error.message}`);
+      continue;
+    }
+
+    validateDailyMedCandidateList(candidateList, fileLabel, (message) => fail(message));
+  }
+}
+
 function main() {
   console.log('OpenRxCore validation');
   console.log('=====================');
@@ -266,6 +296,8 @@ function main() {
   for (const drugId of drugFolders) {
     validateDrugFolder(drugId, validators);
   }
+
+  validateDailyMedCandidateLists();
 
   if (warnings.length > 0) {
     console.log('\nWarnings:');

@@ -102,6 +102,10 @@ const scenarios = [
     'DailyMed public_domain without verifiable license_note basis',
     'failure-dailymed-public-domain-no-basis.yaml',
   ],
+  [
+    'DailyMed source described as canonical',
+    'failure-dailymed-canonical-description.yaml',
+  ],
 ];
 
 let allFailedAsExpected = true;

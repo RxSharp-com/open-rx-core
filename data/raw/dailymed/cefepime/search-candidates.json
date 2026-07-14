@@ -1,0 +1,171 @@
+{
+  "query": "drug_name=cefepime",
+  "fetched_at": "2026-07-14T21:59:29.795Z",
+  "total_results": 16,
+  "candidates_returned": 16,
+  "candidates_capped_at": 25,
+  "note": "Metadata-only candidate sample.",
+  "api_search_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=cefepime&pagesize=25",
+  "candidates": [
+    {
+      "setid": "5fd857e5-591f-44ca-80cf-fd903660b03c",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 17,
+      "published_date": "Jul 03, 2026",
+      "published_date_iso": "2026-07-03",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5fd857e5-591f-44ca-80cf-fd903660b03c",
+      "result_position": 1
+    },
+    {
+      "setid": "be5f8ca6-7232-423a-a2d5-cccb7abe7921",
+      "title": "CEFEPIME INJECTION, SOLUTION [BAXTER HEALTHCARE CORPORATION]",
+      "spl_version": 29,
+      "published_date": "Jul 01, 2026",
+      "published_date_iso": "2026-07-01",
+      "labeler": "BAXTER HEALTHCARE CORPORATION",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=be5f8ca6-7232-423a-a2d5-cccb7abe7921",
+      "result_position": 2
+    },
+    {
+      "setid": "c654ef2e-1067-4026-8931-6a0dc2a17ad1",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [WG CRITICAL CARE, LLC]",
+      "spl_version": 8,
+      "published_date": "Jun 30, 2026",
+      "published_date_iso": "2026-06-30",
+      "labeler": "WG CRITICAL CARE, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c654ef2e-1067-4026-8931-6a0dc2a17ad1",
+      "result_position": 3
+    },
+    {
+      "setid": "f64c181e-28c5-48ab-aa67-5ca0e3fd079c",
+      "title": "CEFEPIME HYDROCHLORIDE INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 1,
+      "published_date": "Jun 22, 2026",
+      "published_date_iso": "2026-06-22",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f64c181e-28c5-48ab-aa67-5ca0e3fd079c",
+      "result_position": 4
+    },
+    {
+      "setid": "c84e652e-5e76-4568-8812-bd5fa34803b6",
+      "title": "ZAYNICH (ZIDEBACTAM DIHYDRATE AND CEFEPIME HYDROCHLORIDE) INJECTION, POWDER, FOR SOLUTION [WOCKHARDT SUISSE USA LLC]",
+      "spl_version": 2,
+      "published_date": "Jun 10, 2026",
+      "published_date_iso": "2026-06-10",
+      "labeler": "WOCKHARDT SUISSE USA LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c84e652e-5e76-4568-8812-bd5fa34803b6",
+      "result_position": 5
+    },
+    {
+      "setid": "57517a0e-ec1b-4605-a7cc-7e3801158ec9",
+      "title": "CEFEPIME HYDROCHLORIDE AND DEXTROSE (CEFEPIME HYDROCHLORIDE) INJECTION, SOLUTION [B. BRAUN MEDICAL INC.]",
+      "spl_version": 25,
+      "published_date": "Apr 22, 2026",
+      "published_date_iso": "2026-04-22",
+      "labeler": "B. BRAUN MEDICAL INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=57517a0e-ec1b-4605-a7cc-7e3801158ec9",
+      "result_position": 6
+    },
+    {
+      "setid": "b9914e7e-13f6-42d4-9cbb-8c7ed1ce7a01",
+      "title": "CEFEPIME HYDROCHLORIDE INJECTION, POWDER, FOR SOLUTION [HIKMA PHARMACEUTICALS USA INC.]",
+      "spl_version": 3,
+      "published_date": "Nov 17, 2025",
+      "published_date_iso": "2025-11-17",
+      "labeler": "HIKMA PHARMACEUTICALS USA INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b9914e7e-13f6-42d4-9cbb-8c7ed1ce7a01",
+      "result_position": 7
+    },
+    {
+      "setid": "e80c27e2-164d-4836-ba24-c160d75dc5d3",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [HOSPIRA, INC.]",
+      "spl_version": 4,
+      "published_date": "Nov 08, 2024",
+      "published_date_iso": "2024-11-08",
+      "labeler": "HOSPIRA, INC.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e80c27e2-164d-4836-ba24-c160d75dc5d3",
+      "result_position": 8
+    },
+    {
+      "setid": "f776421b-bd46-4664-b9ff-533d805e1277",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [SAMSON MEDICAL TECHNOLOGIES LLC]",
+      "spl_version": 7,
+      "published_date": "Mar 14, 2024",
+      "published_date_iso": "2024-03-14",
+      "labeler": "SAMSON MEDICAL TECHNOLOGIES LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f776421b-bd46-4664-b9ff-533d805e1277",
+      "result_position": 9
+    },
+    {
+      "setid": "5e1695e0-1310-4cd8-a5da-ad1a7dcd1792",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION CEFEPIME (CEFEPIME) INJECTION, POWDER, FOR SOLUTION [FRESENIUS KABI USA, LLC]",
+      "spl_version": 11,
+      "published_date": "Oct 16, 2023",
+      "published_date_iso": "2023-10-16",
+      "labeler": "FRESENIUS KABI USA, LLC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e1695e0-1310-4cd8-a5da-ad1a7dcd1792",
+      "result_position": 10
+    },
+    {
+      "setid": "02aa374f-37b4-456a-b5de-cfd3bbb6ce6e",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [APOTEX CORP.]",
+      "spl_version": 2,
+      "published_date": "May 12, 2023",
+      "published_date_iso": "2023-05-12",
+      "labeler": "APOTEX CORP.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=02aa374f-37b4-456a-b5de-cfd3bbb6ce6e",
+      "result_position": 11
+    },
+    {
+      "setid": "d63d360a-15ec-44a4-b80d-b2a5cb5759eb",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [APOTEX CORP.]",
+      "spl_version": 7,
+      "published_date": "May 12, 2023",
+      "published_date_iso": "2023-05-12",
+      "labeler": "APOTEX CORP.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d63d360a-15ec-44a4-b80d-b2a5cb5759eb",
+      "result_position": 12
+    },
+    {
+      "setid": "dd641c7f-b857-48ff-bd9d-747e0c3cc89f",
+      "title": "CEFEPIME INJECTION, POWDER, FOR SOLUTION [APOTEX CORP.]",
+      "spl_version": 10,
+      "published_date": "May 12, 2023",
+      "published_date_iso": "2023-05-12",
+      "labeler": "APOTEX CORP.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dd641c7f-b857-48ff-bd9d-747e0c3cc89f",
+      "result_position": 13
+    },
+    {
+      "setid": "de477f37-40f6-4295-ae72-a2ee36a8922e",
+      "title": "CEFEPIME (CEFEPIME HYDROCHLORIDE) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]",
+      "spl_version": 22,
+      "published_date": "Nov 30, 2022",
+      "published_date_iso": "2022-11-30",
+      "labeler": "SAGENT PHARMACEUTICALS",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de477f37-40f6-4295-ae72-a2ee36a8922e",
+      "result_position": 14
+    },
+    {
+      "setid": "80b4c811-4a71-47fb-8565-85ce9d0f782c",
+      "title": "CEFEPIME (CEFEPIME HYDROCHLORIDE) INJECTION, POWDER, FOR SOLUTION [QILU PHARMACEUTICAL CO., LTD.]",
+      "spl_version": 4,
+      "published_date": "Nov 15, 2021",
+      "published_date_iso": "2021-11-15",
+      "labeler": "QILU PHARMACEUTICAL CO., LTD.",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80b4c811-4a71-47fb-8565-85ce9d0f782c",
+      "result_position": 15
+    },
+    {
+      "setid": "1eb8794e-2502-43cc-8a32-dcba78031f15",
+      "title": "CEFEPIME HYDROCHLORIDE INJECTION, POWDER, FOR SOLUTION [SANDOZ INC]",
+      "spl_version": 13,
+      "published_date": "Aug 17, 2015",
+      "published_date_iso": "2015-08-17",
+      "labeler": "SANDOZ INC",
+      "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1eb8794e-2502-43cc-8a32-dcba78031f15",
+      "result_position": 16
+    }
+  ]
+}
