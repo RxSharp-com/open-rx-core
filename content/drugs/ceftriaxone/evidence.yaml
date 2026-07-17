@@ -102,9 +102,13 @@ known_gaps:
   - This source must not be treated as a canonical or comprehensive ceftriaxone label source.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
+  - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
+    docs/dailymed-source-selection-policy-draft.md. Human review required before section extraction.
 audit_notes: >
   DailyMed metadata source mapped with explicit setid 86ec0a92-a552-4a6d-9125-a54f95e43392 (WG Critical
-  Care, LLC SPL only). Normalization policy: docs/dailymed-source-normalization.md. Candidate
+  Care, LLC SPL only). Normalization policy: docs/dailymed-source-normalization.md. Source-selection
+  review: docs/dailymed-source-selection-review.md. Draft selection policy:
+  docs/dailymed-source-selection-policy-draft.md. Candidate
   metadata sample: data/raw/dailymed/ceftriaxone/search-candidates.json. Selected SPL metadata:
   data/raw/dailymed/ceftriaxone/fetch-metadata.json (metadata fields only; no label body text).
   evidence_status set to sources_imported. All packets are needs_review and unapproved.

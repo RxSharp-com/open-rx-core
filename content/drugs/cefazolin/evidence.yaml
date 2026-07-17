@@ -68,7 +68,7 @@ evidence_packets:
       - not_yet_reviewed
       - license_unclear
     known_gaps:
-      - Only one labeler SPL selected (pagesize=1 first search result); other cefazolin SPLs not evaluated.
+      - Only one labeler SPL selected via explicit setid; other cefazolin SPLs not evaluated.
     created_by: dailymed-pilot-fetch
     created_date: "2026-07-07"
     last_updated: "2026-07-07"
@@ -102,10 +102,14 @@ known_gaps:
   - A DailyMed source normalization policy is documented in docs/dailymed-source-normalization.md; canonical labeler selection remains unresolved.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
-  - Other OPAT drugs and non-DailyMed sources have not been imported.
+  - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
+    docs/dailymed-source-selection-policy-draft.md. Human review required before section extraction.
+  - Non-DailyMed sources have not been imported.
 audit_notes: >
   DailyMed pilot source mapped with explicit setid 1999084a-124c-45f9-801f-416a1b942c96 (WG Critical
-  Care, LLC SPL only). Normalization policy: docs/dailymed-source-normalization.md. Candidate
+  Care, LLC SPL only). Normalization policy: docs/dailymed-source-normalization.md. Source-selection
+  review: docs/dailymed-source-selection-review.md. Draft selection policy:
+  docs/dailymed-source-selection-policy-draft.md. Candidate
   metadata sample: data/raw/dailymed/cefazolin/search-candidates.json. Selected SPL metadata:
   data/raw/dailymed/cefazolin/fetch-metadata.json (metadata fields only; no label body text).
   evidence_status remains sources_imported. All packets are needs_review and unapproved.

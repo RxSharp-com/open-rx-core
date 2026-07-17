@@ -74,7 +74,12 @@ Package scripts are available for each drug (see `package.json`).
 
 ## Unresolved questions before scaling further
 
-Recommended next branch: **`feature/dailymed-source-selection-review`**
+Recommended next branch after human review of selection policy: **`feature/dailymed-section-extraction-design`**
+
+Structured review and draft policy:
+
+- [dailymed-source-selection-review.md](dailymed-source-selection-review.md)
+- [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md)
 
 Human review is needed before scaling:
 
