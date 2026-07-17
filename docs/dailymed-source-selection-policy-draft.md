@@ -14,7 +14,7 @@ Guide future DailyMed source selection so that:
 
 - SPLs stay **labeler/product-specific** and **non-canonical**
 - Route/formulation ambiguity is **documented**, not hidden
-- OPAT-oriented work can identify likely injectable SPLs from **title metadata only**, without claiming clinical appropriateness
+- Outpatient parenteral antimicrobial therapy–oriented work may use title keywords to **suggest** candidate SPLs for human consideration from **title metadata only**, without claiming clinical appropriateness
 - Human clinical and legal review gates exist **before** scaling extraction
 
 ---
@@ -66,7 +66,13 @@ Guide future DailyMed source selection so that:
 
 ## Policy Questions Requiring Human Review
 
-These questions must be answered (clinical, editorial, and legal stakeholders) before scaling DailyMed section extraction:
+These questions must be answered (clinical, editorial, and legal stakeholders) before scaling DailyMed section extraction. **Cursor does not answer these; they remain unresolved.**
+
+### Drug-specific (highest priority)
+
+- **Daptomycin:** Should the current **Dapzura RT** branded/product-specific SPL (Baxter Healthcare Corporation; setid `cb1283e1-35b8-425c-b338-d9ac0c7161f8`) remain the **temporary working source** for metadata and future extraction design, or should a **generic-named injectable** daptomycin SPL be selected instead (or tracked in addition)? **Unresolved — human review only.**
+
+- **Vancomycin:** Should the current **Baxter injection solution** SPL (setid `99e523d8-9bde-43cb-8434-497015e5dcbd`) remain the **temporary working injectable source** pending review? Should vancomycin be modeled with **separate route/formulation groups** because DailyMed candidate results in the current stored sample include **oral capsules**, **injection solutions**, and **powders for solution**? **Unresolved — human review only.**
 
 ### Scope and cardinality
 
@@ -77,12 +83,7 @@ These questions must be answered (clinical, editorial, and legal stakeholders) b
 ### Selection criteria
 
 - How should **differences between labelers** be reconciled when titles and sections differ?
-- What should count as **sufficient evidence** that a source is **OPAT-relevant** (beyond injectable title metadata)?
-- For **daptomycin**, should a **branded** SPL (DAPZURA RT) or a **generic-named** injectable SPL be the working source — or both?
-
-### Vancomycin and route mixing
-
-- The vancomycin candidate sample mixes **capsule**, **injection**, and **powder for solution** titles; API order favors capsules. The **currently selected** Baxter **injection** SPL (`99e523d8-9bde-43cb-8434-497015e5dcbd`) was chosen by explicit `setid`. **Does a human reviewer affirm this as the temporary working injectable SPL**, or should a different injectable `setid` be selected by human decision? (This review does **not** re-select.)
+- What title-metadata or policy criteria should be used to **consider** an SPL for outpatient parenteral antimicrobial therapy–oriented extraction **design** (not clinical review)?
 
 ### Reuse and content
 

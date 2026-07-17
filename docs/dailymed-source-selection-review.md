@@ -4,7 +4,15 @@ Structured review of **metadata already committed** in OpenRxCore for the five i
 
 See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md) · [dailymed-source-normalization.md](dailymed-source-normalization.md) · [dailymed-opat-metadata-expansion.md](dailymed-opat-metadata-expansion.md)
 
-**OpenRxCore is not clinically usable.** Title-based OPAT relevance notes below use cautious phrasing only (`title metadata suggests`, `requires human review`, `not a clinical selection`, `not canonical`).
+**OpenRxCore is not clinically usable.** Title-based notes below use cautious phrasing only (`title metadata suggests`, `requires human review`, `not a clinical selection`, `not canonical`). This review uses the **current stored candidate sample** in the repository only — not live DailyMed as an exhaustive catalog.
+
+## Highest-priority human review flags
+
+Title-metadata and source-selection issues only — **not clinical conclusions**.
+
+1. **Daptomycin:** The selected DailyMed SPL is **Dapzura RT** (Baxter Healthcare Corporation) — a **branded/product-specific** SPL. It must **not** be treated as a generic daptomycin label, a canonical reference, or representative of all daptomycin products. **Human review is required** before any section extraction or synthesis.
+
+2. **Vancomycin:** The **current stored candidate sample** mixes **oral capsule**, **injection**, and **powder for solution** titles; API `result_position` 1–2 are capsule products. The selected Baxter **injection solution** SPL was chosen by **explicit `setid`** (not the first API result). Title metadata on the selected SPL suggests injection only — **not a clinical selection**. **Human review is required** to decide whether this SPL should remain the **temporary working injectable SPL** pending review, and whether vancomycin needs **separate route/formulation groups**.
 
 ## Cross-cutting source-selection problems
 
@@ -33,7 +41,7 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 | Formulation/route (title only) | Title metadata suggests injectable powder for solution |
 | Multiple labelers in sample? | Yes — candidate list suggests ~15 labelers in the stored sample |
 | Multiple formulations/routes in sample? | Title metadata in the sample is predominantly injection/solution; no capsule/tablet titles in the stored 25 |
-| OPAT relevance (title metadata only) | Title metadata suggests an injectable product; **not a clinical selection** |
+| OPAT-oriented title hint (title metadata only) | Title metadata suggests an injectable product; **not a clinical selection** |
 | Selected SPL clearly labeler/product-specific? | Yes — setid and title bracket labeler WG CRITICAL CARE, LLC |
 
 **Known source-selection risks**
@@ -64,7 +72,7 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 | Formulation/route (title only) | Title metadata suggests injectable powder for solution |
 | Multiple labelers in sample? | Yes — candidate list suggests ~12 labelers |
 | Multiple formulations/routes in sample? | Stored titles are injection/solution oriented in this sample |
-| OPAT relevance (title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
+| OPAT-oriented title hint (selected SPL; title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
 | Selected SPL clearly labeler/product-specific? | Yes |
 
 **Known source-selection risks**
@@ -93,7 +101,7 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 | Formulation/route (title only) | Title metadata suggests injectable powder for solution |
 | Multiple labelers in sample? | Yes — candidate list suggests ~13 labelers in sample |
 | Multiple formulations/routes in sample? | Sample titles are injection-oriented; 26+ SPLs not in stored sample |
-| OPAT relevance (title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
+| OPAT-oriented title hint (selected SPL; title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
 | Selected SPL clearly labeler/product-specific? | Yes |
 
 **Known source-selection risks**
@@ -112,6 +120,8 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 
 ### Daptomycin
 
+> **Human review flag:** Selected SPL is **Dapzura RT** (Baxter Healthcare Corporation) — **branded/product-specific**, **not** a generic daptomycin label, **not canonical**, **not representative** of all daptomycin SPLs. **Requires human review** before section extraction.
+
 | Field | Value |
 |-------|--------|
 | DailyMed `total_results` | 52 |
@@ -122,13 +132,14 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 | Formulation/route (title only) | Title metadata suggests injectable lyophilized powder for solution; product name “DAPZURA RT” in title |
 | Multiple labelers in sample? | Yes — candidate list suggests ~14 labelers |
 | Multiple formulations/routes in sample? | Sample is injection-heavy; branded vs generic product titles both appear |
-| OPAT relevance (title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
+| OPAT-oriented title hint (selected SPL; title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
 | Selected SPL clearly labeler/product-specific? | Yes — branded product line in title, Baxter labeler |
 
 **Known source-selection risks**
 
-- Selected SPL is **product-branded** (DAPZURA RT) while other candidates use generic “DAPTOMYCIN” titling — not representative of all daptomycin SPLs.
-- `result_position` 1 in sample; explicit `setid` selection does not resolve branded vs generic tracking policy.
+- **Highest priority:** Selected SPL is **Dapzura RT** (Baxter Healthcare Corporation) — a **branded/product-specific** SPL, **not** a generic daptomycin label and **not representative** of all daptomycin products or SPLs.
+- Other candidates in the sample use generic “DAPTOMYCIN” titling; tracking policy between branded vs generic-named SPLs is unresolved.
+- `result_position` 1 in the current stored candidate sample; explicit `setid` does not resolve branded vs generic policy.
 - 27+ SPLs not in capped sample.
 
 **Unresolved before section extraction**
@@ -142,6 +153,8 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 
 ### Vancomycin
 
+> **Human review flag:** The **current stored candidate sample** mixes oral **capsule** and **injectable** titles. The selected Baxter **injection solution** SPL is **not** the first API result (capsules at positions 1–2). **Human review is required** before section extraction to confirm or change the **temporary working injectable SPL** and whether route/formulation groups are needed.
+
 | Field | Value |
 |-------|--------|
 | DailyMed `total_results` | 88 |
@@ -152,20 +165,21 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 | Formulation/route (title only) | Title metadata suggests injection solution |
 | Multiple labelers in sample? | Yes — candidate list suggests ~14 labelers |
 | Multiple formulations/routes in sample? | **Yes** — candidate list suggests capsules (e.g. positions 1–2), powders for solution, injections, and other solutions in the stored 25 |
-| OPAT relevance (title metadata only) | Selected SPL title metadata suggests injectable product; **not a clinical selection** |
+| OPAT-oriented title hint (selected SPL; title metadata only) | Selected SPL title metadata suggests injectable product; **not a clinical selection** |
 | Selected SPL clearly labeler/product-specific? | Yes |
 
 **Known source-selection risks**
 
 - Largest SPL count (`total_results` 88) with only 25 candidates stored.
 - API sort places **capsule** products at `result_position` 1–2 — strong signal that generic drug search is route-agnostic.
-- Selected SPL was chosen by **explicit setid** at `result_position` 4 (injection), not the first API result — good metadata practice, but human review still needed to confirm working SPL among many injectable labelers.
+- Selected SPL was chosen by **explicit `setid`** at `result_position` 4 in the current stored candidate sample — the **first entry whose title includes INJECTION** in that sample (positions 1–2 capsule, position 3 powder for solution without INJECTION in title). This is **not** the first API result and **not** a clinical recommendation.
+- Human review is required to decide whether this Baxter injection solution SPL should remain the **temporary working injectable SPL** pending review, among other injection-titled entries in the sample.
 - Powders “for solution” vs “injection” titles may imply different product types; title metadata alone does not resolve clinical route.
 
 **Unresolved before section extraction**
 
 - Whether vancomycin tracking must split **oral vs injectable** (and possibly IV vs other parenteral) SPL groups.
-- Human decision: is Baxter injection `99e523d8-…` the appropriate **temporary working SPL** for OPAT-oriented extraction design, among 11+ injection-titled entries in the sample alone?
+- Human review: should Baxter injection `99e523d8-…` remain the **temporary working SPL** for extraction **design** only, among other injection-titled entries in the current stored candidate sample?
 - Re-selection question if policy favors a different injectable labeler or formulation subgroup — **human decision only** (this review does not change `setid`).
 
 **Formulation/route check (selected SPL):** The **currently selected** SPL title metadata suggests **injection** route — **not** flagged as an oral/topical mismatch for OPAT based on title alone. **Caution:** the **candidate list** still shows capsule-heavy API ordering; route/formulation policy for the drug overall **requires human review** before section extraction. This is **not** a directive to re-select silently; flagged for human review in [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md).

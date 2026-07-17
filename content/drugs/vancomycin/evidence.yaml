@@ -29,9 +29,9 @@ sources:
     notes: >
       One manufacturer/labeler SPL only: Baxter Healthcare Corporation (setid-specific; injection
       solution). This is not the vancomycin label generally — DailyMed lists separate SPLs per
-      labeler/formulation for generic vancomycin. Imported via explicit setid selection (not first
-      search result) per docs/dailymed-source-normalization.md. No SPL XML/HTML or label section
-      text stored in the repository.
+      labeler/formulation for generic vancomycin. Only one DailyMed SPL was evaluated for this drug_id.
+      Imported via explicit setid selection (not first search result) per
+      docs/dailymed-source-normalization.md. No SPL XML/HTML or label section text stored.
 citations:
   - citation_id: vancomycin-cite-0001
     source_id: vancomycin-src-dailymed-0001
@@ -97,22 +97,34 @@ evidence_packets:
     created_date: "2026-07-14"
     last_updated: "2026-07-14"
 known_gaps:
-  - This pilot evaluated only one DailyMed SPL for vancomycin (Baxter Healthcare Corporation injection).
+  - Only one DailyMed SPL was evaluated for vancomycin (Baxter Healthcare Corporation injection solution).
+  - "HUMAN REVIEW REQUIRED (vancomycin source selection): Current stored candidate sample mixes oral
+    capsule, injection, and powder-for-solution titles. API result_position 1–2 are capsule products.
+    Selected Baxter injection solution SPL was chosen by explicit setid (not first API result). Title
+    metadata on the selected SPL suggests injection only — not a clinical selection, non-canonical.
+    Human review is required to decide whether this SPL should remain the temporary working injectable
+    SPL pending review."
+  - In the current stored candidate sample (data/raw/dailymed/vancomycin/search-candidates.json), the
+    selected SPL (setid 99e523d8-9bde-43cb-8434-497015e5dcbd) is the first entry whose title includes
+    INJECTION (result_position 4); positions 1–2 are capsule titles, position 3 is powder for solution.
+    This documents import metadata only — not a clinical recommendation.
   - DailyMed returned total_results=88 for vancomycin; search-candidates.json contains a capped sample of 25.
-  - First API search result was a capsule formulation; selected SPL was chosen explicitly by setid for injection metadata pilot only.
-  - Other vancomycin SPLs (oral, other injectable labelers) may exist and were not evaluated.
-  - This source must not be treated as a canonical or comprehensive vancomycin label source.
+  - Other vancomycin SPLs (oral, other injectable labelers, unsampled SPLs) may exist and were not evaluated.
+  - This source must not be treated as a comprehensive whole-drug vancomycin label source.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
   - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
-    docs/dailymed-source-selection-policy-draft.md. Candidate list suggests multiple routes
-    (capsule, injection, powder); selected SPL title metadata suggests injection only — requires
-    human review to affirm temporary working injectable SPL or re-select by human decision (not
-    automatic). Not a clinical selection; not canonical.
+    docs/dailymed-source-selection-policy-draft.md. Separate route/formulation groups may be required;
+    human review required before section extraction. Not a clinical selection.
 audit_notes: >
-  DailyMed metadata source mapped with explicit setid 99e523d8-9bde-43cb-8434-497015e5dcbd (Baxter
-  Healthcare Corporation injection SPL only). Normalization policy: docs/dailymed-source-normalization.md.
-  Source-selection review: docs/dailymed-source-selection-review.md. Draft selection policy:
+  VANCOMYCIN SOURCE-SELECTION FLAG: Current stored candidate sample mixes capsule, injection, and powder
+  titles; first API results are oral capsules. Selected Baxter Healthcare Corporation injection solution
+  SPL (explicit setid 99e523d8-9bde-43cb-8434-497015e5dcbd) — title metadata suggests injection only,
+  not first API result, non-canonical, not a clinical recommendation. In the stored sample, selected SPL
+  is first INJECTION-titled entry (result_position 4). Only one SPL evaluated. Human review required to
+  confirm temporary working injectable SPL or re-select by human decision only. Normalization policy:
+  docs/dailymed-source-normalization.md. Source-selection review:
+  docs/dailymed-source-selection-review.md. Draft selection policy:
   docs/dailymed-source-selection-policy-draft.md.
   Candidate metadata sample: data/raw/dailymed/vancomycin/search-candidates.json. Selected SPL metadata:
   data/raw/dailymed/vancomycin/fetch-metadata.json (metadata fields only; no label body text).

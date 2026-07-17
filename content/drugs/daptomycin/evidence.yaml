@@ -27,10 +27,11 @@ sources:
     source_authority_level: regulatory_label
     source_status: active
     notes: >
-      One manufacturer/labeler SPL only: Baxter Healthcare Corporation (setid-specific; Dapzura RT
-      product line). This is not the daptomycin label generally — DailyMed lists separate SPLs per
-      labeler/product for generic daptomycin. Imported via explicit setid selection per
-      docs/dailymed-source-normalization.md. No SPL XML/HTML or label section text stored.
+      Baxter Healthcare Corporation only; setid-specific. Selected DailyMed SPL is for **Dapzura RT**, a
+      branded/product-specific daptomycin product — not a generic daptomycin label, non-canonical, and
+      not representative of the drug generally. Human review is required before any section
+      extraction or synthesis. Only one DailyMed SPL was evaluated for this drug_id. Imported via explicit
+      setid per docs/dailymed-source-normalization.md. No SPL XML/HTML or label section text stored.
 citations:
   - citation_id: daptomycin-cite-0001
     source_id: daptomycin-src-dailymed-0001
@@ -96,20 +97,29 @@ evidence_packets:
     created_date: "2026-07-14"
     last_updated: "2026-07-14"
 known_gaps:
-  - This pilot evaluated only one DailyMed SPL for daptomycin (Baxter Healthcare Corporation).
+  - "HUMAN REVIEW REQUIRED (daptomycin source selection): Selected DailyMed SPL is for Dapzura RT, a
+    branded/product-specific daptomycin product (Baxter Healthcare Corporation). This must not be treated
+    as a generic daptomycin label or as covering every daptomycin SPL or product. Human review is
+    required before any section extraction or synthesis."
+  - Selected DailyMed SPL is for Dapzura RT, a branded/product-specific daptomycin product. This should
+    not be treated as a generic daptomycin label or as covering every daptomycin SPL. Human review is
+    required before any section extraction or synthesis.
+  - Only one DailyMed SPL was evaluated for daptomycin (Baxter Healthcare Corporation; Dapzura RT).
   - DailyMed returned total_results=52 for daptomycin; search-candidates.json contains a capped sample of 25.
   - Other daptomycin SPLs from other labelers/manufacturers may exist and were not evaluated.
-  - Product-specific branding (Dapzura RT) may differ from other daptomycin SPLs; selection rationale not clinically reviewed.
-  - This source must not be treated as a canonical or comprehensive daptomycin label source.
+  - This source must not be treated as a comprehensive whole-drug daptomycin label source.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
   - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
-    docs/dailymed-source-selection-policy-draft.md. Branded product SPL (Dapzura RT) vs generic-named
-    SPL tracking requires human review; not a clinical selection.
+    docs/dailymed-source-selection-policy-draft.md. Branded Dapzura RT vs generic-named injectable SPL
+    tracking requires human review; not a clinical selection.
 audit_notes: >
-  DailyMed metadata source mapped with explicit setid cb1283e1-35b8-425c-b338-d9ac0c7161f8 (Baxter
-  Healthcare Corporation SPL only). Normalization policy: docs/dailymed-source-normalization.md.
-  Source-selection review: docs/dailymed-source-selection-review.md. Draft selection policy:
+  DAPTOMYCIN SOURCE-SELECTION FLAG: Selected DailyMed SPL is for Dapzura RT (Baxter Healthcare
+  Corporation), a branded/product-specific product — not a generic daptomycin label, non-canonical, not
+  representative of the drug generally. Only one SPL evaluated. Human review required before section
+  extraction or synthesis. Explicit setid cb1283e1-35b8-425c-b338-d9ac0c7161f8. Normalization policy:
+  docs/dailymed-source-normalization.md. Source-selection review:
+  docs/dailymed-source-selection-review.md. Draft selection policy:
   docs/dailymed-source-selection-policy-draft.md.
   Candidate metadata sample: data/raw/dailymed/daptomycin/search-candidates.json. Selected SPL
   metadata: data/raw/dailymed/daptomycin/fetch-metadata.json (metadata fields only; no label body text).
