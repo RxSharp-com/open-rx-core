@@ -51,6 +51,8 @@ Supported `drug_id` values: `cefazolin`, `cefepime`, `ceftriaxone`, `daptomycin`
 
 See [dailymed-opat-metadata-expansion.md](dailymed-opat-metadata-expansion.md) for OPAT drug coverage beyond cefazolin.
 
+Source-selection review and draft policy: [dailymed-source-selection-review.md](dailymed-source-selection-review.md), [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md).
+
 ## Cefazolin pilot reference SPL
 
 The merged pilot preserved one explicit SPL:

@@ -104,9 +104,16 @@ known_gaps:
   - This source must not be treated as a canonical or comprehensive vancomycin label source.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
+  - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
+    docs/dailymed-source-selection-policy-draft.md. Candidate list suggests multiple routes
+    (capsule, injection, powder); selected SPL title metadata suggests injection only — requires
+    human review to affirm temporary working injectable SPL or re-select by human decision (not
+    automatic). Not a clinical selection; not canonical.
 audit_notes: >
   DailyMed metadata source mapped with explicit setid 99e523d8-9bde-43cb-8434-497015e5dcbd (Baxter
   Healthcare Corporation injection SPL only). Normalization policy: docs/dailymed-source-normalization.md.
+  Source-selection review: docs/dailymed-source-selection-review.md. Draft selection policy:
+  docs/dailymed-source-selection-policy-draft.md.
   Candidate metadata sample: data/raw/dailymed/vancomycin/search-candidates.json. Selected SPL metadata:
   data/raw/dailymed/vancomycin/fetch-metadata.json (metadata fields only; no label body text).
   evidence_status set to sources_imported. All packets are needs_review and unapproved.

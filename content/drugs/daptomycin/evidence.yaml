@@ -103,9 +103,14 @@ known_gaps:
   - This source must not be treated as a canonical or comprehensive daptomycin label source.
   - Clinical synthesis, section extraction, and monograph drafting have not been completed.
   - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
+  - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
+    docs/dailymed-source-selection-policy-draft.md. Branded product SPL (Dapzura RT) vs generic-named
+    SPL tracking requires human review; not a clinical selection.
 audit_notes: >
   DailyMed metadata source mapped with explicit setid cb1283e1-35b8-425c-b338-d9ac0c7161f8 (Baxter
   Healthcare Corporation SPL only). Normalization policy: docs/dailymed-source-normalization.md.
+  Source-selection review: docs/dailymed-source-selection-review.md. Draft selection policy:
+  docs/dailymed-source-selection-policy-draft.md.
   Candidate metadata sample: data/raw/dailymed/daptomycin/search-candidates.json. Selected SPL
   metadata: data/raw/dailymed/daptomycin/fetch-metadata.json (metadata fields only; no label body text).
   evidence_status set to sources_imported. All packets are needs_review and unapproved.
