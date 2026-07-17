@@ -27,13 +27,13 @@ sources:
     source_authority_level: regulatory_label
     source_status: active
     notes: >
-      Hospira, Inc. only; setid-specific. Generic-named injectable daptomycin SPL (title metadata:
-      DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION). Selected per recorded human
-      source-selection checkpoint from data/raw/dailymed/daptomycin/search-candidates.json
-      (result_position 2; first generic-named injectable in stored sample). Non-canonical, not
-      representative of the drug generally, not a clinical selection. Human review still required
-      before section extraction or synthesis. Only one DailyMed SPL imported for this drug_id. No SPL
-      XML/HTML or label section text stored.
+      Hospira, Inc. only; setid-specific; one labeler/product-specific SPL. Generic-named injectable SPL
+      from the stored candidate sample (title metadata: DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR
+      SOLUTION) — not the generic daptomycin label. Temporary working metadata source only; selected by
+      human checkpoint from data/raw/dailymed/daptomycin/search-candidates.json (result_position 2; first
+      generic-named injectable in stored sample). Non-canonical; not covering every daptomycin SPL; not a
+      clinical selection. Other daptomycin SPLs remain unevaluated. Section extraction or synthesis
+      requires human approval. Only one DailyMed SPL imported for this drug_id. No SPL XML/HTML stored.
 citations:
   - citation_id: daptomycin-cite-0001
     source_id: daptomycin-src-dailymed-0001
@@ -99,21 +99,24 @@ evidence_packets:
     created_date: "2026-07-14"
     last_updated: "2026-07-17"
 known_gaps:
-  - "Human source-selection checkpoint (recorded): Replace branded Dapzura RT SPL with a generic-named
-    injectable daptomycin SPL from the stored candidate sample. Applied setid
-    1957b6ce-7382-4a7b-bf02-3595948d09c6 (Hospira, Inc.; result_position 2 in
-    search-candidates.json). Temporary working SPL only — non-canonical, not a clinical selection."
-  - Prior temporary working SPL was Dapzura RT (Baxter; setid cb1283e1-35b8-425c-b338-d9ac0c7161f8);
-    superseded by human checkpoint for generic-named injectable metadata source only.
-  - Only one DailyMed SPL is imported for daptomycin (Hospira, Inc.; generic-named injectable title).
-  - DailyMed returned total_results=52; stored candidate sample is capped at 25.
-  - Other daptomycin SPLs were not imported. Section extraction and synthesis not performed.
-  - reuse_status remains unknown_requires_review pending legal review.
+  - "Human source-selection checkpoint (recorded): Prior temporary working SPL was Dapzura RT / Baxter
+    (setid cb1283e1-35b8-425c-b338-d9ac0c7161f8). Replaced per checkpoint with generic-named injectable
+    SPL from stored candidate metadata: Hospira, Inc. setid
+    1957b6ce-7382-4a7b-bf02-3595948d09c6 (result_position 2). Not a clinical selection."
+  - Hospira selected SPL is temporary working metadata source only; non-canonical; one
+    labeler/product-specific SPL; not covering every daptomycin SPL. Other daptomycin SPLs remain
+    unevaluated. Section extraction requires human approval; synthesis not performed.
+  - Selected DailyMed SPL is a generic-named injectable SPL from the stored candidate sample — not the
+    generic daptomycin label and not covering every daptomycin product or SPL.
+  - DailyMed total_results=52; stored candidate sample capped at 25. reuse_status
+    unknown_requires_review. evidence_status sources_imported.
 audit_notes: >
-  Human checkpoint applied 2026-07-17: selected generic-named injectable daptomycin SPL Hospira, Inc.
-  setid 1957b6ce-7382-4a7b-bf02-3595948d09c6 from stored search-candidates.json (first generic-named
-  injectable in sample, result_position 2). Metadata aligned from candidate list; no new label body
-  fetch. Non-canonical temporary working SPL; not a clinical selection. Prior Dapzura RT selection
-  superseded. Candidate sample: data/raw/dailymed/daptomycin/search-candidates.json. fetch-metadata.json
-  updated from candidate metadata only. All packets needs_review and unapproved. patient.md and
-  clinician.md not modified.
+  Audit trail — human checkpoint 2026-07-17. Prior working SPL: Dapzura RT (Baxter) setid
+  cb1283e1-35b8-425c-b338-d9ac0c7161f8. New working SPL: Hospira, Inc. generic-named injectable from
+  stored search-candidates.json setid 1957b6ce-7382-4a7b-bf02-3595948d09c6 (result_position 2). Selected
+  from committed candidate metadata only; no new label body/XML/HTML fetch. Temporary working metadata
+  source; non-canonical; not covering every daptomycin SPL; not a clinical selection. Other SPLs
+  unevaluated. Section extraction unauthorized. Changelog: content/drugs/daptomycin/changelog.md.
+  fetch-metadata.json aligned from candidate list. package.json fetch:dailymed:daptomycin setid updated
+  to match evidence (metadata-only script). All packets needs_review. patient.md and clinician.md not
+  modified.

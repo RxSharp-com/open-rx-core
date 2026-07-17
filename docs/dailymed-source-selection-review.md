@@ -26,6 +26,23 @@ Decisions below are **source-selection metadata only** — not clinical recommen
 | Vancomycin | Keep **Baxter injection solution** as temporary working injectable source | `99e523d8-9bde-43cb-8434-497015e5dcbd` (unchanged) |
 | Vancomycin | Model by **route/formulation group** (oral capsule vs injectable minimum; powder vs injection TBD) | Policy direction; not yet implemented in schema |
 
+### Daptomycin — prior temporary working SPL (audit history)
+
+Before the human source-selection checkpoint, OpenRxCore imported this **metadata-only** temporary working SPL:
+
+| Field | Prior value |
+|-------|----------------|
+| Product / title | DAPZURA RT (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION |
+| Labeler | Baxter Healthcare Corporation |
+| setid | `cb1283e1-35b8-425c-b338-d9ac0c7161f8` |
+| Sample position | `result_position` 1 |
+
+**Why replaced:** Human checkpoint preferred a **generic-named injectable SPL** from the **stored candidate sample** if one existed (title metadata review only — not a clinical selection).
+
+**Replacement:** Hospira, Inc. generic-named injectable SPL (`1957b6ce-7382-4a7b-bf02-3595948d09c6`, `result_position` 2). Still **one labeler/product-specific SPL**; **non-canonical**; **not** covering every daptomycin SPL; other SPLs remain unevaluated. Section extraction/synthesis still requires human approval.
+
+**Tooling:** `package.json` script `fetch:dailymed:daptomycin` was updated to the new explicit setid so npm fetch helpers match `evidence.yaml` (metadata-only fetch; no behavior change beyond setid).
+
 ## Cross-cutting source-selection problems
 
 | Problem | What the metadata shows | Risk |
@@ -35,7 +52,7 @@ Decisions below are **source-selection metadata only** — not clinical recommen
 | API sort order | `result_position` 1 varies by drug (e.g. vancomycin capsules at positions 1–2) | First search result is never canonical; easy to mis-import without explicit `setid` |
 | Multiple labelers | 12–15 distinct labelers in each 16–25 candidate sample | Labeler/product-specific labeling may differ; reconciliation undefined |
 | WG Critical Care at position 1 | Cefazolin, cefepime, and ceftriaxone selected SPLs share the same labeler and `result_position` 1 in sample | Convenience alignment across drugs is **not** a clinical or policy endorsement |
-| Product-branded SPL titles | Daptomycin selected SPL title includes “DAPZURA RT” | Product-specific SPL vs generic-named SPL tracking is unresolved |
+| Product-branded SPL titles | Daptomycin **prior** working SPL was Dapzura RT (position 1); checkpoint moved to generic-named injectable in sample | Branded vs generic-named SPL policy recorded via checkpoint |
 | Route/formulation mixing (vancomycin) | Capsules, powders, injections, and solutions appear in the vancomycin sample | Generic `drug_name=vancomycin` search conflates routes; tracking may need split by formulation/route |
 | Explicit setid vs position 1 | Some drugs selected SPL at `result_position` 1; vancomycin selected at position 4 | Selection method must stay explicit `setid`; position must not imply preference |
 
@@ -132,7 +149,7 @@ Decisions below are **source-selection metadata only** — not clinical recommen
 
 ### Daptomycin
 
-> **Human checkpoint (recorded):** Generic-named injectable **Hospira, Inc.** SPL (`1957b6ce-7382-4a7b-bf02-3595948d09c6`, result_position 2) replaces Dapzura RT as temporary working metadata source. **Non-canonical**; not a clinical selection. Prior review context: Dapzura RT at position 1 was branded/product-specific.
+> **Human checkpoint (recorded):** Prior temporary working SPL was **Dapzura RT / Baxter** (`cb1283e1-35b8-425c-b338-d9ac0c7161f8`). Replaced with **generic-named injectable SPL from stored candidate sample**: Hospira, Inc. (`1957b6ce-7382-4a7b-bf02-3595948d09c6`, result_position 2). Still **one labeler/product-specific SPL**; **non-canonical**; not covering every daptomycin SPL; section extraction not authorized.
 
 | Field | Value |
 |-------|--------|
