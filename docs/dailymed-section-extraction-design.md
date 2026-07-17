@@ -70,13 +70,36 @@ Section extraction design must **not** assume a single SPL per generic drug.
 
 ---
 
+## Seven content layers (explicit)
+
+OpenRxCore treats these as **separate layers**. **No layer automatically authorizes the next.**
+
+| # | Layer | What it is | What it is not |
+|---|--------|------------|----------------|
+| 1 | **Source metadata** | Identifies a selected labeler/product/SPL (`evidence.yaml` `dailymed_label`, setid, labeler) | The whole generic drug label; not clinical synthesis |
+| 2 | **Section pointer metadata** | Describes **where** a label section exists (locator, codes, URLs); `contains_text: false` | Section body text; not evidence of clinical claims |
+| 3 | **Extracted section text** | Future optional artifact, if ever permitted; separate storage and reuse review | Pointer fields; not committed in this branch |
+| 4 | **Evidence packet** | Structured evidence object in `evidence.yaml`; requires human review | Auto-created from pointers or extracts |
+| 5 | **Generated summary** | Future human/legal-reviewed synthesis derived from sources | Permitted automatically by section pointers |
+| 6 | **Clinician-facing content** | `clinician.md` (future); separate approved publication workflow | Implied by packets or pointers |
+| 7 | **Patient-facing content** | `patient.md` (future); separate approved publication workflow | Implied by packets or pointers |
+
+- **Source metadata** identifies a selected labeler/product/SPL source.
+- **Section pointer metadata** describes where a label section exists.
+- **Extracted section text**, if ever allowed, is separate from pointer metadata.
+- **Evidence packets** are structured evidence objects and require human review.
+- **Generated summaries** are not automatically permitted by section pointers.
+- **Clinician-facing** and **patient-facing** content each require a separate approved workflow.
+
+---
+
 ## Section pointer model (summary)
 
 A **section pointer** is metadata that answers: “For this `source_id` / `setid`, where is section X in DailyMed (or SPL structure), without storing X’s text?”
 
 Full field definitions: [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md).
 
-Distinctions:
+Distinctions (see [seven content layers](#seven-content-layers-explicit) above for full detail):
 
 | Artifact | Role |
 |----------|------|
@@ -85,7 +108,8 @@ Distinctions:
 | Extracted section text | Future optional blob/file; not in this branch |
 | Evidence packet | Human-reviewed claim with citations; not created from pointers alone |
 | Generated summary | Future; separate legal/clinical review |
-| Clinician/patient content | `clinician.md` / `patient.md`; gated workflow |
+| Clinician-facing content | `clinician.md`; gated workflow |
+| Patient-facing content | `patient.md`; gated workflow |
 
 ---
 
@@ -125,6 +149,12 @@ Proposed conservative concepts (documentation only until schema branch):
 
 **Vancomycin:** pointers must be filterable by `route_group` so oral capsule SPLs are not mixed with injectable working sources without explicit human grouping.
 
+**Vancomycin open questions (continuing from source selection — not new gaps):** See [dailymed-source-selection-review.md](dailymed-source-selection-review.md) and [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md). Still unresolved for extraction design:
+
+- Whether **multiple temporary working sources per route** are allowed
+- How **oral capsule vs injectable** vancomycin sources should be modeled
+- Whether **powder for solution** and **injection solution** should be **separate formulation groups**
+
 **Daptomycin:** design notes should record that working source is Hospira generic-named injectable from stored sample; additional SPLs (including prior Dapzura RT) may gain pointers later without replacing normalization rules.
 
 **Cefazolin, cefepime, ceftriaxone, daptomycin, vancomycin:** multiple labelers exist in candidate metadata; extraction design must allow multiple `source_id` records and pointer sets per drug.
@@ -147,6 +177,8 @@ See [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md) for t
 
 **Implemented in this branch (fixtures only):** `scripts/lib/section-pointer-rules.js` + `npm run validate:dailymed-section-pointer-failure-demo` on fictional fixtures. **Main `npm run validate` does not load real drug pointer files yet.**
 
+**String-length checks (provisional heuristic only):** The current max string length check (default 320 characters, aligned with evidence packet guards) is a **heuristic guard against accidental large pasted text blocks**. It is **not** sufficient protection against copied, quoted, or closely paraphrased label text. It is **not** a complete copyright, reuse, or paraphrase-safety mechanism. **Human review** remains required to detect copied, closely paraphrased, or meaningfully reproduced label language in permitted fields.
+
 ---
 
 ## Open questions
@@ -155,9 +187,8 @@ See [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md) for t
 - Whether pointers live in repo vs generated CI artifacts
 - Citation `locator` format for pointers vs setid+section_code
 - Controlled vocabularies for `route_group` / `formulation_group`
-- Maximum string length per pointer field to detect text smuggling
-- How vancomycin oral SPLs are tracked alongside injectable working source
-- Whether multiple temporary working sources per route are allowed
+- Additional non-length validation for paraphrase detection (human review primary)
+- Vancomycin modeling questions carried forward from source-selection docs (see [Multi-SPL and route/formulation support](#multi-spl-and-routeformulation-support))
 
 ---
 
@@ -175,4 +206,4 @@ See [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md) for t
 
 ## Fictional fixtures
 
-Example and failure fixtures under `fixtures/dailymed-section-pointers/` use **fictional `exampledrug` IDs only**. They are not used by main validation.
+Example and failure fixtures under `fixtures/dailymed-section-pointers/` use **fictional `exampledrug` IDs only** — not cefazolin, cefepime, ceftriaxone, daptomycin, vancomycin, or other real OPAT drugs. They use obviously fake setids, labelers, and product titles (e.g. `Example Labeler, Inc.`, `EXAMPLEDRUG MOCK PRODUCT`). They are **not** used by main validation and must not be mistaken for real DailyMed data.

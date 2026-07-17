@@ -61,7 +61,33 @@ File-level metadata (proposed):
 
 ---
 
-## Layer distinctions
+## Seven content layers (explicit)
+
+**No layer automatically authorizes the next.**
+
+1. **Source metadata** — Identifies a selected labeler/product/SPL source (`evidence.yaml` `dailymed_label`).
+2. **Section pointer metadata** — Describes **where** a label section exists; `contains_text: false`; no section body.
+3. **Extracted section text** — If ever allowed, stored separately from pointers; not in this branch.
+4. **Evidence packet** — Structured evidence object; **requires human review**; not auto-created from pointers.
+5. **Generated summary** — **Not** automatically permitted by section pointers; separate human/legal review.
+6. **Clinician-facing content** — `clinician.md`; **separate approved workflow** required.
+7. **Patient-facing content** — `patient.md`; **separate approved workflow** required.
+
+```
+(1) source metadata
+  └── (2) section pointer metadata
+        └── (3) extracted section text [future, separate artifact]
+              └── (4) evidence packet [human review]
+                    └── (5) generated summary [separate review]
+                          └── (6) clinician-facing content [approved workflow]
+                          └── (7) patient-facing content [approved workflow]
+```
+
+---
+
+## Layer distinctions (summary)
+
+Legacy diagram — see numbered layers above for authoritative definitions.
 
 ```
 source metadata (evidence.yaml)
@@ -78,11 +104,17 @@ source metadata (evidence.yaml)
 
 ### Vancomycin
 
-- **Temporary working injectable source:** Baxter injection solution SPL (checkpoint recorded).
+- **Temporary working injectable source:** Baxter injection solution SPL (checkpoint recorded in source-selection docs).
 - **Future pointers** must support:
   - `route_group: oral` vs `route_group: injectable`
   - `formulation_group: capsule` vs `injection_solution` vs `powder_for_solution`
 - Oral capsule SPLs in candidate metadata must not be implied by injectable pointers without explicit grouping.
+
+**Continuing open questions (from source selection, not new to this design):** [dailymed-source-selection-review.md](dailymed-source-selection-review.md) · [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md)
+
+- Whether **multiple temporary working sources per route** are allowed
+- How **oral capsule vs injectable** sources should be modeled for vancomycin
+- Whether **powder for solution** and **injection solution** should be **separate formulation groups**
 
 ### Daptomycin
 
@@ -114,7 +146,8 @@ Proposed patterns (not implemented):
 ### Pointer file content
 
 - Forbidden fields (any nesting): `body_text`, `label_text`, `full_text`, `label_xml`, `label_html`, `html`, `xml`, `dosing_text`, `warnings_text`, `adverse_reactions_text`, `counseling_text`
-- **No field name** may be used to smuggle text; validate **all string values** over a max length (proposal: 320 chars, align with evidence packet guard)
+- **No field name** may be used to smuggle text; a **provisional** max string length per value (default 320 chars, aligned with evidence packet guard) may flag accidentally large pasted blocks
+- **String-length checks are a heuristic guard only.** They are **not** sufficient protection against copied, quoted, or closely paraphrased label text. They are **not** a complete copyright, reuse, or paraphrase-safety mechanism. **Human review** remains required to detect copied, closely paraphrased, or meaningfully reproduced label language in permitted fields.
 - `contains_text` must be `false` for pointer-only files
 - `canonical_status` must not be `canonical` unless an approved policy flag exists in project config (none today)
 
@@ -133,14 +166,14 @@ Proposed patterns (not implemented):
 - No section-derived packet `approved` without human review workflow
 - No section-derived content in `patient.md` / `clinician.md` until approved workflow exists
 
-### Implemented now (fixtures only)
+### Implemented now (fixtures only — not production schema)
 
-`scripts/lib/section-pointer-rules.js`:
+`scripts/lib/section-pointer-rules.js` is a **proposed/future-rule validator for fictional fixtures and demos only**. It is **not** wired into `scripts/validate.js` and must not be treated as the full production schema implementation.
 
 - Forbidden field names
 - `contains_text === false`
 - `canonical_status !== 'canonical'`
-- Max string length per value (default 320)
+- Provisional max string length per value (default 320) — **heuristic only**; see wording above
 
 Run: `npm run validate:dailymed-section-pointer-failure-demo`
 
@@ -151,4 +184,4 @@ Run: `npm run validate:dailymed-section-pointer-failure-demo`
 - `fixtures/dailymed-section-pointers/example-section-pointers.yaml` — valid fictional pointers
 - `fixtures/dailymed-section-pointers/failure-section-pointer-with-body-text.yaml` — expects validation failure
 
-**No real OPAT drug pointers** in this branch.
+Fixtures use **exampledrug** only (no real OPAT drug names), fake setids (e.g. `example-setid-0000`), **Example Labeler, Inc.**, and mock product/section titles. **No real OPAT drug pointers** in this branch.

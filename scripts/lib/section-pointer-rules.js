@@ -1,6 +1,8 @@
 /**
  * Proposed validation for DailyMed section pointer files (design phase).
- * Used by fictional fixtures and failure demos only — not main validate.js yet.
+ *
+ * FIXTURE/DEMO SCOPE ONLY — invoked by validate-dailymed-section-pointer-failure-demo.js.
+ * Not imported by scripts/validate.js. Not the production section-pointer schema.
  */
 
 export const SECTION_POINTER_FORBIDDEN_FIELDS = [
@@ -17,7 +19,8 @@ export const SECTION_POINTER_FORBIDDEN_FIELDS = [
   'counseling_text',
 ];
 
-const DEFAULT_MAX_STRING_LENGTH = 320;
+/** Provisional heuristic cap — not paraphrase/copyright safety. */
+const DEFAULT_PROVISIONAL_MAX_STRING_LENGTH = 320;
 
 function collectForbiddenFields(value, path, forbiddenFields, matches) {
   if (Array.isArray(value)) {
@@ -40,7 +43,8 @@ function collectForbiddenFields(value, path, forbiddenFields, matches) {
   }
 }
 
-function collectLongStrings(value, path, maxLen, matches) {
+/** Heuristic only: catches accidental large pastes; does not detect paraphrased label text. */
+function collectStringsExceedingProvisionalMaxLength(value, path, maxLen, matches) {
   if (typeof value === 'string') {
     if (value.length > maxLen) {
       matches.push(`${path} (${value.length} chars)`);
@@ -50,7 +54,7 @@ function collectLongStrings(value, path, maxLen, matches) {
 
   if (Array.isArray(value)) {
     value.forEach((item, index) => {
-      collectLongStrings(item, `${path}[${index}]`, maxLen, matches);
+      collectStringsExceedingProvisionalMaxLength(item, `${path}[${index}]`, maxLen, matches);
     });
     return;
   }
@@ -61,7 +65,7 @@ function collectLongStrings(value, path, maxLen, matches) {
 
   for (const [key, child] of Object.entries(value)) {
     const childPath = path ? `${path}.${key}` : key;
-    collectLongStrings(child, childPath, maxLen, matches);
+    collectStringsExceedingProvisionalMaxLength(child, childPath, maxLen, matches);
   }
 }
 
@@ -72,7 +76,7 @@ function collectLongStrings(value, path, maxLen, matches) {
  * @param {{ maxStringLength?: number }} [options]
  */
 export function validateSectionPointerFile(pointerFile, fileLabel, fail, options = {}) {
-  const maxStringLength = options.maxStringLength ?? DEFAULT_MAX_STRING_LENGTH;
+  const maxStringLength = options.maxStringLength ?? DEFAULT_PROVISIONAL_MAX_STRING_LENGTH;
 
   const forbiddenMatches = [];
   collectForbiddenFields(
@@ -89,11 +93,11 @@ export function validateSectionPointerFile(pointerFile, fileLabel, fail, options
   }
 
   const longStrings = [];
-  collectLongStrings(pointerFile, '', maxStringLength, longStrings);
+  collectStringsExceedingProvisionalMaxLength(pointerFile, '', maxStringLength, longStrings);
 
   if (longStrings.length > 0) {
     fail(
-      `${fileLabel}: string value(s) exceed ${maxStringLength} characters (possible text smuggling): ${longStrings.join(', ')}.`,
+      `${fileLabel}: string value(s) exceed provisional max length ${maxStringLength} (heuristic guard against accidental large pastes only; not paraphrase/copyright safety): ${longStrings.join(', ')}.`,
     );
   }
 

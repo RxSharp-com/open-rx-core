@@ -1,17 +1,19 @@
 # FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
-# Failure fixture: forbidden body field in pointer record
+# Failure fixture: forbidden body field (exampledrug only)
 
 schema_version: "0.0-proposed"
 drug_id: exampledrug
+fixture_safety: Fictional exampledrug only. Not real DailyMed data.
 pointers:
   - pointer_id: exampledrug-ptr-dailymed-0002
     drug_id: exampledrug
     source_id: exampledrug-src-dailymed-0001
-    setid: example-setid-fictional-0001
+    setid: example-setid-0000
+    labeler: Example Labeler, Inc.
     extraction_status: not_extracted
     reuse_status: unknown_requires_review
     contains_text: false
     text_storage_policy: no_text_in_pointer_file
     review_required: true
     canonical_status: non_canonical
-    body_text: This forbidden field must not appear in section pointer files.
+    body_text: Fictional forbidden field for validation demo only — not real label text.
