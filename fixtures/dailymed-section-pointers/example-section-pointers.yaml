@@ -1,0 +1,27 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# Valid example section pointer file (design fixture only)
+
+schema_version: "0.0-proposed"
+drug_id: exampledrug
+note: Fictional exampledrug only. No real OPAT drug section pointers.
+pointers:
+  - pointer_id: exampledrug-ptr-dailymed-0001
+    drug_id: exampledrug
+    source_id: exampledrug-src-dailymed-0001
+    setid: example-setid-fictional-0001
+    spl_version: "1"
+    labeler: EXAMPLE PHARMA, INC.
+    product_title: EXAMPLE DRUG INJECTION [EXAMPLE PHARMA, INC.]
+    section_title: FICTIONAL_SECTION_PLACEHOLDER
+    section_type: unknown
+    section_url: https://example.invalid/dailymed/fictional-setid
+    extraction_status: not_extracted
+    reuse_status: unknown_requires_review
+    contains_text: false
+    text_storage_policy: no_text_in_pointer_file
+    review_required: true
+    route_group: injectable
+    formulation_group: injection_solution
+    source_scope: temporary_working_source
+    canonical_status: non_canonical
+    section_pointer_status: proposed

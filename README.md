@@ -188,7 +188,7 @@ node scripts/validate-failure-demo.js
 npm run validate:evidence-failure-demo
 ```
 
-DailyMed pilot and normalization: [docs/dailymed-pilot.md](docs/dailymed-pilot.md), [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md), [docs/dailymed-opat-metadata-expansion.md](docs/dailymed-opat-metadata-expansion.md), [docs/dailymed-source-selection-review.md](docs/dailymed-source-selection-review.md), [docs/dailymed-source-selection-policy-draft.md](docs/dailymed-source-selection-policy-draft.md).
+DailyMed pilot and normalization: [docs/dailymed-pilot.md](docs/dailymed-pilot.md), [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md), [docs/dailymed-opat-metadata-expansion.md](docs/dailymed-opat-metadata-expansion.md), [docs/dailymed-source-selection-review.md](docs/dailymed-source-selection-review.md), [docs/dailymed-source-selection-policy-draft.md](docs/dailymed-source-selection-policy-draft.md). Section extraction design (not implemented): [docs/dailymed-section-extraction-design.md](docs/dailymed-section-extraction-design.md).
 
 ## Contributing
 

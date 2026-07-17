@@ -117,4 +117,6 @@ These questions must be answered (clinical, editorial, and legal stakeholders) b
 
 ## Suggested next branch
 
-After human review of this draft: **`feature/dailymed-section-extraction-design`** — technical design for how section pointers or extracts would be stored, gated by policy sign-off (implementation still metadata-safe until approved).
+After human review of this draft: **`feature/dailymed-section-pointer-schema`** — formalize section pointer JSON Schema and optional validation wiring.
+
+Design (no extraction): [dailymed-section-extraction-design.md](dailymed-section-extraction-design.md) · [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md)
