@@ -70,9 +70,15 @@ These questions must be answered (clinical, editorial, and legal stakeholders) b
 
 ### Drug-specific (highest priority)
 
-- **Daptomycin:** Should the current **Dapzura RT** branded/product-specific SPL (Baxter Healthcare Corporation; setid `cb1283e1-35b8-425c-b338-d9ac0c7161f8`) remain the **temporary working source** for metadata and future extraction design, or should a **generic-named injectable** daptomycin SPL be selected instead (or tracked in addition)? **Unresolved — human review only.**
+**Recorded human checkpoint decisions** (metadata/source-selection only):
 
-- **Vancomycin:** Should the current **Baxter injection solution** SPL (setid `99e523d8-9bde-43cb-8434-497015e5dcbd`) remain the **temporary working injectable source** pending review? Should vancomycin be modeled with **separate route/formulation groups** because DailyMed candidate results in the current stored sample include **oral capsules**, **injection solutions**, and **powders for solution**? **Unresolved — human review only.**
+- **Daptomycin — recorded decision (was open question):** Use a **generic-named injectable SPL from the stored candidate sample** instead of the prior **Dapzura RT** branded/product-specific temporary working SPL (`cb1283e1-35b8-425c-b338-d9ac0c7161f8`, Baxter). **Applied:** Hospira, Inc. (`1957b6ce-7382-4a7b-bf02-3595948d09c6`, result_position 2). The Hospira SPL is still **labeler/product-specific**, **non-canonical**, and **not** covering every daptomycin SPL — not “the generic daptomycin label.” `evidence_status` remains `sources_imported`; `reuse_status` remains `unknown_requires_review`; section extraction **not authorized**.
+
+- **Vancomycin — applied:** Baxter injection solution SPL (`99e523d8-9bde-43cb-8434-497015e5dcbd`) **remains** the temporary working injectable source. **Not canonical**; not a clinical recommendation.
+
+- **Vancomycin — open / future modeling:** Model vancomycin by **route/formulation group** because stored candidates include oral capsules, injection solutions, and powders. Minimum split: **oral capsule vs injectable**; powder vs injection solution grouping needs additional human review. **Not yet implemented** in schema or evidence model.
+
+**Remaining unresolved (not answered by checkpoint):**
 
 ### Scope and cardinality
 

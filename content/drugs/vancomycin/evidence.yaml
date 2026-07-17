@@ -27,11 +27,12 @@ sources:
     source_authority_level: regulatory_label
     source_status: active
     notes: >
-      One manufacturer/labeler SPL only: Baxter Healthcare Corporation (setid-specific; injection
-      solution). This is not the vancomycin label generally — DailyMed lists separate SPLs per
-      labeler/formulation for generic vancomycin. Only one DailyMed SPL was evaluated for this drug_id.
-      Imported via explicit setid selection (not first search result) per
-      docs/dailymed-source-normalization.md. No SPL XML/HTML or label section text stored.
+      Baxter Healthcare Corporation only; setid-specific; injection solution title metadata. Recorded
+      human source-selection checkpoint: this SPL remains the temporary working injectable source
+      pending further design — non-canonical, not a clinical recommendation. Vancomycin should be
+      modeled by route/formulation group going forward (at minimum oral capsule vs injectable; powders
+      vs injection solutions need additional review). Only one DailyMed SPL imported for this drug_id.
+      Explicit setid selection (not first API result). No SPL XML/HTML stored.
 citations:
   - citation_id: vancomycin-cite-0001
     source_id: vancomycin-src-dailymed-0001
@@ -72,7 +73,7 @@ evidence_packets:
       - Only one labeler SPL selected via explicit setid; other vancomycin SPLs not evaluated.
     created_by: dailymed-opat-metadata-expansion
     created_date: "2026-07-14"
-    last_updated: "2026-07-14"
+    last_updated: "2026-07-17"
   - packet_id: vancomycin-packet-0002
     packet_type: label_fact
     packet_status: needs_review
@@ -95,38 +96,24 @@ evidence_packets:
       - No label section extraction performed for this labeler SPL.
     created_by: dailymed-opat-metadata-expansion
     created_date: "2026-07-14"
-    last_updated: "2026-07-14"
+    last_updated: "2026-07-17"
 known_gaps:
-  - Only one DailyMed SPL was evaluated for vancomycin (Baxter Healthcare Corporation injection solution).
-  - "HUMAN REVIEW REQUIRED (vancomycin source selection): Current stored candidate sample mixes oral
-    capsule, injection, and powder-for-solution titles. API result_position 1–2 are capsule products.
-    Selected Baxter injection solution SPL was chosen by explicit setid (not first API result). Title
-    metadata on the selected SPL suggests injection only — not a clinical selection, non-canonical.
-    Human review is required to decide whether this SPL should remain the temporary working injectable
-    SPL pending review."
-  - In the current stored candidate sample (data/raw/dailymed/vancomycin/search-candidates.json), the
-    selected SPL (setid 99e523d8-9bde-43cb-8434-497015e5dcbd) is the first entry whose title includes
-    INJECTION (result_position 4); positions 1–2 are capsule titles, position 3 is powder for solution.
-    This documents import metadata only — not a clinical recommendation.
-  - DailyMed returned total_results=88 for vancomycin; search-candidates.json contains a capped sample of 25.
-  - Other vancomycin SPLs (oral, other injectable labelers, unsampled SPLs) may exist and were not evaluated.
-  - This source must not be treated as a comprehensive whole-drug vancomycin label source.
-  - Clinical synthesis, section extraction, and monograph drafting have not been completed.
-  - Reuse/license status for label-derived content remains unknown_requires_review pending human and legal review.
-  - Source-selection review documented in docs/dailymed-source-selection-review.md; draft policy in
-    docs/dailymed-source-selection-policy-draft.md. Separate route/formulation groups may be required;
-    human review required before section extraction. Not a clinical selection.
+  - "Human source-selection checkpoint (recorded): Baxter Healthcare Corporation injection solution
+    SPL (setid 99e523d8-9bde-43cb-8434-497015e5dcbd) remains the temporary working injectable source.
+    Non-canonical; not a clinical recommendation. Section extraction not authorized."
+  - "Human source-selection checkpoint (recorded): Model vancomycin by route/formulation group going
+    forward. Minimum groups: oral capsule products vs injectable products. Powders for solution vs
+    injection solutions may need additional human review before final grouping."
+  - Only one DailyMed SPL is imported for vancomycin (Baxter injectable; temporary working injectable
+    source per checkpoint).
+  - Current stored candidate sample mixes capsule, injection, and powder titles; API positions 1–2
+    are capsules. Selected SPL is first INJECTION-titled entry in stored sample (result_position 4).
+    Title metadata only — not a clinical recommendation.
+  - DailyMed total_results=88; candidate sample capped at 25.
+  - Clinical synthesis and section extraction not performed. reuse_status unknown_requires_review.
 audit_notes: >
-  VANCOMYCIN SOURCE-SELECTION FLAG: Current stored candidate sample mixes capsule, injection, and powder
-  titles; first API results are oral capsules. Selected Baxter Healthcare Corporation injection solution
-  SPL (explicit setid 99e523d8-9bde-43cb-8434-497015e5dcbd) — title metadata suggests injection only,
-  not first API result, non-canonical, not a clinical recommendation. In the stored sample, selected SPL
-  is first INJECTION-titled entry (result_position 4). Only one SPL evaluated. Human review required to
-  confirm temporary working injectable SPL or re-select by human decision only. Normalization policy:
-  docs/dailymed-source-normalization.md. Source-selection review:
-  docs/dailymed-source-selection-review.md. Draft selection policy:
-  docs/dailymed-source-selection-policy-draft.md.
-  Candidate metadata sample: data/raw/dailymed/vancomycin/search-candidates.json. Selected SPL metadata:
-  data/raw/dailymed/vancomycin/fetch-metadata.json (metadata fields only; no label body text).
-  evidence_status set to sources_imported. All packets are needs_review and unapproved.
-  patient.md and clinician.md were not modified.
+  Human checkpoint 2026-07-17: Baxter injection solution SPL 99e523d8-9bde-43cb-8434-497015e5dcbd
+  confirmed as temporary working injectable source (non-canonical, not clinical). Route/formulation
+  grouping required going forward (oral capsule vs injectable minimum; powder vs injection solution
+  TBD). Source-selection review: docs/dailymed-source-selection-review.md. Policy draft:
+  docs/dailymed-source-selection-policy-draft.md. patient.md and clinician.md not modified.
