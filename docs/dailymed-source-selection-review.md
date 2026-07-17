@@ -10,9 +10,21 @@ See also: [dailymed-source-selection-policy-draft.md](dailymed-source-selection-
 
 Title-metadata and source-selection issues only — **not clinical conclusions**.
 
-1. **Daptomycin:** The selected DailyMed SPL is **Dapzura RT** (Baxter Healthcare Corporation) — a **branded/product-specific** SPL. It must **not** be treated as a generic daptomycin label, a canonical reference, or representative of all daptomycin products. **Human review is required** before any section extraction or synthesis.
+**Update (human checkpoint decisions recorded):** See [Human checkpoint decisions (recorded)](#human-checkpoint-decisions-recorded). Items below describe the pre-checkpoint review context.
 
-2. **Vancomycin:** The **current stored candidate sample** mixes **oral capsule**, **injection**, and **powder for solution** titles; API `result_position` 1–2 are capsule products. The selected Baxter **injection solution** SPL was chosen by **explicit `setid`** (not the first API result). Title metadata on the selected SPL suggests injection only — **not a clinical selection**. **Human review is required** to decide whether this SPL should remain the **temporary working injectable SPL** pending review, and whether vancomycin needs **separate route/formulation groups**.
+1. **Daptomycin (resolved by checkpoint):** Branded Dapzura RT was superseded by a **generic-named injectable** SPL from the stored candidate sample (Hospira, Inc.; setid `1957b6ce-7382-4a7b-bf02-3595948d09c6`). Still **non-canonical**; extraction requires further human/legal review.
+
+2. **Vancomycin (checkpoint recorded):** Baxter **injection solution** SPL remains the **temporary working injectable** source. **Route/formulation grouping** is required going forward (oral capsule vs injectable minimum).
+
+## Human checkpoint decisions (recorded)
+
+Decisions below are **source-selection metadata only** — not clinical recommendations, not canonical label designations.
+
+| Drug | Decision | setid (unchanged unless noted) |
+|------|----------|--------------------------------|
+| Daptomycin | Use **generic-named injectable** SPL from stored candidates instead of Dapzura RT | **Changed to** `1957b6ce-7382-4a7b-bf02-3595948d09c6` (Hospira, Inc.; result_position 2) |
+| Vancomycin | Keep **Baxter injection solution** as temporary working injectable source | `99e523d8-9bde-43cb-8434-497015e5dcbd` (unchanged) |
+| Vancomycin | Model by **route/formulation group** (oral capsule vs injectable minimum; powder vs injection TBD) | Policy direction; not yet implemented in schema |
 
 ## Cross-cutting source-selection problems
 
@@ -120,40 +132,39 @@ Title-metadata and source-selection issues only — **not clinical conclusions**
 
 ### Daptomycin
 
-> **Human review flag:** Selected SPL is **Dapzura RT** (Baxter Healthcare Corporation) — **branded/product-specific**, **not** a generic daptomycin label, **not canonical**, **not representative** of all daptomycin SPLs. **Requires human review** before section extraction.
+> **Human checkpoint (recorded):** Generic-named injectable **Hospira, Inc.** SPL (`1957b6ce-7382-4a7b-bf02-3595948d09c6`, result_position 2) replaces Dapzura RT as temporary working metadata source. **Non-canonical**; not a clinical selection. Prior review context: Dapzura RT at position 1 was branded/product-specific.
 
 | Field | Value |
 |-------|--------|
 | DailyMed `total_results` | 52 |
 | Candidates stored | 25 (capped) |
-| Selected `setid` | `cb1283e1-35b8-425c-b338-d9ac0c7161f8` |
-| Selected title | DAPZURA RT (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [BAXTER HEALTHCARE CORPORATION] |
-| Selected labeler | BAXTER HEALTHCARE CORPORATION |
-| Formulation/route (title only) | Title metadata suggests injectable lyophilized powder for solution; product name “DAPZURA RT” in title |
+| Selected `setid` | `1957b6ce-7382-4a7b-bf02-3595948d09c6` |
+| Selected title | DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HOSPIRA, INC.] |
+| Selected labeler | HOSPIRA, INC. |
+| Formulation/route (title only) | Title metadata suggests injectable lyophilized powder for solution |
 | Multiple labelers in sample? | Yes — candidate list suggests ~14 labelers |
 | Multiple formulations/routes in sample? | Sample is injection-heavy; branded vs generic product titles both appear |
 | OPAT-oriented title hint (selected SPL; title metadata only) | Title metadata suggests injectable product; **not a clinical selection** |
-| Selected SPL clearly labeler/product-specific? | Yes — branded product line in title, Baxter labeler |
+| Selected SPL clearly labeler/product-specific? | Yes — Hospira labeler; generic-named product title (not Dapzura RT) |
 
 **Known source-selection risks**
 
-- **Highest priority:** Selected SPL is **Dapzura RT** (Baxter Healthcare Corporation) — a **branded/product-specific** SPL, **not** a generic daptomycin label and **not representative** of all daptomycin products or SPLs.
-- Other candidates in the sample use generic “DAPTOMYCIN” titling; tracking policy between branded vs generic-named SPLs is unresolved.
-- `result_position` 1 in the current stored candidate sample; explicit `setid` does not resolve branded vs generic policy.
-- 27+ SPLs not in capped sample.
+- One imported SPL among 52 total; capped sample only.
+- Human checkpoint chose first **generic-named injectable** in stored sample (position 2); position 1 was Dapzura RT (branded).
+- 27+ SPLs not in capped sample; other generic-named injectables may exist outside sample.
 
 **Unresolved before section extraction**
 
-- Whether OPAT tracking should use a generic-named injectable SPL, a branded SPL, or multiple SPLs.
-- Human decision on branded product SPL as working source for extraction design.
+- Legal/reuse review; whether to import additional labeler SPLs.
+- Section extraction design branch: `feature/dailymed-section-extraction-design`.
 
-**Formulation/route check (selected SPL):** No oral/topical title-metadata mismatch; injectable lyophilized. **Product-line branding** is a source-selection ambiguity, not a route mismatch. **Requires human review** — not automatic re-selection.
+**Formulation/route check (selected SPL):** Title metadata suggests injectable lyophilized product. **Not** a clinical selection.
 
 ---
 
 ### Vancomycin
 
-> **Human review flag:** The **current stored candidate sample** mixes oral **capsule** and **injectable** titles. The selected Baxter **injection solution** SPL is **not** the first API result (capsules at positions 1–2). **Human review is required** before section extraction to confirm or change the **temporary working injectable SPL** and whether route/formulation groups are needed.
+> **Human checkpoint (recorded):** Baxter **injection solution** SPL remains **temporary working injectable** source. **Route/formulation grouping** required (oral capsule vs injectable minimum). **Not canonical**; not a clinical recommendation.
 
 | Field | Value |
 |-------|--------|
@@ -173,16 +184,17 @@ Title-metadata and source-selection issues only — **not clinical conclusions**
 - Largest SPL count (`total_results` 88) with only 25 candidates stored.
 - API sort places **capsule** products at `result_position` 1–2 — strong signal that generic drug search is route-agnostic.
 - Selected SPL was chosen by **explicit `setid`** at `result_position` 4 in the current stored candidate sample — the **first entry whose title includes INJECTION** in that sample (positions 1–2 capsule, position 3 powder for solution without INJECTION in title). This is **not** the first API result and **not** a clinical recommendation.
-- Human review is required to decide whether this Baxter injection solution SPL should remain the **temporary working injectable SPL** pending review, among other injection-titled entries in the sample.
+- Human checkpoint **confirmed** Baxter injection solution as temporary working injectable SPL (`99e523d8-…`).
+- **Policy direction:** model vancomycin by route/formulation group (oral capsule vs injectable minimum; powder vs injection solution TBD).
 - Powders “for solution” vs “injection” titles may imply different product types; title metadata alone does not resolve clinical route.
 
 **Unresolved before section extraction**
 
-- Whether vancomycin tracking must split **oral vs injectable** (and possibly IV vs other parenteral) SPL groups.
-- Human review: should Baxter injection `99e523d8-…` remain the **temporary working SPL** for extraction **design** only, among other injection-titled entries in the current stored candidate sample?
-- Re-selection question if policy favors a different injectable labeler or formulation subgroup — **human decision only** (this review does not change `setid`).
+- Implement route/formulation groups in evidence/schema design (checkpoint direction recorded).
+- Powder vs injection solution subgrouping needs additional human review.
+- Legal/reuse review before any label section import.
 
-**Formulation/route check (selected SPL):** The **currently selected** SPL title metadata suggests **injection** route — **not** flagged as an oral/topical mismatch for OPAT based on title alone. **Caution:** the **candidate list** still shows capsule-heavy API ordering; route/formulation policy for the drug overall **requires human review** before section extraction. This is **not** a directive to re-select silently; flagged for human review in [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md).
+**Formulation/route check (selected SPL):** Selected SPL title metadata suggests **injection** route. Candidate list mixes routes; grouping policy recorded. **Not** a clinical recommendation.
 
 ---
 
@@ -193,8 +205,8 @@ Title-metadata and source-selection issues only — **not clinical conclusions**
 | cefazolin | 41 | 25 | WG Critical Care, LLC | Injection powder/solution | Yes | Mostly injection in sample | Suggests injectable | None flagged |
 | cefepime | 16 | 16 | WG Critical Care, LLC | Injection powder/solution | Yes | Injection-oriented sample | Suggests injectable | None flagged |
 | ceftriaxone | 51 | 25 | WG Critical Care, LLC | Injection powder/solution | Yes | Injection-oriented sample | Suggests injectable | None flagged |
-| daptomycin | 52 | 25 | Baxter (Dapzura RT) | Injection lyophilized | Yes | Branded + generic titles | Suggests injectable | None flagged; branding ambiguity |
-| vancomycin | 88 | 25 | Baxter Healthcare Corp. | Injection solution | Yes | **Capsules + injections + powders** | Selected suggests injectable | **None for selected SPL**; list route mix |
+| daptomycin | 52 | 25 | Hospira, Inc. (checkpoint) | Injection lyophilized | Yes | Branded + generic titles | Suggests injectable | None flagged (generic-named injectable selected) |
+| vancomycin | 88 | 25 | Baxter Healthcare Corp. | Injection solution | Yes | **Capsules + injections + powders** | Selected suggests injectable | **None for selected SPL**; route grouping policy recorded |
 
 ## Recommended next step
 

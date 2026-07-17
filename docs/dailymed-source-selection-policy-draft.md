@@ -70,9 +70,15 @@ These questions must be answered (clinical, editorial, and legal stakeholders) b
 
 ### Drug-specific (highest priority)
 
-- **Daptomycin:** Should the current **Dapzura RT** branded/product-specific SPL (Baxter Healthcare Corporation; setid `cb1283e1-35b8-425c-b338-d9ac0c7161f8`) remain the **temporary working source** for metadata and future extraction design, or should a **generic-named injectable** daptomycin SPL be selected instead (or tracked in addition)? **Unresolved — human review only.**
+**Recorded human checkpoint decisions** (metadata/source-selection only):
 
-- **Vancomycin:** Should the current **Baxter injection solution** SPL (setid `99e523d8-9bde-43cb-8434-497015e5dcbd`) remain the **temporary working injectable source** pending review? Should vancomycin be modeled with **separate route/formulation groups** because DailyMed candidate results in the current stored sample include **oral capsules**, **injection solutions**, and **powders for solution**? **Unresolved — human review only.**
+- **Daptomycin — applied:** Generic-named injectable SPL **Hospira, Inc.** (`1957b6ce-7382-4a7b-bf02-3595948d09c6`, result_position 2 in stored sample) replaces Dapzura RT as temporary working metadata source. Still non-canonical; section extraction not authorized without further review.
+
+- **Vancomycin — applied:** Baxter injection solution SPL (`99e523d8-9bde-43cb-8434-497015e5dcbd`) **remains** the temporary working injectable source. **Not canonical**; not a clinical recommendation.
+
+- **Vancomycin — policy direction:** Model vancomycin by **route/formulation group** going forward because stored candidates include oral capsules, injection solutions, and powders. Minimum split: **oral capsule vs injectable**; powder vs injection solution grouping needs additional human review.
+
+**Remaining unresolved (not answered by checkpoint):**
 
 ### Scope and cardinality
 

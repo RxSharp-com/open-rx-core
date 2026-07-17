@@ -3,22 +3,24 @@
   "source_family": "dailymed",
   "drug_id": "daptomycin",
   "selection_method": "explicit_setid",
-  "selected_setid": "cb1283e1-35b8-425c-b338-d9ac0c7161f8",
-  "fetched_at": "2026-07-14T21:58:08.103Z",
-  "accessed_date": "2026-07-14",
+  "selection_basis": "human_checkpoint_from_stored_candidates",
+  "selected_setid": "1957b6ce-7382-4a7b-bf02-3595948d09c6",
+  "fetched_at": "2026-07-17T00:00:00.000Z",
+  "accessed_date": "2026-07-17",
   "selection_warning": "SPL/setid-specific metadata only. Not a canonical whole-drug label for generic drugs.",
-  "api_verify_url": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?setid=cb1283e1-35b8-425c-b338-d9ac0c7161f8",
+  "api_verify_url": null,
   "selected_spl": {
-    "setid": "cb1283e1-35b8-425c-b338-d9ac0c7161f8",
-    "title": "DAPZURA RT (DAPTOMYCIN) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [BAXTER HEALTHCARE CORPORATION]",
-    "spl_version": 7,
-    "published_date": "May 21, 2026",
-    "published_date_iso": "2026-05-21",
-    "labeler": "BAXTER HEALTHCARE CORPORATION",
-    "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cb1283e1-35b8-425c-b338-d9ac0c7161f8"
+    "setid": "1957b6ce-7382-4a7b-bf02-3595948d09c6",
+    "title": "DAPTOMYCIN INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [HOSPIRA, INC.]",
+    "spl_version": 6,
+    "published_date": "May 12, 2026",
+    "published_date_iso": "2026-05-12",
+    "labeler": "HOSPIRA, INC.",
+    "dailymed_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1957b6ce-7382-4a7b-bf02-3595948d09c6",
+    "result_position": 2
   },
   "notes": [
-    "Metadata only. No SPL XML/HTML or label section text stored.",
-    "Imported via explicit setid selection (preferred pattern)."
+    "Metadata only. Fields copied from search-candidates.json for human checkpoint selection; no SPL XML/HTML stored.",
+    "Human checkpoint: generic-named injectable SPL; not a clinical selection."
   ]
 }
