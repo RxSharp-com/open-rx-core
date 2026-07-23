@@ -1,10 +1,10 @@
-# FICTIONAL FAILURE FIXTURE — forbidden body field (exampledrug only)
+# FICTIONAL FAILURE FIXTURE — provisional max string length heuristic
 
 schema_version: "1.0"
 drug_id: exampledrug
 source_scope: fictional_example
 pointers:
-  - pointer_id: exampledrug-dailymed-section-0002
+  - pointer_id: exampledrug-dailymed-section-0005
     drug_id: exampledrug
     source_id: exampledrug-src-dailymed-0001
     setid: example-setid-0000
@@ -18,7 +18,7 @@ pointers:
     contains_text: false
     text_storage_policy: pointer_metadata_only
     review_required: true
+    reviewer_notes: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     source_scope: fictional_example
     canonical_status: non_canonical
     section_pointer_status: draft
-    body_text: Fictional forbidden field for validation demo only — not real label text.

@@ -186,9 +186,11 @@ Demonstrate deliberate safety gate failures:
 ```bash
 node scripts/validate-failure-demo.js
 npm run validate:evidence-failure-demo
+npm run validate:dailymed-failure-demo
+npm run validate:dailymed-section-pointer-failure-demo
 ```
 
-DailyMed pilot and normalization: [docs/dailymed-pilot.md](docs/dailymed-pilot.md), [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md), [docs/dailymed-opat-metadata-expansion.md](docs/dailymed-opat-metadata-expansion.md), [docs/dailymed-source-selection-review.md](docs/dailymed-source-selection-review.md), [docs/dailymed-source-selection-policy-draft.md](docs/dailymed-source-selection-policy-draft.md). Section extraction design (not implemented): [docs/dailymed-section-extraction-design.md](docs/dailymed-section-extraction-design.md).
+DailyMed pilot and normalization: [docs/dailymed-pilot.md](docs/dailymed-pilot.md), [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md), [docs/dailymed-opat-metadata-expansion.md](docs/dailymed-opat-metadata-expansion.md), [docs/dailymed-source-selection-review.md](docs/dailymed-source-selection-review.md), [docs/dailymed-source-selection-policy-draft.md](docs/dailymed-source-selection-policy-draft.md). Section pointers: formal schema in [schema/dailymed-section-pointer.schema.json](schema/dailymed-section-pointer.schema.json) (no real drug pointer files yet); design in [docs/dailymed-section-extraction-design.md](docs/dailymed-section-extraction-design.md) and [docs/dailymed-section-pointer-model.md](docs/dailymed-section-pointer-model.md).
 
 ## Contributing
 
