@@ -74,7 +74,7 @@ Package scripts are available for each drug (see `package.json`).
 
 ## Unresolved questions before scaling further
 
-Recommended next branch after human review of selection policy: **`feature/dailymed-section-extraction-design`**
+Recommended next branch: **`feature/dailymed-section-pointer-schema`** (formalize pointer schema). Design docs: [dailymed-section-extraction-design.md](dailymed-section-extraction-design.md).
 
 Structured review and draft policy:
 

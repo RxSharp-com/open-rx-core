@@ -18,7 +18,8 @@
     "fetch:dailymed:daptomycin": "node scripts/fetch-dailymed-single-drug.js fetch --drug daptomycin --setid 1957b6ce-7382-4a7b-bf02-3595948d09c6",
     "fetch:dailymed:vancomycin:list": "node scripts/fetch-dailymed-single-drug.js list --drug vancomycin",
     "fetch:dailymed:vancomycin": "node scripts/fetch-dailymed-single-drug.js fetch --drug vancomycin --setid 99e523d8-9bde-43cb-8434-497015e5dcbd",
-    "validate:dailymed-failure-demo": "node scripts/validate-dailymed-failure-demo.js"
+    "validate:dailymed-failure-demo": "node scripts/validate-dailymed-failure-demo.js",
+    "validate:dailymed-section-pointer-failure-demo": "node scripts/validate-dailymed-section-pointer-failure-demo.js"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

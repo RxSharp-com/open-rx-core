@@ -53,6 +53,8 @@ See [dailymed-opat-metadata-expansion.md](dailymed-opat-metadata-expansion.md) f
 
 Source-selection review, draft policy, and recorded human checkpoint decisions: [dailymed-source-selection-review.md](dailymed-source-selection-review.md), [dailymed-source-selection-policy-draft.md](dailymed-source-selection-policy-draft.md).
 
+Section extraction (design only, not implemented): [dailymed-section-extraction-design.md](dailymed-section-extraction-design.md), [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md).
+
 ## Cefazolin pilot reference SPL
 
 The merged pilot preserved one explicit SPL:

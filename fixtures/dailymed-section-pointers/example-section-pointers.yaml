@@ -1,0 +1,29 @@
+# FICTIONAL EXAMPLE — NOT REAL CLINICAL DATA
+# NOT REAL DAILYMED DATA — design fixture only (exampledrug)
+
+schema_version: "0.0-proposed"
+drug_id: exampledrug
+fixture_safety: Fictional exampledrug only. No OPAT drugs. No real setids or labelers.
+pointers:
+  - pointer_id: exampledrug-ptr-dailymed-0001
+    drug_id: exampledrug
+    source_id: exampledrug-src-dailymed-0001
+    setid: example-setid-0000
+    spl_version: "0"
+    labeler: Example Labeler, Inc.
+    product_title: EXAMPLEDRUG MOCK PRODUCT [EXAMPLE LABELER]
+    section_title: Example Section Title
+    section_code: EXAMPLE-CODE
+    section_code_system: urn:example:mock
+    section_type: unknown
+    section_url: https://example.invalid/mock-section-pointer
+    extraction_status: not_extracted
+    reuse_status: unknown_requires_review
+    contains_text: false
+    text_storage_policy: no_text_in_pointer_file
+    review_required: true
+    route_group: example_route_mock
+    formulation_group: example_formulation_mock
+    source_scope: temporary_working_source
+    canonical_status: non_canonical
+    section_pointer_status: proposed

@@ -46,7 +46,7 @@ Validate against `schema/monograph.schema.json` and `schema/evidence.schema.json
 
 ## Adding evidence sources
 
-Evidence files use **schema version 1.0**. See [docs/evidence-model.md](docs/evidence-model.md), [docs/citation-policy.md](docs/citation-policy.md), DailyMed scoping rules in [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md), OPAT metadata expansion in [docs/dailymed-opat-metadata-expansion.md](docs/dailymed-opat-metadata-expansion.md), and source-selection review in [docs/dailymed-source-selection-review.md](docs/dailymed-source-selection-review.md) / [docs/dailymed-source-selection-policy-draft.md](docs/dailymed-source-selection-policy-draft.md).
+Evidence files use **schema version 1.0**. See [docs/evidence-model.md](docs/evidence-model.md), [docs/citation-policy.md](docs/citation-policy.md), DailyMed scoping rules in [docs/dailymed-source-normalization.md](docs/dailymed-source-normalization.md), OPAT metadata expansion in [docs/dailymed-opat-metadata-expansion.md](docs/dailymed-opat-metadata-expansion.md), source-selection review in [docs/dailymed-source-selection-review.md](docs/dailymed-source-selection-review.md) / [docs/dailymed-source-selection-policy-draft.md](docs/dailymed-source-selection-policy-draft.md), and section extraction design (not implemented) in [docs/dailymed-section-extraction-design.md](docs/dailymed-section-extraction-design.md).
 
 Structure:
 
