@@ -1,10 +1,10 @@
-# FICTIONAL FAILURE FIXTURE — forbidden body field (exampledrug only)
+# FICTIONAL FAILURE FIXTURE — real OPAT drug_id rejected in fixture validation (no real SPL metadata)
 
 schema_version: "1.0"
-drug_id: exampledrug
+drug_id: cefazolin
 source_scope: fictional_example
 pointers:
-  - pointer_id: exampledrug-dailymed-section-0002
+  - pointer_id: exampledrug-dailymed-section-0006
     drug_id: exampledrug
     source_id: exampledrug-src-dailymed-0001
     setid: example-setid-0000
@@ -21,4 +21,3 @@ pointers:
     source_scope: fictional_example
     canonical_status: non_canonical
     section_pointer_status: draft
-    body_text: Fictional forbidden field for validation demo only — not real label text.

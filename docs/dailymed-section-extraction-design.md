@@ -118,7 +118,7 @@ Distinctions (see [seven content layers](#seven-content-layers-explicit) above f
 | Location | Use | This branch |
 |----------|-----|-------------|
 | `data/raw/dailymed/{drug_id}/` | API/metadata fetch only (candidates, fetch-metadata) | Unchanged |
-| `data/derived/dailymed/{drug_id}/section-pointers.yaml` | **Recommended** reviewed pointer index per drug | **Not created for real drugs** |
+| `data/derived/dailymed/{drug_id}/section-pointers.yaml` | **Recommended** reviewed pointer index per drug (YAML, schema v1.0) | **Not created for real drugs** |
 | `content/drugs/{drug_id}/sections.yaml` | Alternative: colocate with drug folder | Defer choice until schema branch |
 | `content/drugs/{drug_id}/sources/dailymed-sections.yaml` | Alternative: nest under sources | Same |
 
@@ -126,7 +126,7 @@ Distinctions (see [seven content layers](#seven-content-layers-explicit) above f
 
 - Keeps **raw** (`data/raw/`) separate from **derived/reviewed** metadata
 - Avoids implying pointers are “content” like monograph sections
-- `evidence.yaml` would later reference `pointer_id` values via citations (e.g. `locator: pointer:…`) or a dedicated `section_pointer_ids` list on sources — **schema TBD** in `feature/dailymed-section-pointer-schema`
+- `evidence.yaml` would later reference `pointer_id` values via citations (e.g. `locator: pointer:…`) or a dedicated `section_pointer_ids` list on sources — see [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md) and [schema/dailymed-section-pointer.schema.json](../schema/dailymed-section-pointer.schema.json)
 
 Extracted text (if ever stored) should live outside pointers (e.g. `data/derived/dailymed/{drug_id}/extracts/` with strict size caps and review flags) — **out of scope for implementation now**.
 
@@ -175,7 +175,7 @@ Proposed conservative concepts (documentation only until schema branch):
 
 See [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md) for the full list.
 
-**Implemented in this branch (fixtures only):** `scripts/lib/section-pointer-rules.js` + `npm run validate:dailymed-section-pointer-failure-demo` on fictional fixtures. **Main `npm run validate` does not load real drug pointer files yet.**
+**Implemented in this branch (fixtures only):** [schema/dailymed-section-pointer.schema.json](../schema/dailymed-section-pointer.schema.json), `scripts/lib/section-pointer-rules.js`, and `npm run validate:dailymed-section-pointer-failure-demo` on fictional fixtures under `fixtures/dailymed-section-pointers/`. **Main `npm run validate` does not load real drug pointer files.** Schema existence does **not** authorize extraction, copied text, evidence packets, summaries, or monograph content.
 
 **String-length checks (provisional heuristic only):** The current max string length check (default 320 characters, aligned with evidence packet guards) is a **heuristic guard against accidental large pasted text blocks**. It is **not** sufficient protection against copied, quoted, or closely paraphrased label text. It is **not** a complete copyright, reuse, or paraphrase-safety mechanism. **Human review** remains required to detect copied, closely paraphrased, or meaningfully reproduced label language in permitted fields.
 
@@ -183,27 +183,30 @@ See [dailymed-section-pointer-model.md](dailymed-section-pointer-model.md) for t
 
 ## Open questions
 
-- JSON vs YAML for pointer files; versioning and `schema_version`
 - Whether pointers live in repo vs generated CI artifacts
-- Citation `locator` format for pointers vs setid+section_code
-- Controlled vocabularies for `route_group` / `formulation_group`
+- Citation `locator` format for pointers vs setid+section_code (designed in pointer model; not wired to `evidence.yaml`)
+- Controlled vocabulary expansion for `route_group` / `formulation_group` after policy review
 - Additional non-length validation for paraphrase detection (human review primary)
+- **`pointer_id` uniqueness** within `pointers[]` per file (next branch)
 - Vancomycin modeling questions carried forward from source-selection docs (see [Multi-SPL and route/formulation support](#multi-spl-and-routeformulation-support))
+
+**Resolved in schema branch:** YAML format; `schema_version` `1.0`; formal schema at `schema/dailymed-section-pointer.schema.json`.
 
 ---
 
 ## Recommended implementation sequence
 
-1. **`feature/dailymed-section-pointer-schema`** — JSON Schema for pointer files; wire into `validate.js` when real files exist
-2. **Locator verification tooling** — metadata-only DailyMed/SPL structure checks (no body storage)
-3. **Pilot pointers** — one fictional or single-SPL lab drug in fixture mode first; then human-reviewed real drug if policy approves
-4. **Extraction prototype** — behind feature flag; outputs to derived extracts with forbidden-field validation
-5. **Evidence packet linkage** — citations from pointers to draft packets only
+1. **`feature/dailymed-section-pointer-schema`** — JSON Schema v1.0 for pointer files; fixture validation (**done** — no real drug files)
+2. **`feature/dailymed-section-pointer-real-data-readiness-check`** — readiness rules before `data/derived/dailymed/...` files
+3. **Locator verification tooling** — metadata-only DailyMed/SPL structure checks (no body storage)
+4. **Pilot pointers** — human-reviewed real drug pointers only after policy approves
+5. **Extraction prototype** — behind feature flag; outputs to derived extracts with forbidden-field validation
+6. **Evidence packet linkage** — citations from pointers to draft packets only
 
-**Do not implement steps 2–5 in this branch.**
+**Do not implement steps 3–6 in the schema branch.**
 
 ---
 
 ## Fictional fixtures
 
-Example and failure fixtures under `fixtures/dailymed-section-pointers/` use **fictional `exampledrug` IDs only** — not cefazolin, cefepime, ceftriaxone, daptomycin, vancomycin, or other real OPAT drugs. They use obviously fake setids, labelers, and product titles (e.g. `Example Labeler, Inc.`, `EXAMPLEDRUG MOCK PRODUCT`). They are **not** used by main validation and must not be mistaken for real DailyMed data.
+Example and failure fixtures under `fixtures/dailymed-section-pointers/` validate against [schema/dailymed-section-pointer.schema.json](../schema/dailymed-section-pointer.schema.json). Valid example uses **fictional `exampledrug`** only. Failure fixtures cover forbidden text fields, `contains_text: true`, `canonical_status: canonical`, long-string heuristic, and OPAT `drug_id` rejection (`failure-section-pointer-real-drug-name.yaml`). They are **not** used by main validation and must not be mistaken for real DailyMed data. **No real section pointer files** exist under `data/derived/dailymed/` for OPAT drugs.

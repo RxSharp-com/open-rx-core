@@ -35,6 +35,7 @@ For the conceptual evidence model and citation rules, see [docs/evidence-model.m
 ## Other schemas
 
 - `evidence.schema.json` — evidence file v1.0: sources, citations, evidence packets (see `docs/evidence-model.md`)
+- `dailymed-section-pointer.schema.json` — DailyMed section pointer file v1.0 (fixture validation only; see `docs/dailymed-section-pointer-model.md`)
 - `reviewer.schema.json` — reviewer metadata records
 - `changelog.schema.json` — changelog entry structure
 - `agent-output.schema.json` — shared agent output envelope
